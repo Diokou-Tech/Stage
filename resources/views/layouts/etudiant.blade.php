@@ -71,22 +71,23 @@
                         @else
 
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{route('etudiant-accueil')}} "><i class="fas fa-house-user"></i>Accueil</a>
+                                    <a class="nav-link @if(\Route::current()->getName() == 'etudiant-accueil') active  @endif" href="{{route('etudiant-accueil')}} "><i class="fas fa-house-user"></i>Accueil</a>
                                 </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{route('stage-create')}} "><i class="fas fa-house-user"></i> Depot</a>
+                                    <a class="nav-link @if(\Route::current()->getName() == 'stage-create') active  @endif" href="{{route('stage-create')}} "><i class="fas fa-house-user"></i> Depot</a>
                                 </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href=" {{route('stage-index')}} "><i class="fas fa-house-user"></i> Tableau de Bord</a>
+                                    <a class="nav-link @if(\Route::current()->getName() == 'stage-index') active  @endif" href=" {{route('stage-index')}} "><i class="fas fa-house-user"></i> Tableau de Bord</a>
                                 </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href=" {{route('stage-offre')}}"><i class="fas fa-house-user"></i> Offre d'emploi</a>
+                                    <a class="nav-link @if(\Route::current()->getName() == 'stage-offre') active  @endif" href=" {{route('stage-offre')}}"><i class="fas fa-house-user"></i> Offre d'emploi</a>
                                 </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href=" {{route('stage-contact')}}"><i class="fas fa-phone"></i> Contact</a>
+                                    <a class="nav-link @if(\Route::current()->getName() == 'stage-contact') active  @endif" href=" {{route('stage-contact')}}"><i class="fas fa-phone"></i> Contact</a>
                                 </li>
 
                                 <!-- FIN -->
+
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle rounded" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -120,6 +121,10 @@
         background: #007396;
         color: white;
         border-radius:10px;
+      }
+      .active:hover{
+          color: white;
+          background: #026886;
       }
     </style>
             </div>

@@ -1,33 +1,37 @@
 <?php
 use App\Models\Team;
+use App\Models\User;
 use App\Models\Player;
 use App\Models\R_Candidat;
+use App\Mail\MessageGoogle;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClientesController;
-use App\Http\Requests\StoreClienteRequest;
-use App\Http\Requests\UpdateClienteRequest;
-use App\Http\Controllers\R_BureauController;
-use App\Http\Controllers\R_CandidatController;
-use App\Http\Controllers\insertController;
-use App\Http\Controllers\DadosController;
-use App\Http\Controllers\RegionController;
-use App\Http\Controllers\CercleController;
-use App\Http\Controllers\SecteurController;
-use App\Http\Controllers\DistrictController;
-use App\Http\Controllers\BureauController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\DynamicDependent;
-use App\Http\Controllers\TypeElectionController;
-use App\Http\Controllers\ElectionController;
-use App\Http\Controllers\CandidatController;
-use App\Http\Controllers\CandidatElectionController;
-use App\Http\Controllers\ResultatCandidatController;
-use App\Http\Controllers\EnseignantController;
-use App\Http\Controllers\EtudiantController;
-use App\Http\Controllers\StageController;
-use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DadosController;
+use App\Http\Controllers\StageController;
+use App\Http\Controllers\BureauController;
+use App\Http\Controllers\CercleController;
+use App\Http\Controllers\ClasseController;
+use App\Http\Controllers\DynamicDependent;
+use App\Http\Controllers\insertController;
+use App\Http\Controllers\RegionController;
+use App\Http\Requests\StoreClienteRequest;
+use App\Http\Controllers\SecteurController;
+use App\Http\Requests\UpdateClienteRequest;
+use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\ElectionController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\R_BureauController;
+use App\Http\Controllers\EnseignantController;
+use App\Http\Controllers\R_CandidatController;
+use App\Http\Controllers\TypeElectionController;
+use App\Http\Controllers\CandidatElectionController;
+use App\Http\Controllers\ResultatCandidatController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -81,8 +85,24 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/pdf', [App\Http\Controllers\HomeController::class, 'geraPdf'])->name('regions-pdf');
 });
 
+//test email
+
+Route::get('mail', function () {
+
+    		#2. Récupération des utilisateurs
+		$users = User::all();
 
 
+		#3. Envoi du mail
+		Mail::to($users)->bcc("wilo.ahadi@gmail.com")
+						->queue(new MessageGoogle());
+		return back()->withText("Message envoyé");
+});
+
+//
+Route::get('/', function () {
+    return view("auth.login");
+});
 
 //Group de Rotas apenas usuario logado tem acesso
 Route::middleware(['auth'])->group(function(){

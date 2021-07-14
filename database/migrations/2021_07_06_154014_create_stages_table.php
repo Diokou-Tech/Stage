@@ -35,6 +35,9 @@ class CreateStagesTable extends Migration
               ##-- REFERENCES DES CLES ETRANGERES --##
             $table->foreign('etudiant_id')->references('id')->on('etudiants');
             $table->foreign('enseignant_id')->references('id')->on('enseignants');
+            $table->foreign('voeux_ens1')->references('id')->on('enseignants');
+            $table->foreign('voeux_ens2')->references('id')->on('enseignants');
+            $table->foreign('voeux_ens3')->references('id')->on('enseignants');
             $table->timestamps();
         });
     }

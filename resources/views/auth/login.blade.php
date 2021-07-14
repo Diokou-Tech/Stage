@@ -1,18 +1,39 @@
-
-<!DOCTYPE html>
-<html lang="fr">    
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Stage</title>
-    <!-- Styles css -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" href="{{ asset('_gs_public/img/favicon.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('_gs_public/css/style.css') }}">
-    <link rel="stylesheet" href=" {{ asset('_gs_public/css/bootstrap.min.css') }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    
+    <!--SCRIPTS DE CHART-->
+    <script src="{{ asset('_gs_public/js/loader.js') }}" defer></script>
+    <script src="{{ asset('_gs_public/js/bootstrap.min.js') }}" defer></script>
+    
+    
+   <!-- <script src="{{ asset('js/jquery.min.js') }}" defer></script>-->
+   <!-- <script src="{{ asset('js/dropdown.js') }}"></script>-->
+
+    <!-- Fonts -->
     <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <!--<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>-->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <!--Ultimo link adicionada-->
+    <!--
+    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+-->
+    <!--LINK DE BOOTRAPS 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 <div class="container text-white">
@@ -46,7 +67,7 @@
                         </div>
 
                         <div class="form-group m-2 p-2 text-center">
-                             <button class="btn btn-info btn-lg " type="submit">Se connecter </button>
+                             <button class="btn btn-primary btn-lg " type="submit">Se connecter </button>
                         </div>
                           
         </form> 

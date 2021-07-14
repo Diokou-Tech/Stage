@@ -59,17 +59,27 @@
                             <h2>Choix des encadreurs</h2>
                             <ul class="list-group-flush">
                                 <li class="list-group-item">
-                                    choix N°1: <b>{{$stage->voeux_ens1 }}</b>
+                                    choix N°1: <b>{{$ens1->nom}} {{$ens1->prenom}} / {{$ens1->matricule}}</b>
                                  </li>
                                  <li class="list-group-item">
-                                     choix  N°2 : <b> {{ $stage->voeux_ens2 }} </b>
+                                     choix  N°2 : <b> {{$ens2->nom}} {{$ens2->prenom}} / {{$ens2->matricule}} </b>
                                  </li>
                                  <li class="list-group-item">
-                                     choix N°3: <b>{{ $stage->voeux_ens3 }}</b>
+                                     choix N°3: <b>{{$ens3->nom}} {{$ens3->prenom}} / {{$ens3->matricule}}</b>
                                  </li>
                             </ul>
-                        </div>
-                       
+                            @if ($encadreur != null)
+                            <h2>Encadreur affecté</h2>
+                            <ul class="list-group-flush bg-success">
+                                <li class="list-group-item">
+                                   Nom Prenom : <b>{{ $encadreur->nom }} {{ $encadreur->prenom }} </b>
+                                   matricule :  <b>{{ $encadreur->matricule }}</b>
+                                 </li>
+                            </ul>
+                            @else
+                                <span class="bg-warning p-3">Encadreur non Affecté </span>
+                            @endif
 
+                        </div>
 </div>
 @endsection

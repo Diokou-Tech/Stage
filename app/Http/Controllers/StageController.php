@@ -9,6 +9,7 @@ use Yoeunes\Notify\Notify;
 use Illuminate\Http\Request;
 use App\Http\Requests\StageRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class StageController extends Controller
@@ -80,7 +81,7 @@ class StageController extends Controller
                     'voeux_ens1' => $request->voeu1,
                     'voeux_ens2' => $request->voeu2,
                     'voeux_ens3' => $request->voeu3,
-                    'etudiant_id'  => 1,
+                    'etudiant_id'  => random_int(1,10),
                     'enseignant_id'  => null
                 ]);
                Notify()->success('Depot de stage reussi', 'Depôt');
@@ -94,8 +95,15 @@ class StageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Stage $stage,$id)
-    {
-        return view('stages.show', ['stage' => Stage::find($id)]);
+    {   
+        $stage = Stage::find($id);
+    //    $ens1 = DB::select('select matricule,nom,prenom from stages s,enseignants e where s.voeux_ens1 = e.id and e.id=?',[9]);
+        $ens3 =Enseignant::find($stage->voeux_ens3);
+        $ens2 =Enseignant::find($stage->voeux_ens2);
+        $ens1 =Enseignant::find($stage->voeux_ens1);
+        $encadreur = Enseignant::find($stage->enseignant_id);
+
+        return view('stages.show', ['stage' => Stage::find($id),'ens1'=> $ens1, 'ens2' =>$ens2, 'ens3' => $ens3, 'encadreur'=> $encadreur]);
     }
 
     /**
@@ -107,7 +115,8 @@ class StageController extends Controller
     public function edit(Stage $stage, $id)
     {
     //   dd(Stage::find($id));
-        return view('stages.edit', ['stage' => Stage::find($id)]);
+    $enseignants = Enseignant::all();
+        return view('stages.edit', ['stage' => Stage::find($id),'enseignants' => $enseignants]);
     }
 
     /**
@@ -130,7 +139,6 @@ class StageController extends Controller
         $stage->tuteur_entreprise_email= $request->tuteur_email;
         $stage->date_debut= $request->debut_stage;
         $stage->date_fin= $request->fin_stage;
-        $stage->cp= $request->code_postal;
         $stage->voeux_ens3= $request->voeu1;
         $stage->voeux_ens1= $request->voeu2;
         $stage->voeux_ens2= $request->voeu3;
@@ -140,7 +148,10 @@ class StageController extends Controller
            
             if($stage->fiche != null){
                 $fiche =public_path('Fiches_Stages/'.$stage->fiche);
-                unlink($fiche);
+                file_exists($fiche);
+                if(file_exists($fiche)){
+                    unlink($fiche);
+                }
             }
             // upload file
             $fiche = $request->file('fiche');

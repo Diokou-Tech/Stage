@@ -17,8 +17,8 @@
                 <li class="list-group-item">competence 2 : Lorem ipsum dolor sit amet consectetur.</li>
                 <li class="list-group-item">competence 3 : Lorem ipsum dolor sit.</li>
             </ul>
-            <h4><a href="{{ public_path('fichiers/fiche.doc') }}" class="nav-link mav-item">Telechargement Fiche de renseignement vierge </a></h4>
-            <h4><a href="#" class="nav-link mav-item">Telechargement Fiche de renseignement signée </a></h4>
+            <h4><a href="../../fichiers/fiche.doc" class="nav-link mav-item"><i class="fa fa-download"></i> Fiche de renseignement vierge </a></h4>
+            {{-- <h4><a href="#" class="nav-link mav-item">Telechargement Fiche de renseignement signée </a></h4> --}}
         </div>
         <div class="col-lg-4">
             <iframe width="555" height="555" src="https://www.youtube.com/embed/dbT-oFIIJLs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </div>

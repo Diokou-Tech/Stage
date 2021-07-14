@@ -135,7 +135,7 @@
 
             </div>
                 <div class="mt-4 d-flex col-6 mx-auto justify-content-between">
-                    <button type="reset" class="btn btn-danger" > <i class="fa fa-trash"></i> Annuler </button>
+                    <button type="reset" class="btn text-danger border" > <i class="fa fa-trash"></i> Annuler </button>
                     <button type="submit" class="btn btn-info text-white"> <i class="fa fa-save"></i> Sauvegarder </button>
                 </div>
             </form>

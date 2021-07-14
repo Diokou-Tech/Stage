@@ -92,7 +92,7 @@
                                     <a class="nav-link" href="{{route('etudiant-index')}} "><i class="fas fa-house-user"></i>Etudiants</a>
                                 </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{route('classe-index')}} "><i class="fas fa-house-user"></i> Classes</a>
+                                    <a class="nav-link" href="{{route('classe-index')}} "><i class="fas fa-house-user"></i> Parcours </a>
                                 </li>
                                  <li class="nav-item">
                                     <a class="nav-link" href=" {{route('stage-index')}} "><i class="fas fa-house-user"></i> Stages</a>
@@ -100,29 +100,6 @@
                                  <li class="nav-item">
                                     <a class="nav-link" href="{{ route('prof-index') }}"><i class="fas fa-house-user"></i> Enseignants</a>
                                 </li>
-                            
-                        
-                               
-                                <li class="nav-item">
-                                <a class="nav-link"  href="{{ route('page-depot') }}"> <i class="fas fa-file-upload"></i> Dêpot</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link " href="{{ route('page-telechargement') }}"><i class="fas fa-file-download"></i> Téléchargement</a>
-                                </li>
-                                <!--
-                                <li class="nav-item"> 
-                                <a class="nav-link" href=""><i class="fas fa-share-square"></i> Offre de Stage </a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href=""><i class="fas fa-tachometer-alt"></i> Tableau de Bord</a>
-                                </li>
-                               
-
-                                <li class="nav-item">
-                                <a class="nav-link " href="?action=contact"><i class="fas fa-address-book"></i> Contacts</a>
-                                </li>
-
-                                -->
                             
 
                                 

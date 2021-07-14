@@ -1,6 +1,6 @@
 @extends('layouts.etudiant')
 @section('content')
-<div class='container'>
+<div class='container-fluid'>
 
     <div class="row justifu-contetent-center ml-10">
         <div class="col-sm-0 col-md-6">
@@ -16,15 +16,15 @@
                             <tr>
                                 <th>id</th>
                                 <th>Entreprise</th>
-                                <!--<th>Secteur_Activité</th>-->
                                 <th>Lieu</th>
-                              <!--  <th>Theme_Stage</th>                      -->
-                                <th>Tuteur_stage</th>                          
-                                <th>Tel_Tuteur</th>                          
-                                <th>Email_Tuteur</th>                          
-                                <th>Debut_stage</th>                          
-                                <th>Fin__stage</th>                          
-                                <th>Fiche</th>                                                                            
+                                {{-- <th>Theme_Stage</th> --}}
+                                <th>Tuteur stage</th>                          
+                                <th>Portable Tuteur</th>                          
+                                <th>Email Tuteur</th>                          
+                                <th>Debut stage</th>                          
+                                <th>Fin stage</th>                          
+                                <th>Fiche</th>                       
+                                <th>Date de transmission</th>                                                             
                                 <th>Actions</th>                          
                             </tr>
                         </thead>
@@ -44,8 +44,8 @@
                                     <td>{{$stage->tuteur_entreprise_email}}</td>   
                                     <td>{{$stage->date_debut}}</td>   
                                     <td>{{$stage->date_fin}}</td>   
-                                    <td>{{$stage->fiche}}</td>    
-                                    
+                                    <td><a target="_blank" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">fiche de resnseignement</a></td>    
+                                    <td>{{$stage->created_at}}</td>  
                                      <td class='d-flex'>
                                         <a href="{{ route('stage-show', ['id'=>$stage->id])}}" class="btn btn-sm btn-info mr-2 text-white"><i class="fas fa-eye"></i></a>
                                         <a href="{{ route('stage-edit', ['id'=>$stage->id])}}" class="btn btn-sm btn-primary mr-2"><i class="fas fa-edit"></i></a>

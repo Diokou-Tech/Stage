@@ -127,7 +127,7 @@
                         @error('voeu2')
                         <small>{{ $message }}  </small> 
                         @enderror
-                    </div>
+                    </div>  
                     <div class="form-group">
                         <label for="voeu3" class="d-block">Choix 2</label>
                         <select name="voeu3" id="voeu3" class="form-control  @error('voeu3') is-invalid @enderror">
@@ -147,7 +147,7 @@
 
             </div>
                 <div class="mt-4 d-flex col-6 mx-auto justify-content-between">
-                    <button type="reset" class="btn btn-danger" > <i class="fa fa-trash"></i> Annuler </button>
+                    <button type="reset" class="btn text-danger border" > <i class="fa fa-trash"></i> Annuler </button>
                     <button type="submit" class="btn btn-info text-white"> <i class="fa fa-save"></i> Sauvegarder </button>
                 </div>
             </form>

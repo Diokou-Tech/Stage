@@ -83,16 +83,6 @@
                         <i class="fas fa-fw fa-map"></i>
                         <span>Localité</span>
                     </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Lieux de votes:</h6>
-                            <a class="collapse-item" href="{{ route('region-index') }}">Regions</a>
-                            <a class="collapse-item" href="{{ route('cercle-index') }}">Cercles</a>
-                            <a class="collapse-item" href="{{ route('secteur-index')}}">Secteurs</a>
-                            <a class="collapse-item" href="{{ route('district-index')}}">Districts</a>
-                            <a class="collapse-item" href="{{ route('bureau-index') }}">Bureaux</a>
-                        </div>
-                    </div>
                 </li>
 
                 <!-- Nav Item - Utilities Collapse Menu -->

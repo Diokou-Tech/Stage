@@ -56,21 +56,12 @@
                                 <small>{{ $message }}  </small> 
                                @enderror
                             </div> 
-                            <div class="d-flex justify-content-between">
-                            <div class="form-group mt-2 col-8">
+                            <div class="form-group mt-2">
                                 <label for="lieu_stage">Lieu Stage</label>
                                 <input type="text" name="lieu_stage" value="{{ $stage->lieu }}" id="lieu_stage" class="form-control @error('lieu_stage') is-invalid @enderror" required>
                                 @error('lieu_stage')
                                 <small>{{ $message }}  </small> 
                                @enderror
-                            </div>
-                            <div class="form-group mt-2 col-4">
-                                <label for="code_postal">Code Postal</label>
-                                <input type="number" name="code_postal" value="{{ $stage->cp }}" id="code_postal" class="form-control @error('code_postal') is-invalid @enderror" required>
-                                @error('code_postal')
-                                <small>{{ $message }}  </small> 
-                               @enderror
-                            </div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <div class="form-group mt-2">
@@ -124,9 +115,12 @@
                                 <div class="form-group">
                                     <label for="voeu1" class="d-block">Choix 1</label>
                                     <select name="voeu1" id="voeu1" class="form-control  @error('voeu1') is-invalid @enderror">
-                                        <option value="1" @if($stage->voeux_ens1 == 1) selected  @endif> Mr ALui DJALO Informatique</option>
+                                        @foreach($enseignants as $responsable)
+                                        <option value="{{$responsable->id}}" @if($responsable->id == $stage->voeux_ens1 ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
+                                        @endforeach
+                                        {{-- <option value="1" @if($stage->voeux_ens1 == 1) selected  @endif> Mr ALui DJALO Informatique</option>
                                         <option value="2" @if( $stage->voeux_ens1 == 2) selected  @endif> Mr Cheikhou DIOKOU Mathematiques </option>
-                                        <option value="3" @if($stage->voeux_ens1 == 3) selected  @endif> Mme DAbo Ndiaye Langes </option>
+                                        <option value="3" @if($stage->voeux_ens1 == 3) selected  @endif> Mme DAbo Ndiaye Langes </option> --}}
                                     </select>
                                     @error('voeu1')
                                     <small>{{ $message }}  </small> 
@@ -135,9 +129,12 @@
                                 <div class="form-group">
                                     <label for="voeu2" class="d-block">Choix 2</label>
                                     <select name="voeu2" id="voeu2" class="form-control  @error('voeu2') is-invalid @enderror">
-                                        <option value="1" @if($stage->voeux_ens2 == 1) selected  @endif> Mr ALui DJALO Informatique</option>
+                                        @foreach($enseignants as $responsable)
+                                        <option value="{{$responsable->id}}" @if($responsable->id == $stage->voeux_ens2 ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
+                                        @endforeach
+                                        {{-- <option value="1" @if($stage->voeux_ens2 == 1) selected  @endif> Mr ALui DJALO Informatique</option>
                                         <option value="2" @if( $stage->voeux_ens2 == 2) selected  @endif> Mr Cheikhou DIOKOU Mathematiques </option>
-                                        <option value="3"  @if($stage->voeux_ens2 == 3) selected  @endif> Mme DAbo Ndiaye Langes </option>
+                                        <option value="3"  @if($stage->voeux_ens2 == 3) selected  @endif> Mme DAbo Ndiaye Langes </option> --}}
                                     </select>
                                     @error('voeu2')
                                     <small>{{ $message }}  </small> 
@@ -146,9 +143,12 @@
                                 <div class="form-group">
                                     <label for="voeu3" class="d-block">Choix 2</label>
                                     <select name="voeu3" id="voeu3" class="form-control  @error('voeu3') is-invalid @enderror">
-                                        <option value="1" @if($stage->voeux_ens3 == 1) selected  @endif> Mr ALui DJALO Informatique</option>
+                                        @foreach($enseignants as $responsable)
+                                        <option value="{{$responsable->id}}" @if($responsable->id == $stage->voeux_ens3 ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
+                                        @endforeach
+                                        {{-- <option value="1" @if($stage->voeux_ens3 == 1) selected  @endif> Mr ALui DJALO Informatique</option>
                                         <option value="2"  @if( $stage->voeux_ens3 == 2) selected  @endif> Mr Cheikhou DIOKOU Mathematiques </option>
-                                        <option value="3" @if($stage->voeux_ens3 == 3) selected  @endif> Mme DAbo Ndiaye Langes </option>
+                                        <option value="3" @if($stage->voeux_ens3 == 3) selected  @endif> Mme DAbo Ndiaye Langes </option> --}}
                                     </select>
                                     @error('voeu3')
                                     <small>{{ $message }}  </small> 
@@ -157,9 +157,9 @@
                             </fieldset>
             
                         </div>
-                            <div class="mt-2">
-                                <button type="submit" class="btn btn-info"> Soumettrre </button>
-                                <button type="reset" class="btn btn-danger"> Annuler </button>
+                            <div class="mt-2 col-6 mx-auto d-flex justify-content-around">
+                                <button type="submit" class="btn btn-primary"> Modifier </button>
+                                <button type="reset" class="btn text-danger border"> Annuler </button>
                             </div>
                         </form>
                 </div>

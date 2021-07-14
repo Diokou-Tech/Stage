@@ -23,17 +23,10 @@ class ClasseFactory extends Factory
     {
         return [
             //
-            'matricule' => $this->faker->randomDigitNotNull(),
-            'prenom' => $this->faker->lastName,
-            'nom' => $this->faker->name,
-            'sexe' => $this->faker->randomLetter(),
-            'code_postal' => $this->faker->postcode,
-            
-            'id',
-            'nom',
-            'niveau',
-            'annee',
-            'enseignant_id',
+            'nom' => $this->faker->lastName,
+            'niveau' => $this->faker->name,
+            'annee' => $this->faker->randomLetter(),
+            'enseignant_id' => random_int(1,10),
         ];
     }
 }

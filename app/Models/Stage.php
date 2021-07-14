@@ -36,5 +36,14 @@ class Stage extends Model
     public function maitre(){
         return $this->belongsTo(Enseignant::class);
     }
+    // public function voeu_ens1(){
+    //     return $this->belongsTo(Enseignant::class);
+    // }
+    // public function voeu_ens2(){
+    //     return $this->belongsTo(Enseignant::class);
+    // }
+    // public function voeu_ens3(){
+    //     return $this->belongsTo(Enseignant::class);
+    // }
 
 }
