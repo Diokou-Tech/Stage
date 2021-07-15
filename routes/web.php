@@ -161,7 +161,6 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/depot', [AdminController::class, 'depot'])->name('page-depot');
         Route::get('/contact', [AdminController::class, 'contact'])->name('page-contact');
         Route::get('/tableau', [AdminController::class, 'tableau'])->name('page-tableau');
-        Route::get('/dashboard',     [AdminController::class, 'dashboard'])->name('page-dashboard');
         Route::get('/telechargement',     [AdminController::class, 'telechargement'])->name('page-telechargement');
 
     });

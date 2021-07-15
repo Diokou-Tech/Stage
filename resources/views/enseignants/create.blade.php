@@ -2,14 +2,14 @@
 @extends('layouts.template')
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h1>Ajouter les enseignants</h1>
+        <div class="row d-flex justify-content-between">
+            <div class="col-4">
+                <h3>Ajouter un enseignant</h3>
             </div>
-            <div class="col-sm-12 col-md-6">
-               <a href=" {{ route('prof-index')}} " class="btn btn-md btn-primary float-right">Retour</a>
+            <div class=" col-4">
+               <a href=" {{ route('prof-index')}} " class="btn btn-sm btn-outline-secondary float-right">Retour</a>
             </div>
-            </div>
+        </div>
 
             <div class="row bg-white pt-3 mt-2 ">
                 <div class="col-sm-12">
@@ -29,42 +29,46 @@
                     <form action="{{ route('prof-store')}}" method="POST">
                         @csrf
                         @method('POST')
-                        
-                        <div class="form-group ml-3 mr-3">
-                            <label for="name">Matricule:</label>
-                            <input type="text" id="matricule" name="matricule" required class="form-control" placeholder="Matricule..."/>
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-5">
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">Matricule:</label>
+                                    <input type="text" id="matricule" name="matricule" required class="form-control" placeholder="Matricule..."/>
+                                </div>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">Prenom:</label>
+                                    <input type="text" id="prenom" name="prenom" required class="form-control" placeholder="Prenoms..."/>
+                                </div>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">Nom:</label>
+                                    <input type="text" id="nom" name="nom" required class="form-control" placeholder="Nom..."/>
+                                </div>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">Sexe:</label>
+                                    <input type="text" id="sexe" name="sexe" required class="form-control" placeholder="Sexe..."/>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">Code Postal:</label>
+                                    <input type="text" id="code_postal" name="code_postal" required class="form-control" 
+                                        placeholder="Code Postal..."/>
+                                </div>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">E-mail:</label>
+                                    <input type="email" id="email" name="email" required class="form-control" placeholder="Adresse e-mail..."/>
+                                </div>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">Numero portable:</label>
+                                    <input type="text" id="portable" name="portable" required class="form-control" placeholder="Numero de portable..."/>
+                                </div>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">Adresse:</label>
+                                    <input type="text" id="adresse" name="adresse" required class="form-control" placeholder="Adresse..."/>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group ml-3 mr-3">
-                            <label for="name">Prenom:</label>
-                            <input type="text" id="prenom" name="prenom" required class="form-control" placeholder="Prenoms..."/>
-                        </div>
-                        <div class="form-group ml-3 mr-3">
-                            <label for="name">Nom:</label>
-                            <input type="text" id="nom" name="nom" required class="form-control" placeholder="Nom..."/>
-                        </div>
-                        <div class="form-group ml-3 mr-3">
-                            <label for="name">Sexe:</label>
-                            <input type="text" id="sexe" name="sexe" required class="form-control" placeholder="Sexe..."/>
-                        </div>
-                        <div class="form-group ml-3 mr-3">
-                            <label for="name">Code Postal:</label>
-                            <input type="text" id="code_postal" name="code_postal" required class="form-control" 
-                                placeholder="Code Postal..."/>
-                        </div>
-                        <div class="form-group ml-3 mr-3">
-                            <label for="name">E-mail:</label>
-                            <input type="email" id="email" name="email" required class="form-control" placeholder="Adresse e-mail..."/>
-                        </div>
-                        <div class="form-group ml-3 mr-3">
-                            <label for="name">Numero portable:</label>
-                            <input type="text" id="portable" name="portable" required class="form-control" placeholder="Numero de portable..."/>
-                        </div>
-                        <div class="form-group ml-3 mr-3">
-                            <label for="name">Adresse:</label>
-                            <input type="text" id="adresse" name="adresse" required class="form-control" placeholder="Adresse..."/>
-                        </div>
-
-                        <div class="form-group float-left mt-2 ml-3">
+                        <div class="form-group float-left mt-4 text-center">
                         <button type="submit" class="btn btn-md btn-primary" >Ajouter</button>
                         </div>
 

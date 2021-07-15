@@ -23,7 +23,7 @@
                 </div>
             @endif
                 <div class="container">
-                    <h1 class="text-center">Modification Stage</h1>
+                    <h3 class="text-center">Modification Stage</h3>
                     <form action="{{route('stage-update',['id' => $stage->id])}}" method="POST" enctype="multipart/form-data" class="row d-flex flex-row">
                        @method('PUT')
                         @csrf
@@ -31,7 +31,7 @@
                         {{-- <input type="hidden" name="id" value="{{$stage->id }}"> --}}
                         <div class="col-6">
                             <fieldset>
-                                <legend>Stage</legend>
+                                <legend class="h5">Stage</legend>
                             <div class="form-group">
                                 <label for="fiche">Fiche de renseignement </label>
                                 <input type="file" class="form-control @error('fiche') is-invalid @enderror" name="fiche" accept=".pdf,.docx,.doc">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="col-6">
                             <fieldset>
-                                <legend>Tuteur</legend>
+                                <legend class="h5">Tuteur</legend>
                             <div class="form-group mt-2">
                                 <label for="tuteur">Nom Prenom Tuteur</label>
                                 <input type="text" name="tuteur" id="tuteur" value="{{ $stage->tuteur_entreprise  }}" class="form-control @error('tuteur') is-invalid @enderror" required>
@@ -111,7 +111,7 @@
                             </div>
                         </fieldset>
                             <fieldset>
-                                <legend>Choix des encadreurs</legend>
+                                <legend class="h5">Choix des encadreurs</legend>
                                 <div class="form-group">
                                     <label for="voeu1" class="d-block">Choix 1</label>
                                     <select name="voeu1" id="voeu1" class="form-control  @error('voeu1') is-invalid @enderror">
@@ -157,7 +157,7 @@
                             </fieldset>
             
                         </div>
-                            <div class="mt-2 col-6 mx-auto d-flex justify-content-around">
+                            <div class="mt-4 col-6 mx-auto d-flex justify-content-around">
                                 <button type="submit" class="btn btn-primary"> Modifier </button>
                                 <button type="reset" class="btn text-danger border"> Annuler </button>
                             </div>

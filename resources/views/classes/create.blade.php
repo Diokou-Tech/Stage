@@ -7,7 +7,7 @@
                 <h4>Ajouter les parcours</h4>
             </div>
             <div class="col-sm-12 col-md-6">
-               <a href=" {{ route('classe-index')}} " class="btn btn-md btn-primary float-right">Retour</a>
+               <a href=" {{ route('classe-index')}} " class="btn-sm btn-outline-secondary float-right">Retour</a>
             </div>
             </div>
 

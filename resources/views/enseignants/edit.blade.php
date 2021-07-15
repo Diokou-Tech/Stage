@@ -7,7 +7,7 @@
                 <h3>Modification des infos </h3>
             </div>
             <div class="col-sm-12 col-md-6">
-               <a href=" {{ route('prof-index')}} " class="btn btn-md btn-dark float-right">Retour</a>
+               <a href=" {{ route('prof-index')}} " class="btn-sm btn-outline-secondary float-right">Retour</a>
             </div>
             </div>
 

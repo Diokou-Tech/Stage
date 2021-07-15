@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Stage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
@@ -37,18 +39,14 @@ class AdminController extends Controller
         return view('pages.contact');
     }
     public function stage(){
-        return view('pages.Stage');
-    }
-    public function depot(){
-        return view('pages.depot');
+        $stages = Stage::orderBy('id','DESC')->paginate(4);;
+        $total = Stage::count();
+        return view('pages.Stage',['stages'=>$stages, 'total'=>$total]);
     }
     public function homeEtudiant(){
         return view('pages.home');
     }
     public function homeAdmin(){
         return view('pages.accueil');
-    }
-    public function telechargement(){
-        return view('pages.telechargement');
     }
 }

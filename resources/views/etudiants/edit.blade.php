@@ -7,7 +7,7 @@
                 <h4>Mise à jour des etudiants</h4>
             </div>
             <div class="col-sm-12 col-md-6">
-               <a href=" {{ route('etudiant-index')}} " class="btn btn-md btn-dark float-right">Retour</a>
+               <a href=" {{ route('etudiant-index')}} " class="btn btn-sm btn-outline-secondary float-right">Retour</a>
             </div>
             </div>
 
