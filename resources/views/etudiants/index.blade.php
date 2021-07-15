@@ -61,10 +61,6 @@
                     <!--Button de PDF-->  
                     <a class="btn btn-sm btn-outline-secondary mb-3 " href=""><i class="fas fa-print"></i> PDF </a>                    
              </div>
-             <div class="col-sm-12 col-md-6">
-             
-                                        
-            <hr class="featurette-divider">
         </div>
             <div class="col-12">
                 <div class="table-responsive">
@@ -96,13 +92,13 @@
                                     <td>{{$etudiant->code_postal}}</td>   
                                     <td>{{$etudiant->adresse}}</td>   
                                      <td class='d-flex'>
-                                        <a href="{{ route('etudiant-edit', ['id'=>$etudiant->id])}}" class="btn btn-sm btn-primary mr-2"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('etudiant-edit', ['id'=>$etudiant->id])}}" class="btn btn-sm btn-primary m-1"><i class="fas fa-edit"></i></a>
                                         <form action=" {{ route('etudiant-destroy', ['id'=>$etudiant->id])}} 
                                         " method="post"
                                          onsubmit=" return confirm('Suppression! Êtes-vous sûr de le supprimer ?');">
                                         @csrf
                                         @method('DELETE')                
-                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button> <!--<i class="fa fa-trash"></i>-->
+                                        <button type="submit" class="btn btn-sm btn-danger m-1"><i class="fas fa-trash"></i></button> <!--<i class="fa fa-trash"></i>-->
                                         </form>
                                      </td>
                                 

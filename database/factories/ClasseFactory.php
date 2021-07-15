@@ -26,7 +26,7 @@ class ClasseFactory extends Factory
             'nom' => $this->faker->lastName,
             'niveau' => $this->faker->name,
             'annee' => $this->faker->randomLetter(),
-            'enseignant_id' => random_int(1,10),
+            'enseignant_id' => random_int(1,50),
         ];
     }
 }

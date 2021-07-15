@@ -1,14 +1,32 @@
 @extends('layouts.template')
 @section('content')
 <div class="container">
-    <h4>Accueil Administrateur</h4>
-    <p class="p-2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eligendi nemo voluptatem ipsum veniam. Alias sequi labore corporis, soluta nulla distinctio ratione praesentium culpa consequuntur veritatis inventore fuga, autem omnis.
-        Accusantium accusamus doloremque corporis ex ipsam tenetur atque nemo rerum consequatur quas ipsum, inventore, nam ullam perferendis quidem suscipit aliquid, molestias minus! At qui sapiente ullam laudantium asperiores neque voluptatibus?
-        Aperiam accusamus recusandae, quaerat sequi odit soluta adipisci, iure modi, alias blanditiis facere ducimus. Qui, voluptatum quasi cupiditate maxime blanditiis fuga distinctio assumenda suscipit deserunt ea ex. Ipsum, sunt veniam?
-        Eos officia ratione dolores deleniti fugit nostrum eum aliquid dignissimos nisi dolorem et eaque, ducimus reiciendis sequi commodi? Accusamus atque hic odio et natus adipisci, sed soluta sint provident eligendi!
-        Quos, voluptatem, veniam rem doloremque esse delectus error natus possimus amet quidem repellat odit. Ullam voluptatum saepe facere beatae in! Molestiae hic explicabo illo voluptas architecto quidem deleniti assumenda repellendus.
-    </p>
+    <h4>Mode Administrateur</h4>
+    <hr>
+    <div class="row d-flex justify-content-evenly">
+      <div class="card shadow-lg  text-white d-flex align-items-center justify-content-center c col-4 rounded-circle">
+       <h2 class="text-center text-white"> <i class="fas fa-user-graduate"></i> <br> {{$total_etu}} <br> Etudiants</h2>
+      </div>
+      <div class="card shadow-lg p-2  text-white d-flex align-items-center justify-content-center c col-4 rounded-circle">
+        <h2 class="text-center text-white"> <i class="far fa-file-pdf"></i> <br>  {{$total_sta}} <br> Stages soumis</h2>
+       </div>
+       <div class="card shadow-lg p-2   text-white d-flex align-items-center justify-content-center c col-4 rounded-circle">
+        <h2 class="text-center text-white"> <i class="fas fa-chalkboard-teacher"></i> <br>  {{$total_ens}}<br> Enseignants</h2>
+       </div>
+       <div class="card shadow-lg  text-white d-flex align-items-center justify-content-center c col-4 rounded-circle">
+        <h2 class="text-center text-white"> <i class="fas fa-school"></i> <br>  {{$total_par}} <br> Parcours</h2>
+       </div>
+    </div>
   </div>
+  <style>
+    .c{
+      height: 200px;
+      width: 200px;
+      background: #003F5C;
+    }
+    .c h2{
+      font-size: 24px;
+    }
+  </style>
 </div>
 @endsection

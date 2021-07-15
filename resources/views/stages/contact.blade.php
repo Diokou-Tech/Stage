@@ -16,7 +16,7 @@
     </div>
     <div class="col-4">
         <div class="card m-0" style="width: 17rem;">
-            <img src="https://i.pravatar.cc/150" class="card-img-top rounded-circle" height="220px" width="220px" alt="...">
+            <img src="https://i.pravatar.cc/150" class="card-img-top rounded-lg" height="220px" width="220px" alt="...">
             <div class="card-body">
               <h5 class="card-title">Laid Bouzidi</h5>
               <hr>

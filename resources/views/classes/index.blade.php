@@ -90,17 +90,16 @@
                                     <td>{{$classe->enseignant->matricule}} {{$classe->enseignant->nom}}</td>   
                                     
                                      <td class='d-flex'>                                        
-                                        <a href="{{ route('classe-edit', ['id'=>$classe->id])}}" class="btn btn-sm btn-primary mr-2"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('classe-edit', ['id'=>$classe->id])}}" class="btn btn-sm btn-primary m-1"><i class="fas fa-edit"></i></a>
                                         <form action=" {{ route('classe-destroy', ['id'=>$classe->id])}} 
                                         " method="post"
                                          onsubmit=" return confirm('Suppression! Êtes-vous sûr de le supprimer ?');">
                                         @csrf
                                         @method('DELETE')
                 
-                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button> <!--<i class="fa fa-trash"></i>-->
+                                        <button type="submit" class="btn btn-sm btn-danger m-1"><i class="fas fa-trash"></i></button> <!--<i class="fa fa-trash"></i>-->
                                         </form>
                                      </td>
-                                
                                 </tr>
                         @endforeach
                         </tbody>

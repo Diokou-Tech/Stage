@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stage;
+use App\Models\Enseignant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Classe;
+use App\Models\Etudiant;
 
 class AdminController extends Controller
 {
@@ -47,6 +50,11 @@ class AdminController extends Controller
         return view('pages.home');
     }
     public function homeAdmin(){
-        return view('pages.accueil');
+        $total_ens = Enseignant::count();
+        $total_etu = Etudiant::count();
+        $total_sta = Stage::count();
+        $total_par = Classe::count();
+
+        return view('pages.accueil',['total_ens' => $total_ens,'total_etu' => $total_etu,'total_sta' => $total_sta,'total_par' => $total_par]);
     }
 }

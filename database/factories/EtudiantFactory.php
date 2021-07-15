@@ -31,7 +31,7 @@ class EtudiantFactory extends Factory
             'email' => $this->faker->email,
             'adresse' => $this->faker->city,
             'portable' => 00033345645,
-            'classe_id' => random_int(1,10)
+            'classe_id' => random_int(1,50)
         ];
     }
 }
