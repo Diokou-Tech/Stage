@@ -1,6 +1,6 @@
 @extends('layouts.etudiant')
 @section('content')
-<div class='container-fluid'>
+<div class='container-fluid mx-1'>
 
     <div class="row justifu-contetent-center ml-10">
         <div class="col-sm-0 col-md-6">
@@ -17,7 +17,6 @@
                                 <th>id</th>
                                 <th>Entreprise</th>
                                 <th>Lieu</th>
-                                {{-- <th>Theme_Stage</th> --}}
                                 <th>Tuteur stage</th>                          
                                 <th>Portable Tuteur</th>                          
                                 <th>Email Tuteur</th>                          
@@ -47,15 +46,15 @@
                                     <td><a target="_blank" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">fiche de resnseignement</a></td>    
                                     <td>{{$stage->created_at}}</td>  
                                      <td class='d-flex'>
-                                        <a href="{{ route('stage-show', ['id'=>$stage->id])}}" class="btn btn-sm btn-info mr-2 text-white"><i class="fas fa-eye"></i></a>
-                                        <a href="{{ route('stage-edit', ['id'=>$stage->id])}}" class="btn btn-sm btn-primary mr-2"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('stage-show', ['id'=>$stage->id])}}" class="btn btn-sm btn-info m-2 text-white"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('stage-edit', ['id'=>$stage->id])}}" class="btn btn-sm btn-primary m-2"><i class="fas fa-edit"></i></a>
                                         <form action=" {{ route('stage-destroy', ['id'=>$stage->id])}} 
                                         " method="post"
                                          onsubmit=" return confirm('Suppression! Êtes-vous sûr de le supprimer ?');">
                                         @csrf
                                         @method('DELETE')
                 
-                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button> <!--<i class="fa fa-trash"></i>-->
+                                        <button type="submit" class="btn btn-sm btn-danger m-2"><i class="fas fa-trash"></i></button>
                                         </form>
                                      </td>
                                 

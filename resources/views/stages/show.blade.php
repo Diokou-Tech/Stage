@@ -16,7 +16,7 @@
                             <h2>Stage</h2>
                             <ul class="list-group-flush">
                                 <li class="list-group-item">
-                                   <b> <a target="_blank" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">Voir liche de resnseignement </a></b>
+                                   <b> <a target="_blank" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">Voir Fiche de resnseignement </a></b>
                                 </li>
                                 <li class="list-group-item">
                                     Entreprise :  <b>{{ $stage->entreprise  }}</b>
@@ -24,7 +24,7 @@
                                 <li class="list-group-item">
                                     Secteur Activité :  <b>{{ $stage->secteur_activite  }}</b>
                                 </li>
-                                <li class="list-group-item">*
+                                <li class="list-group-item">
                                     Lieu Stage : <b>{{ $stage->lieu  }}</b>
                                 </li>
                                 <li class="list-group-item">

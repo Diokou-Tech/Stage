@@ -42,7 +42,13 @@
                             <label for="profil" class="col-md-4 col-form-label text-md-right">{{ __('Profil: ') }}</label>
 
                             <div class="col-md-6">
-                                <input id="profil" type="text" class="form-control" name="profil">
+                                <select name="profil" class="form-control" id="profil" required>
+                                    <option value="">-- choisir votre profil  --</option>
+                                    <option value="Etudiant">Etudiant</option>
+                                    <option value="Administrateur">Admin</option>
+                                    <option value="Enseignant">Enseignant</option>
+
+                                </select>
                             </div>
                         </div>
                          

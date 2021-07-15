@@ -19,12 +19,22 @@ class StageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
-        $stages = Stage::orderBy('id','DESC')->paginate(4);;
-        $total = Stage::count();
-        return view('stages.index', ['stages'=>$stages, 'total'=>$total]);
+                //
+        if(Auth::user()->profil !='Etudiant'){
+        notify()->error("Vous n'avez pas  l'autorisation");
+        return redirect('pages/accueil');
+        }else{
+            $stages = Stage::orderBy('id','DESC')->paginate(4);;
+            $total = Stage::count();
+            return view('stages.index', ['stages'=>$stages, 'total'=>$total]);
+        }
     }
 
     /**

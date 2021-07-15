@@ -6,7 +6,7 @@ use App\Models\Enseignant;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreEnseignantRequest;
 use App\Http\Requests\UpdateEnseignantRequest;
-
+use Illuminate\Support\Facades\Auth;
 
 class EnseignantController extends Controller
 {
@@ -15,12 +15,23 @@ class EnseignantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function verif(){
+        if(Auth::user()->profil !='administrateur'){
+            notify()->error("Vous n'avez pas  l'autorisation");
+           return redirect('stages/');
+        }
+    }
     public function index()
     {
         //
-        $enseignants = Enseignant::orderBy('id','DESC')->paginate(4);;
-        $total = Enseignant::count();
-        return view('enseignants.index', ['enseignants'=>$enseignants, 'total'=>$total]);
+        if(Auth::user()->profil !='Administrateur'){
+            notify()->error("Vous n'avez pas  l'autorisation");
+           return redirect('stages/');
+        }else{
+            $enseignants = Enseignant::orderBy('id','DESC')->paginate(4);;
+            $total = Enseignant::count();
+            return view('enseignants.index', ['enseignants'=>$enseignants, 'total'=>$total]);
+        }
     }
 
     /**

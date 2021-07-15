@@ -9,10 +9,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     
     <!--SCRIPTS DE CHART-->
-    <script src="{{ asset('_gs_public/js/loader.js') }}" defer></script>
+    {{-- <script src="{{ asset('_gs_public/js/loader.js') }}" defer></script> --}}
     <script src="{{ asset('_gs_public/js/bootstrap.min.js') }}" defer></script>
     
     
@@ -20,7 +20,7 @@
    <!-- <script src="{{ asset('js/dropdown.js') }}"></script>-->
 
     <!-- Fonts -->
-    <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    {{-- <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"> --}}
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -30,15 +30,13 @@
     <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
 -->
     <!--LINK DE BOOTRAPS 4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> 
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> --}}
 </head>
 <body>
 <div class="container text-white">
     <div class="d-flex align-items-center flex-column justify-content-center pt-5 my-5">
-        <img src="{{ asset('_gs_public/img/logo.gif') }} " alt="logo" width="300px" width="300px" class="img pt-5">
+        <img src="{{ asset('img/logo.gif') }} " alt="logo" width="300px" width="300px" class="img pt-5">
          <h4 class="text-white mt-4">Authentification</h4>   
         <form action="{{ route('login') }}" method="POST" class="col-5">  
         @csrf  

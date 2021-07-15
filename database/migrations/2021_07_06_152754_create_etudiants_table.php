@@ -26,7 +26,7 @@ class CreateEtudiantsTable extends Migration
             $table->biginteger('classe_id')->unsigned()->nullable(true);
 
             ##-- CLE ETRANGERE --##
-            $table->foreign('classe_id')->references('id')->on('classes');
+            $table->foreign('classe_id')->references('id')->on('classes')->onDelete('cascade');
             $table->timestamps();
         });
     }

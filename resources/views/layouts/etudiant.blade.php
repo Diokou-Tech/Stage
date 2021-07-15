@@ -12,7 +12,6 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     
     <!--SCRIPTS DE CHART-->
-    <script src="{{ asset('_gs_public/js/loader.js') }}" defer></script>
     <script src="{{ asset('_gs_public/js/bootstrap.min.js') }}" defer></script>
     
     
@@ -20,56 +19,31 @@
    <!-- <script src="{{ asset('js/dropdown.js') }}"></script>-->
 
     <!-- Fonts -->
-    <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    {{-- <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"> --}}
+
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 
     <!--LINK DE BOOTRAPS 4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> 
 </head>
 <body>
      @notify_css
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-light text-white shadow-sm">
-            <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">Menu</span>
-            </button> 
-                <a class="navbar-brand" href="{{ route('home-user') }}">
-                <img src="{{asset('_gs_public/img/logo.gif') }} " height="50px" width=""/> 
-                   <!-- {{ config('app.name', 'Laravel') }} -->
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
+            <div class="container d-flex justify-content-between">
+                <div class="col-5">
+                    <a class="navbar-brand" href="{{ route('home-user') }}">
+                        <img src="{{asset('img/logo.gif') }} " height="50px" width=""/> 
+                           <!-- {{ config('app.name','Laravel') }} -->
+                        </a>    
+                </div>
+                <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-                            
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
-                                </li>
-                            @endif
-                        @else
-
                                  <li class="nav-item">
                                     <a class="nav-link @if(\Route::current()->getName() == 'etudiant-accueil') active  @endif" href="{{route('etudiant-accueil')}} "><i class="fas fa-house-user"></i>Accueil</a>
                                 </li>
@@ -84,11 +58,8 @@
                                 </li>
                                  <li class="nav-item">
                                     <a class="nav-link @if(\Route::current()->getName() == 'stage-contact') active  @endif" href=" {{route('stage-contact')}}"><i class="fas fa-phone"></i> Contact</a>
-                                </li>
-
+                                </li>                           
                                 <!-- FIN -->
-
-
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle rounded" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fas fa-user-circle"></i>  {{ Auth::user()->name}}
@@ -106,11 +77,8 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-
-
                                 </div>
                             </li>
-                        @endguest
                     </ul>
                 </div>
     <style>
@@ -159,7 +127,7 @@
         <a href="#">Voir plus</a>
         </div>
     </div>
-    <h6 class="text-center bg-primary text-white p-1">&copy;  Iae-Lyon <?php echo date('Y')  ?> </h6>
+    <h6 class="text-center bg-info text-white p-1">&copy;  Iae-Lyon <?php echo date('Y')  ?> </h6>
     @notify_js
     @notify_render
 </footer>

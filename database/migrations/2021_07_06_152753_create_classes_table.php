@@ -20,7 +20,7 @@ class CreateClassesTable extends Migration
             $table->string('niveau', 45)->nullable(false);
             $table->biginteger('enseignant_id')->unsigned()->nullable(true);
             ## -- CLE ETRANGERE D ENSEIGNANT --## 
-            $table->foreign('enseignant_id')->references('id')->on('enseignants');
+            $table->foreign('enseignant_id')->references('id')->on('enseignants')->onDelete('cascade');
             $table->timestamps();
         });
     }
