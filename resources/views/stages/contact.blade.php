@@ -4,7 +4,7 @@
    <div class="row">
     <div class="col-4">
         <div class="card m-0" style="width: 17rem;">
-            <img src="https://i.pravatar.cc/300" class="card-img-top rounded-lg" height="220px" width="220px" alt="...">
+            <img src="{{ asset('img/ghedira.jpg') }}" class="card-img-top rounded-lg" height="220px" width="220px" alt="...">
             <div class="card-body">
               <h5 class="card-title">Chirine Ghedira Ons</h5>
               <hr>
@@ -16,7 +16,7 @@
     </div>
     <div class="col-4">
         <div class="card m-0" style="width: 17rem;">
-            <img src="https://i.pravatar.cc/150" class="card-img-top rounded-lg" height="220px" width="220px" alt="...">
+            <img src="{{ asset('img/bouzidi.jpg') }}" class="card-img-top rounded-lg" height="220px" width="220px" alt="Ghedira">
             <div class="card-body">
               <h5 class="card-title">Laid Bouzidi</h5>
               <hr>
@@ -28,7 +28,7 @@
     </div>
     <div class="col-4">
         <div class="card m-0" style="width: 17rem;">
-            <img src="https://i.pravatar.cc/200" class="card-img-top rounded-lg" height="220px" width="220px" alt="...">
+            <img src="{{ asset('img/guilaine.jpg') }}" class="card-img-top rounded-lg" height="220px" width="220px" alt="...">
             <div class="card-body">
               <h5 class="card-title">Guilaine Talens</h5>
               <hr>

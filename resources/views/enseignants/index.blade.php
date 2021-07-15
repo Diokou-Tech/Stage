@@ -94,10 +94,7 @@
                     <!-- Botton de la modal d'ajout de l'enseignant-->
                     
         
-                     <a href="{{route('prof-create')}}" class="btn btn-sm btn-outline-success ml-3 mr-2 mb-3" > <i class="fas fa-plus"></i> Ajouter
-                      
-                    <!--Button de PDF-->  
-                    <a class="btn btn-sm btn-outline-secondary mb-3 " href=""><i class="fas fa-print"></i> PDF </a>                    
+                     <a href="{{route('prof-create')}}" class="btn btn-sm btn-outline-success ml-3 mr-2 mb-3" > <i class="fas fa-plus"></i> Ajouter</a>                    
              </div>
              <div class="col-sm-12 col-md-6">
         </div>

@@ -52,8 +52,8 @@ class ClasseController extends Controller
         $classe->niveau = $request->niveau;
         $classe->enseignant_id = $request->enseignant_id;
         $classe->save();
-
-        return redirect(route('classe-index'))->with('success', 'Parcours ajouté avec succés');
+        notify()->success("Parcours ajouté avec succés","ajout");
+        return redirect(route('classe-index'));
     }
 
     /**

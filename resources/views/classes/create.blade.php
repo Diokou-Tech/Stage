@@ -2,18 +2,18 @@
 @extends('layouts.template')
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h4>Ajouter les parcours</h4>
+        <div class="row d-flex justify-content-between">
+            <div class="col-12">
+                <h4>Ajouter un parcours</h4>
             </div>
-            <div class="col-sm-12 col-md-6">
-               <a href=" {{ route('classe-index')}} " class="btn-sm btn-outline-secondary float-right">Retour</a>
+            <div class="col-12">
+               <a href=" {{ route('classe-index')}} " class="btn btn-sm btn-outline-secondary">Retour</a>
             </div>
             </div>
 
             <div class="row bg-white pt-3 mt-2 ">
                 <div class="col-sm-12">
-                    <h5>Informez les infos de Parcours :</h5>
+                    <h5 class="text-center">Informez les infos de Parcours :</h5>
                     <br/>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -26,7 +26,7 @@
                     @endif
                 </div>
                 <div class="col-sm-12">
-                    <form action="{{ route('classe-store')}}" method="POST">
+                    <form action="{{ route('classe-store')}}" method="POST" class="col-6 mx-auto">
                         @csrf
                         @method('POST')
                         

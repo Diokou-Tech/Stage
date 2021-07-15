@@ -57,8 +57,8 @@ class EtudiantController extends Controller
         $etudiant->adresse = $request->adresse;
         $etudiant->classe_id = $request->classe_id;
         $etudiant->save();
-
-        return redirect(route('etudiant-index'))->with('success', 'Les informations  ajoutées avec succès.');
+        notify()->success("Creation d'un etudiant avec succès","creation etudiant");
+        return redirect(route('etudiant-index'));
     }
 
     /**
@@ -110,8 +110,8 @@ class EtudiantController extends Controller
         $etudiant->adresse = $request->adresse;
         $etudiant->classe_id = $request->classe_id;
         $etudiant->update();
-
-        return redirect(route('etudiant-index'))->with('success', 'Mise à jour des informations effectuée avec succès.');
+        notify()->success("Modification effectuée avec succès","Mise à jour");
+        return redirect(route('etudiant-index'));
     }
 
     /**
@@ -124,6 +124,7 @@ class EtudiantController extends Controller
     {
         //
         Etudiant::find($id)->delete();
-        return redirect(route('etudiant-index'))->with('success', 'Enregistrement supprimé avec succès.');
+        notify()->success("Enregistrement supprimé avec succès.","suppression");
+        return redirect(route('etudiant-index'));
     }
 }

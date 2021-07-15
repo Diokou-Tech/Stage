@@ -23,6 +23,11 @@
       height: 200px;
       width: 200px;
       background: #003F5C;
+      transition: 1s cubic-bezier(0.215, 0.610, 0.355, 1) all;
+    }
+    .c:hover{
+      background: #067F9F;
+      cursor: wait;
     }
     .c h2{
       font-size: 24px;

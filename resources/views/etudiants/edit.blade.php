@@ -15,15 +15,6 @@
                 <div class="col-sm-12">
                     <h5>Informez les infos de l'etudiant:</h5>
                     <br/>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                            @foreach ($errors->all() as $error)
-                                <li> {{ $error }} </li>
-                            @endforeach
-                            </ul>
-                        </div>
-                    @endif
                 </div>
                 <div class="col-sm-12">
                     <form action="{{ route('etudiant-update', ['id'=>$etudiant->id])}}" class="d-flex justify-content-around" method="POST">
