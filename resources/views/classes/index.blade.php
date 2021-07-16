@@ -50,10 +50,6 @@
         
                      <a href="{{route('classe-create')}}" class="btn btn-sm btn-outline-primary ml-3 mr-2 mb-3" > <i class="fas fa-plus"></i> Ajouter </a>                    
              </div>
-             <div class="col-sm-12 col-md-6">
-             
-                                        
-            <hr class="featurette-divider">
         </div>
             <div class="col-12">
                 <div class="table-responsive">
@@ -64,8 +60,7 @@
                                 <th>Nom</th>
                                 <th>Annee</th>
                                 <th>Niveau</th>
-                                <th>Responsable</th>
-                                                         
+                                <th>Responsable</th>                
                                 <th>Actions</th>                          
                             </tr>
                         </thead>

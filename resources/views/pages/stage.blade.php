@@ -56,11 +56,16 @@
                 
                                         <button type="submit" class="btn btn-sm btn-danger m-2"><i class="fas fa-trash"></i></button>
                                         </form>
+                                        @if($stage->enseignant_id != null)
+                                       <a href="{{ route('page-affecter', ['id'=>$stage->id])}}" class="btn btn-sm btn-success m-2"><i class="fas fa-user"></i></a>
+                                        @else
+                                        <a href="{{ route('page-affecter', ['id'=>$stage->id])}}" class="btn btn-sm btn-secondary m-2 text-dark"><i class="fas fa-user"></i></a>
+                                        @endif
                                      </td>
-                                
                                 </tr>
                         @endforeach
                         </tbody>
+
                     </table>
                     <div class="float-right">
                         <!--{{ $stages->links() }}-->

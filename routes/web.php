@@ -158,6 +158,8 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/profil', [AdminController::class, 'profil'])->name('page-profil');
         Route::get('/stage', [AdminController::class, 'stage'])->name('page-stage');
         Route::get('/login', [AdminController::class, 'login'])->name('page-login');
+        Route::get('/affecter{id}', [AdminController::class, 'affecter'])->name('page-affecter');
+        Route::post('/affecter', [AdminController::class, 'affectere'])->name('affecter');
         Route::get('/depot', [AdminController::class, 'depot'])->name('page-depot');
         Route::get('/contact', [AdminController::class, 'contact'])->name('page-contact');
         Route::get('/tableau', [AdminController::class, 'tableau'])->name('page-tableau');
