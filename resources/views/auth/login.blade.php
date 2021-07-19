@@ -37,6 +37,7 @@
 <div class="container text-white">
     <div class="d-flex align-items-center flex-column justify-content-center pt-5 my-5">
         <img src="{{ asset('img/logo.gif') }} " alt="logo" width="300px" width="300px" class="img pt-5">
+        
          <h4 class="text-white mt-4">Authentification</h4>   
         <form action="{{ route('login') }}" method="POST" class="col-5">  
         @csrf  
@@ -45,7 +46,7 @@
                         @error('email')
                             <span class="invalid-feedback alert-danger " role="alert">
                                 <strong>{{ $message }}</strong>
-                            </span>
+                            </span> 
                         @enderror
                 </div>
                         <div class="form-group m-2 p-2" >
