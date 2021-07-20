@@ -63,7 +63,7 @@
                         </tbody>
                     </table>
                     <div class="float-right">
-                        <!--{{ $stages->links() }}-->
+                        {{ $stages->links() }}
                     </div>
                 </div>
             </div>

@@ -29,7 +29,8 @@ class EnseignantFactory extends Factory
             'code_postal' => $this->faker->postcode,
             'email' => $this->faker->email,
             'portable' => 00033345645,
-            'adresse' => $this->faker->city
+            'adresse' => $this->faker->city,
+            'user_id' => random_int(1,10)
         ];
     }
 }

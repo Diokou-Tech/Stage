@@ -54,6 +54,18 @@
                                     Téléphone : <b>{{ $stage->tuteur_entreprise_tel }}</b>
                                 </li>
                             </ul>
+                            <h2>L'étudiant</h2>
+                            <ul class="list-group-flush">
+                                <li class="list-group-item">
+                                   Matricule: <b>{{$stage->etudiant->matricule}}</b>
+                                 </li>
+                                 <li class="list-group-item">
+                                     Nom : <b>{{$stage->etudiant->nom}}</b>
+                                 </li>
+                                 <li class="list-group-item">
+                                     ¨Prenom : <b>{{$stage->etudiant->prenom}}</b>
+                                 </li>
+                            </ul>
                         </div>
                         <div class="col-4">
                             <h2>Choix des encadreurs</h2>

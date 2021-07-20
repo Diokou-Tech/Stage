@@ -26,13 +26,19 @@ class StageController extends Controller
     public function index()
     {
         //
-                //
-        if(Auth::user()->profil !='Etudiant'){
+        $user  = Auth::user();
+        //recuperation de l'étudiant
+        $etud = Etudiant::where('user_id','=',$user->id)->first();
+
+        if($user->profil !='Etudiant'){
         notify()->error("Vous n'avez pas  l'autorisation");
         return redirect('pages/accueil');
         }else{
-            $stages = Stage::orderBy('id','DESC')->paginate(4);;
-            $total = Stage::count();
+            // $stages = Stage::orderBy('id','DESC');
+            $stages = Stage::where('etudiant_id', '=', $etud->id)->paginate(3);
+            // dd($stages);
+            // $total = DB::table('stages')->where('etudiant_id', '=', $user->id)->count();
+            $total =  Stage::where('etudiant_id', '=', $etud->id)->count();
             return view('stages.index', ['stages'=>$stages, 'total'=>$total]);
         }
     }
@@ -69,7 +75,7 @@ class StageController extends Controller
     public function store(StageRequest $request)
     {
         //
-        
+                $etud = Etudiant::where('user_id','=',Auth::user()->id)->first();
                 //upload fichier
                 $fiche = $request->file('fiche');
                 $ficheName = 'Fiche-'.date("Y_m_d-H_i_s").'.'.$fiche->extension();
@@ -91,7 +97,7 @@ class StageController extends Controller
                     'voeux_ens1' => $request->voeu1,
                     'voeux_ens2' => $request->voeu2,
                     'voeux_ens3' => $request->voeu3,
-                    'etudiant_id'  => random_int(1,10),
+                    'etudiant_id'  => $etud->id,
                     'enseignant_id'  => null
                 ]);
                Notify()->success('Depot de stage reussi', 'Depôt');

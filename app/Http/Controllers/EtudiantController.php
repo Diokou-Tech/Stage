@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Etudiant;
+use App\Models\User;
 use App\Models\Classe;
+use App\Models\Etudiant;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreEtudiantRequest;
 use App\Http\Requests\UpdateEtudiantRequest;
 
@@ -45,18 +48,39 @@ class EtudiantController extends Controller
      */
     public function store(StoreEtudiantRequest $request)
     {
-        //
-        $etudiant = new Etudiant();
-        $etudiant->matricule = $request->matricule;
-        $etudiant->prenom = $request->prenom;
-        $etudiant->nom = $request->nom;
-        $etudiant->sexe = $request->sexe;
-        $etudiant->email = $request->email;
-        $etudiant->code_postal = $request->code_postal;
-        $etudiant->portable = $request->portable;
-        $etudiant->adresse = $request->adresse;
-        $etudiant->classe_id = $request->classe_id;
-        $etudiant->save();
+        // //
+        // $etudiant = new Etudiant();
+        // $etudiant->matricule = $request->matricule;
+        // $etudiant->prenom = $request->prenom;
+        // $etudiant->nom = $request->nom;
+        // $etudiant->sexe = $request->sexe;
+        // $etudiant->email = $request->email;
+        // $etudiant->code_postal = $request->code_postal;
+        // $etudiant->portable = $request->portable;
+        // $etudiant->adresse = $request->adresse;
+        // $etudiant->classe_id = $request->classe_id;
+        // $etudiant->save();
+
+                //create user
+                $user = new User();
+                $user->name=$request->prenom." ".$request->nom;
+                $user->email=$request->email;
+                $user->profil= 'Etudiant';
+                $user->password= Hash::make($request->password);
+                $user->save();
+                //create etudiant
+                $etudiant = new Etudiant();
+                $etudiant->matricule = $request->matricule;
+                $etudiant->prenom = $request->prenom;
+                $etudiant->nom = $request->nom;
+                $etudiant->sexe = $request->sexe;
+                $etudiant->email = $request->email;
+                $etudiant->code_postal = $request->code_postal;
+                $etudiant->portable = $request->portable;
+                $etudiant->adresse = $request->adresse;
+                $etudiant->classe_id = $request->classe_id;
+                $etudiant->user_id = $user->id;
+                $etudiant->save();
         notify()->success("Creation d'un etudiant avec succès","creation etudiant");
         return redirect(route('etudiant-index'));
     }

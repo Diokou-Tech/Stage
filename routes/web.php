@@ -43,23 +43,6 @@ use App\Http\Controllers\ResultatCandidatController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('home');
-});
-
-/*
-    Route::resource('/employee', 'EmployeeController');//->name('employee-index');
-    Route::get('/empmodel', [App\Http\Controllers\EmployeeController::class, 'index'])->name('employee-index');
-    Route::post('/store', [App\Http\Controllers\EmployeeController::class, 'store'])->name('employee-store');
-    Route::post('/employee/{id}', [App\Http\Controllers\EmployeeController::class, 'edit'])->name('employee-edit');
-*/
-Route::get('/ajax', [App\Http\Controllers\HomeController::class, 'ajax'])->name('home-ajax');
-Route::get('/findCercleName', [App\Http\Controllers\HomeController::class, 'findCercleName'])->name('find-cercle');
-Route::get('/findSecteurName', [App\Http\Controllers\HomeController::class, 'findSecteurName'])->name('find-secteur');;
-Route::get('/findDistrictName', [App\Http\Controllers\HomeController::class, 'findDistrictName'])->name('find-district');;
-Route::get('/findBureauName', [App\Http\Controllers\HomeController::class, 'findBureauName'])->name('find-bureau');;
-Route::post('/save', [App\Http\Controllers\HomeController::class, 'save'])->name('student-save');
-//Route::post('/save', [App\Http\Controllers\HomeController::class, 'save1'])->name('student-save');
 
 Route::get('/dynamic_dependent', [App\Http\Controllers\DynamicDependent::class, 'index']);
 Route::post('/dynamic_dependent/fetch', [App\Http\Controllers\DynamicDependent::class, 'fetch'])->name('dynamicdependent.fetch');
@@ -79,12 +62,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 //});
 
 Auth::routes();
-//Group de Rotas apenas usuario logado tem acesso
-Route::middleware(['auth'])->group(function(){
-    Route::get('/pdf', [App\Http\Controllers\HomeController::class, 'geraPdf'])->name('clientes-pdf');
-    Route::get('/pdf', [App\Http\Controllers\HomeController::class, 'geraPdf'])->name('regions-pdf');
-});
-
 //test email
 
 Route::get('mail', function () {
@@ -114,8 +91,6 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/{id}/edit', [EnseignantController::class, 'edit'])->name('prof-edit');
         Route::put('/{id}/update', [EnseignantController::class, 'update'])->name('prof-update');
         Route::delete('/{id}', [EnseignantController::class, 'destroy'])->name('prof-destroy');
-        Route::get('/pdf',     [EnseignantController::class, 'geraPdf'])->name('prof-print');
-        Route::get('/show',     [EnseignantController::class, 'geraPdf'])->name('prof-show');
     });
     
     Route::prefix('classes')->group(function(){
@@ -125,8 +100,6 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/{id}/edit', [ClasseController::class, 'edit'])->name('classe-edit');
         Route::put('/{id}/update', [ClasseController::class, 'update'])->name('classe-update');
         Route::delete('/{id}', [ClasseController::class, 'destroy'])->name('classe-destroy');
-        Route::get('/pdf',     [ClasseController::class, 'geraPdf'])->name('classe-print');
-        Route::get('/show',     [ClasseController::class, 'geraPdf'])->name('classe-show');
         
     });
     Route::prefix('etudiants')->group(function(){

@@ -1,0 +1,9 @@
+-------------- Procedure pour installer logiciel -----------------------------------
+
+1- Extraire le dossier du fichier zippé 
+
+2- Ouvrir le dossier avec visual studio code 
+
+3- Créer la base de données vide si ce n'est pas encore fait
+
+4- Taper les 

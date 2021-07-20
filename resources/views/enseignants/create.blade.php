@@ -13,7 +13,7 @@
 
             <div class="row bg-white pt-3 mt-2 ">
                 <div class="col-sm-12">
-                    <h5>Informez les infos de l'enseignant:</h5>
+                    <legend class="text-sm">Informations enseignant </legend>
                     <br/>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -55,10 +55,6 @@
                                         placeholder="Code Postal..."/>
                                 </div>
                                 <div class="form-group mt-2 mr-3">
-                                    <label for="name">E-mail:</label>
-                                    <input type="email" id="email" name="email" required class="form-control" placeholder="Adresse e-mail..."/>
-                                </div>
-                                <div class="form-group mt-2 mr-3">
                                     <label for="name">Numero portable:</label>
                                     <input type="text" id="portable" name="portable" required class="form-control" placeholder="Numero de portable..."/>
                                 </div>
@@ -66,6 +62,17 @@
                                     <label for="name">Adresse:</label>
                                     <input type="text" id="adresse" name="adresse" required class="form-control" placeholder="Adresse..."/>
                                 </div>
+                                <fieldset>
+                                    <legend class="text-sm">Identifiants de connexion</legend>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">E-mail:</label>
+                                    <input type="email" id="email" name="email" required class="form-control" placeholder="Adresse e-mail..."/>
+                                </div>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">Mot  de passe:</label>
+                                    <input type="password" id="password" name="password" required class="form-control" placeholder="Mot de passe..."/>
+                                </div>
+                                </fieldset>
                             </div>
                         </div>
                         <div class="form-group float-left mt-4 text-center">

@@ -23,11 +23,15 @@ class CreateEtudiantsTable extends Migration
             $table->string('email')->unique('email');
             $table->string('portable', 45)->nullable(true);
             $table->string('adresse', 45)->nullable(true);
-            $table->biginteger('classe_id')->unsigned()->nullable(true);
 
-            ##-- CLE ETRANGERE --##
-            $table->foreign('classe_id')->references('id')->on('classes')->onDelete('cascade');
+            ##-- CLES ETRANGERES --##
+            $table->biginteger('classe_id')->unsigned()->nullable(true);
+            $table->biginteger('user_id')->unsigned()->nullable(true);
             $table->timestamps();
+            
+            ##-- REFERENCE DE CLE ETRANGERE --##
+            $table->foreign('classe_id')->references('id')->on('classes')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

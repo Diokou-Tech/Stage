@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Models;
-use App\Models\Enseignant;
 use App\Models\Classe;
+use App\Models\Etudiant;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Enseignant;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Stage extends Model
 {
@@ -33,17 +34,11 @@ class Stage extends Model
     public function classe(){
         return $this->belongsTo(Classe::class);
     }
-    public function maitre(){
+    public function enseignant(){
         return $this->belongsTo(Enseignant::class);
     }
-    // public function voeu_ens1(){
-    //     return $this->belongsTo(Enseignant::class);
-    // }
-    // public function voeu_ens2(){
-    //     return $this->belongsTo(Enseignant::class);
-    // }
-    // public function voeu_ens3(){
-    //     return $this->belongsTo(Enseignant::class);
-    // }
+    public function etudiant(){
+        return $this->belongsTo(Etudiant::class);
+    }
 
 }

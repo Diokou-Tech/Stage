@@ -53,6 +53,12 @@ class LoginController extends Controller
         }else{
             return redirect()->route('login');
         }
+        if($user->profil=='Enseignant'){
+            return redirect()->route('responsable-accueil');
+             }
+        else{
+        return redirect()->route('login');
+        }
 
          /*function redirectTo(){
             if(Auth::user()->pluck('profil')->contains(' Administrateur')){

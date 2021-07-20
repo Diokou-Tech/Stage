@@ -18,7 +18,8 @@ class ClasseController extends Controller
     public function index()
     {
         //
-        $classes = Classe::orderBy('id','DESC')->paginate(4);;
+        $classes = Classe::orderBy('id','DESC')->paginate(4);
+        // dd($classes[0]);
         $total = Classe::count();
         return view('classes.index', ['classes'=>$classes, 'total'=>$total]);
     }

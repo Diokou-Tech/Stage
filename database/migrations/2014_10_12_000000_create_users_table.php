@@ -18,21 +18,12 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique('email');
-            $table->string('profil')->nullable();
-           // $table->bigInteger('local')->nullable()->unsigned();
+            $table->string('profil');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            /*
-            $table->bigInteger('secteur_id')->unsigned()->nullable();
-            $table->bigInteger('cercle_id')->unsigned()->nullable();
-            $table->bigInteger('region_id')->unsigned()->nullable();
             $table->rememberToken();
-            */
             $table->timestamps();
-           /* $table->foreign('secteur_id')->references('id')->on('secteurs');
-            $table->foreign('cercle_id')->references('id')->on('cercles');
-            $table->foreign('region_id')->references('id')->on('regions');
-            */
+         
         });
     }
 

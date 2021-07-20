@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Enseignant;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreEnseignantRequest;
 use App\Http\Requests\UpdateEnseignantRequest;
-use Illuminate\Support\Facades\Auth;
 
 class EnseignantController extends Controller
 {
@@ -56,6 +59,13 @@ class EnseignantController extends Controller
     {
         //
 
+        $user = new User();
+        $user->name=$request->prenom." ".$request->nom;
+        $user->email=$request->email;
+        $user->profil= 'Enseignant';
+        $user->password= Hash::make($request->password);
+        $user->save();
+
     
         $enseignant = new Enseignant();
         $enseignant->matricule = $request->matricule;
@@ -66,9 +76,11 @@ class EnseignantController extends Controller
         $enseignant->code_postal = $request->code_postal;
         $enseignant->portable = $request->portable;
         $enseignant->adresse = $request->adresse;
+        $enseignant->user_id = $user->id;
         $enseignant->save();
 
-        return redirect(route('prof-index'))->with('success', 'Enseignant ajouter avec succès.');
+        Notify()->success('Creation de l\'enseignant reussie', 'Enseignant');
+        return redirect(route('prof-index'));
     }
 
     /**

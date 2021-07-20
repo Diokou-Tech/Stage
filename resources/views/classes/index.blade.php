@@ -73,7 +73,6 @@
                                     <td>{{$classe->annee}}</td>   
                                     <td>{{$classe->niveau}}</td>   
                                     <td>{{$classe->enseignant->matricule}} {{$classe->enseignant->nom}}</td>   
-                                    
                                      <td class='d-flex'>                                        
                                         <a href="{{ route('classe-edit', ['id'=>$classe->id])}}" class="btn btn-sm btn-primary m-1"><i class="fas fa-edit"></i></a>
                                         <form action=" {{ route('classe-destroy', ['id'=>$classe->id])}} 

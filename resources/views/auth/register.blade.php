@@ -43,10 +43,10 @@
 
                             <div class="col-md-6">
                                 <select name="profil" class="form-control" id="profil" required>
-                                    <option value="">-- choisir votre profil  --</option>
-                                    <option value="Etudiant">Etudiant</option>
+                                    {{-- <option value="">-- choisir votre profil  --</option> --}}
+                                    {{-- <option value="Etudiant">Etudiant</option> --}}
                                     <option value="Administrateur">Admin</option>
-                                    <option value="Enseignant">Enseignant</option>
+                                    {{-- <option value="Enseignant">Enseignant</option> --}}
 
                                 </select>
                             </div>
@@ -87,68 +87,5 @@
         </div>
     </div>
 </div>
-
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-
-<script text="javascript">
-    $(document).ready(function(){
-    //------------ DEBUT DE LA FONCTION APPELEE QUAND ON SELECIONNE UNE REGION -------------------
-    //------Quand on selectionne une region, il affiche les cercles de cette région -----------
-    $(document).on('change','.region',function(){
-        //console.log("Region is changed !");
-    // window.locate()
-         var region_id=$(this).val();
-         var div=$(this).parent().parent().parent();
-         var op="";
-         // console.log(region_id);
-         $.ajax({
-             type: 'get',
-           //  url:'{!!URL::to('findCercleName')!!}',
-             url:"{{route('find-cercle')}}",
-             data:{'id':region_id},
-             success:function(data){
-                 //console.log(div);
-             op+='<option value="0" selected disabled> ..selectionner le cercle.. </option>';
-             for(var i=0; i<data.length; i++){
-                 op+='<option value="'+data[i].id+'">'+data[i].cercle+'</option>';
-
-             }
-             div.find('.cercle').html("")
-             div.find('.cercle').append(op)
-         },
-         error:function(){
-
-         }
-        });
-    });//FIN DE LA FUNCTION ----------------------------------------->
-    $(document).on('change','.cercle',function(){
-        var cercle_id=$(this).val();
-        var a=$(this).parent().parent().parent();
-        var op="";
-        $.ajax({
-             type: 'get',
-             //url:'{!!URL::to('findSecteurName')!!}',
-             url:"{{route('find-secteur')}}",
-             data:{'id':cercle_id},
-            // dataType:'json',
-             success:function(data){
-                console.log("success");
-            //console.log("secteur");
-            //console.log(data);
-            op+='<option value="0" selected disabled>..selectionner le secteur..</option>';
-             for(var i=0; i<data.length; i++){
-                 op+='<option value="'+data[i].id+'">'+data[i].secteur+'</option>';
-
-             }
-             a.find('.secteur').html("")
-             a.find('.secteur').append(op)
-
-         },
-         error:function(){
-
-         }
-        });
-    }); /// FIN DE LA FUNCTION
- });
-</script>
+<script src="{{ asset('js/jquery.min.js') }}">
 @endsection
