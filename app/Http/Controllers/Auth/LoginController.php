@@ -47,14 +47,12 @@ class LoginController extends Controller
         if($user->profil=='Administrateur'){
            // return RouteServiceProvider::HOMEADMIN;
            return redirect()->route('admin-accueil');
-        }else
+        }
         if($user->profil=='Etudiant'){
             return redirect()->route('etudiant-accueil');
-        }else{
-            return redirect()->route('login');
         }
         if($user->profil=='Enseignant'){
-            return redirect()->route('responsable-accueil');
+            return redirect()->route('encadreur-index');
              }
         else{
         return redirect()->route('login');

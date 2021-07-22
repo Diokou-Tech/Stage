@@ -31,6 +31,7 @@ use App\Http\Controllers\EnseignantController;
 use App\Http\Controllers\R_CandidatController;
 use App\Http\Controllers\TypeElectionController;
 use App\Http\Controllers\CandidatElectionController;
+use App\Http\Controllers\EncadreurController;
 use App\Http\Controllers\ResultatCandidatController;
 /*
 |--------------------------------------------------------------------------
@@ -125,6 +126,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/contact',     [StageController::class, 'contact'])->name('stage-contact');
         
     });
+    //admin routes 
     Route::prefix('pages')->group(function(){
         Route::get('/home', [AdminController::class, 'homeEtudiant'])->name('etudiant-accueil');
         Route::get('/accueil', [AdminController::class, 'homeAdmin'])->name('admin-accueil');
@@ -137,7 +139,12 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/contact', [AdminController::class, 'contact'])->name('page-contact');
         Route::get('/tableau', [AdminController::class, 'tableau'])->name('page-tableau');
         Route::get('/telechargement',     [AdminController::class, 'telechargement'])->name('page-telechargement');
-
+    });
+    // routes encadreurs
+    Route::prefix('encadreur')->group(function(){
+        Route::get('/', [EncadreurController::class, 'index'])->name('encadreur-index');
+        Route::get('/dashboard', [EncadreurController::class, 'dashboard'])->name('encadreur-dashboard');
+        Route::get('/{id}/show',     [EncadreurController::class, 'show'])->name('encadreur-show');
     });
 
     Route::prefix('users')->group(function(){
