@@ -25,7 +25,7 @@ class CreateStagesTable extends Migration
             $table->date('date_debut')->nullable();
             $table->date('date_fin')->nullable();
             $table->string('fiche', 255)->nullable(false);
-
+            $table->boolean('signe')->nullable()->default(false);
             $table->biginteger('voeux_ens1')->unsigned()->nullable(true);
             $table->biginteger('voeux_ens2')->unsigned()->nullable(true);
             $table->biginteger('voeux_ens3')->unsigned()->nullable(true);

@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Auth;
 class EncadreurController extends Controller
 {
     public function index(Request $req){
-       return view('encadreur.index');
+        $user = Auth::user();
+        $enseignant = Enseignant::where('user_id','=',$user->id)->first();
+       return view('encadreur.index',['enseignant' => $enseignant]);
     }
     public function dashboard(){
         $user = Auth::user();
