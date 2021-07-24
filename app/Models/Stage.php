@@ -29,16 +29,17 @@ class Stage extends Model
         'voeux_ens3',
         'etudiant_id',
         'enseignant_id',
+        'classe_id',
     ];
-
-    public function classe(){
-        return $this->belongsTo(Classe::class);
-    }
+    
     public function enseignant(){
         return $this->belongsTo(Enseignant::class);
     }
     public function etudiant(){
         return $this->belongsTo(Etudiant::class);
+    }
+    public function classe(){
+        return $this->belongsTo(Classe::class);
     }
 
 }

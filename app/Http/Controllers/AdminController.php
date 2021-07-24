@@ -23,7 +23,10 @@ class AdminController extends Controller
     public function affecter($id){
         $enseignants = Enseignant::all();
         $stage = Stage::find($id);
-        return view('pages.affecter',['enseignants'=>$enseignants,'id_stage' => $id,'stage' => $stage]);
+        $voeu3 =Enseignant::find($stage->voeux_ens3);
+        $voeu2 =Enseignant::find($stage->voeux_ens2);
+        $voeu1 =Enseignant::find($stage->voeux_ens1);
+        return view('pages.affecter',['enseignants'=>$enseignants,'id_stage' => $id,'stage' => $stage,'voeu1' => $voeu1,'voeu2' => $voeu2,'voeu3' => $voeu3]);
     }
     public function affectere(Request $request){
         //affectation de l'encadreur

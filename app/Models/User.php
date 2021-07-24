@@ -45,17 +45,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-
-    public function secteur(){
-        return $this->belongsTo(Secteur::class);
-    }
-
-    public function cercle(){
-        return $this->belongsTo(Cercle::class);
-    }
-    public function region(){
-        return $this->belongsTo(Region::class);
-    }
         
 }

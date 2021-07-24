@@ -2,12 +2,14 @@
 @section('content')
 <div class='container'>
     <div class="row mb-4">
-            <div class="col-sm-12 col-md-6">
-               <a href="{{ route('encadreur-dashboard') }}" class="btn btn-md btn-outline-secondary float-left">  <i class="fas fa-arrow-circle-left"></i> Retour</a>
-            </div>
-            <div class="col-sm-12 col-md-6">
-               <!-- <h1>Résultats</h1>-->
-            </div>
+        <div class=" border-0 m-0 col-4"> 
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb border-0">
+                  <li class="breadcrumb-item "><a href="{{ route('encadreur-dashboard')}}">Tableau de Bord</a></li>
+                  <li class="breadcrumb-item" aria-current="page">Affichage</li>
+                </ol>
+            </nav>   
+        </div>
     </div>
        <div class="row bg-white pt-3 mt-1 mb-3">
        <div class="col-sm-12">

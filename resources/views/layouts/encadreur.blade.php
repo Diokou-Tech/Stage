@@ -49,7 +49,12 @@
                                 </li>
                                  <li class="nav-item">
                                     <a class="nav-link @if(\Route::current()->getName() == 'encadreur-dashboard') active  @endif" href=" {{route('encadreur-dashboard')}} "><i class="fas fa-house-user"></i> Tableau de Bord</a>
-                                </li>                           
+                                </li>    
+                                @if($enseignant->classes->count() != 0)
+                                <li class="nav-item">
+                                  <a class="nav-link @if(\Route::current()->getName() == 'encadreur-affecter') active  @endif" href=" {{route('encadreur-affecter')}} "><i class="fas fa-house-user"></i> Affectation </a>
+                              </li> 
+                                @endif                       
                                 <!-- FIN -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle rounded" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

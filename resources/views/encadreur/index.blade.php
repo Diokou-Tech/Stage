@@ -5,12 +5,12 @@
     <div class="d-flex justify-content-evenly">
         <div class="card shadow-lg p-1  text-white d-flex align-items-center justify-content-center c col-4 rounded-circle">
             <h2 class="text-center text-white"><i class="fas fa-poll"></i> <br> {{ $enseignant->stages->count() }} <br> Suivis</h2>
-           </div>
-    </div>
-    <div class="d-flex justify-content-evenly">
+        </div>
+      @if($enseignant->classes->count() != 0)
       <div class="card shadow-lg p-1  text-white d-flex align-items-center justify-content-center c col-4 rounded-circle">
-          <h2 class="text-center text-white"><i class="fas fa-poll"></i> <br> {{ $enseignant->stages->count() }} <br> Dépôts</h2>
-         </div>
+        <h2 class="text-center text-white"><i class="fas fa-poll"></i> <br> {{ $total_stages }} <br> Dépôts</h2>
+    </div>
+      @endif
   </div>
 <style>
     .c{

@@ -11,7 +11,7 @@
         </div>
             <div class="col-12">
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm table-hover ">
+                    <table class="table table-striped table-sm table-hover text-center">
                         <thead class="table-dark">
                             <tr>
                                 <th>id</th>
@@ -22,7 +22,8 @@
                                 <th>Email Tuteur</th>                          
                                 <th>Debut stage</th>                          
                                 <th>Fin stage</th>                          
-                                <th>Fiche</th>                       
+                                <th>Fiche</th>          
+                                <th>signe</th>             
                                 <th>Date de transmission</th>                                                             
                                 <th>Actions</th>                          
                             </tr>
@@ -44,6 +45,12 @@
                                     <td>{{$stage->date_debut}}</td>   
                                     <td>{{$stage->date_fin}}</td>   
                                     <td><a target="_blank" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">fiche de resnseignement</a></td>    
+                                    <td> @if ($stage->signe != null)
+                                        <i class="fa fa-signature text-success"></i>
+                                        @else
+                                        <i class="fa fa-signature text-danger"></i>
+                                        @endif
+                                    </td>
                                     <td>{{$stage->created_at}}</td>  
                                      <td class='d-flex'>
                                         <a href="{{ route('stage-show', ['id'=>$stage->id])}}" class="btn btn-sm btn-info m-2 text-white"><i class="fas fa-eye"></i></a>

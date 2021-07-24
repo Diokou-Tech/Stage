@@ -54,7 +54,6 @@ class StageController extends Controller
         $enseignants = Enseignant::all();
         $etudiants = Etudiant::all();
         return view('stages.create', ['etudiants'=>$etudiants, 'enseignants'=>$enseignants]);
-
     }
     public function offre()
     {
@@ -76,6 +75,7 @@ class StageController extends Controller
     {
         //
                 $etud = Etudiant::where('user_id','=',Auth::user()->id)->first();
+                // dd($etud->classe);
                 //upload fichier
                 $fiche = $request->file('fiche');
                 $ficheName = 'Fiche-'.date("Y_m_d-H_i_s").'.'.$fiche->extension();
@@ -98,6 +98,7 @@ class StageController extends Controller
                     'voeux_ens2' => $request->voeu2,
                     'voeux_ens3' => $request->voeu3,
                     'etudiant_id'  => $etud->id,
+                    'classe_id'  => $etud->classe->id,
                     'enseignant_id'  => null
                 ]);
                Notify()->success('Depot de stage reussi', 'Depôt');

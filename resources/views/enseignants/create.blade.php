@@ -3,11 +3,14 @@
 @section('content')
     <div class="container">
         <div class="row d-flex justify-content-between">
-            <div class="col-4">
-                <h3>Ajouter un enseignant</h3>
-            </div>
-            <div class=" col-4">
-               <a href=" {{ route('prof-index')}} " class="btn btn-sm btn-outline-secondary float-right">Retour</a>
+            <div class=" border-0 m-0 col-4"> 
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb border-0">
+                      <li class="breadcrumb-item "><a href="{{ route('prof-index')}}">Enseignants</a></li>
+                      <li class="breadcrumb-item" aria-current="page">Ajout d'un enseignant</li>
+                    </ol>
+                </nav>   
+               {{-- <a href=" {{ route('prof-index')}} " class="btn btn-sm btn-outline-secondary float-right">Retour</a> --}}
             </div>
         </div>
 
@@ -45,15 +48,19 @@
                                 </div>
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">Sexe:</label>
-                                    <input type="text" id="sexe" name="sexe" required class="form-control" placeholder="Sexe..."/>
+                                    <select name="sexe" id="sexe" class="form-control" required>
+                                        <option value=""> -- choisir le sexe --</option>
+                                        <option value="F">Féminin</option>
+                                        <option value="M">Masculin</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="col-5">
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">Code Postal:</label>
                                     <input type="text" id="code_postal" name="code_postal" required class="form-control" 
                                         placeholder="Code Postal..."/>
                                 </div>
+                            </div>
+                            <div class="col-5">
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">Numero portable:</label>
                                     <input type="text" id="portable" name="portable" required class="form-control" placeholder="Numero de portable..."/>
@@ -76,7 +83,7 @@
                             </div>
                         </div>
                         <div class="form-group float-left mt-4 text-center">
-                        <button type="submit" class="btn btn-md btn-primary" >Ajouter</button>
+                        <button type="submit" class="btn btn-md btn-primary" > Ajouter</button>
                         </div>
 
                     </form>

@@ -4,10 +4,12 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <h3>Modification des infos </h3>
-            </div>
-            <div class="col-sm-12 col-md-6">
-               <a href=" {{ route('prof-index')}} " class="btn-sm btn-outline-secondary float-right">Retour</a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb border-0">
+                      <li class="breadcrumb-item "><a href="{{ route('prof-index')}}">Enseignants</a></li>
+                      <li class="breadcrumb-item" aria-current="page">Modification d'un enseignant</li>
+                    </ol>
+                </nav>   
             </div>
             </div>
 

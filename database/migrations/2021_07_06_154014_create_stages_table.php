@@ -30,14 +30,13 @@ class CreateStagesTable extends Migration
             $table->biginteger('voeux_ens2')->unsigned()->nullable(true);
             $table->biginteger('voeux_ens3')->unsigned()->nullable(true);
             ##-- CLE ETRANGERE --##
-            $table->biginteger('etudiant_id')->unsigned()->nullable(true);
+            $table->biginteger('etudiant_id')->unsigned();
             $table->biginteger('enseignant_id')->unsigned()->nullable(true);
+            $table->biginteger('classe_id')->unsigned();
               ##-- REFERENCES DES CLES ETRANGERES --##
-            $table->foreign('etudiant_id')->references('id')->on('etudiants');
-            $table->foreign('enseignant_id')->references('id')->on('enseignants');
-            $table->foreign('voeux_ens1')->references('id')->on('enseignants');
-            $table->foreign('voeux_ens2')->references('id')->on('enseignants');
-            $table->foreign('voeux_ens3')->references('id')->on('enseignants');
+            $table->foreign('etudiant_id')->references('id')->on('etudiants')->onDelete('cascade');;
+            $table->foreign('enseignant_id')->references('id')->on('enseignants')->onDelete('cascade');;
+            $table->foreign('classe_id')->references('id')->on('classes')->onDelete('cascade');
             $table->timestamps();
         });
     }

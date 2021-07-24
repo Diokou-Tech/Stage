@@ -45,7 +45,11 @@
                             </div>
                             <div class="form-group mt-2 mr-3">
                                 <label for="name">Sexe:</label>
-                                <input type="text" id="sexe" name="sexe" required class="form-control" placeholder="Sexe..."/>
+                                <select name="sexe" id="sexe" class="form-control" required>
+                                    <option value=""> -- choisir le sexe --</option>
+                                    <option value="F">Féminin</option>
+                                    <option value="M">Masculin</option>
+                                </select>
                             </div>
                             <div class="form-group mt-2 mr-3">
                                 <label for="name">Code Postal:</label>

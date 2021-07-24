@@ -143,8 +143,12 @@ Route::middleware(['auth'])->group(function(){
     // routes encadreurs
     Route::prefix('encadreur')->group(function(){
         Route::get('/', [EncadreurController::class, 'index'])->name('encadreur-index');
-        Route::get('/dashboard', [EncadreurController::class, 'dashboard'])->name('encadreur-dashboard');
-        Route::get('/{id}/show',     [EncadreurController::class, 'show'])->name('encadreur-show');
+        Route::get('/dashboard',[EncadreurController::class, 'dashboard'])->name('encadreur-dashboard');
+        Route::get('/{id}/show',[EncadreurController::class, 'show'])->name('encadreur-show');
+        Route::get('/affecter',[EncadreurController::class, 'affecter'])->name('encadreur-affecter');
+        Route::get('/{id}/signer',[EncadreurController::class, 'signer'])->name('encadreur-signer');
+        Route::post('/{id}/signer',[EncadreurController::class, 'signer'])->name('encadreur-signer');
+
     });
 
     Route::prefix('users')->group(function(){

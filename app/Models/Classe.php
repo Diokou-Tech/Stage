@@ -29,4 +29,7 @@ class Classe extends Model
     public function etudiants(){
         return $this->hasMany(Etudiant::class);
     }
+    public function stages(){
+        return $this->hasMany(Stages::class);
+    }
 }
