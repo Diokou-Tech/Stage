@@ -2,7 +2,7 @@
 @section('content')
 <div class='container-fluid mx-2'>
     <div class="row justify-content-center">     
-        <h4> <b>{{ $stages->count() }}</b> Stage(s) Enregistré(s) </h4>                  
+        <h4> <b>{{ $stages->count() }}</b> suivi(s) </h4>                  
             <hr class="featurette-divider">
         </div>
             <div class="col-12">

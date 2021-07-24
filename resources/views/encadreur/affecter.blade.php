@@ -2,12 +2,12 @@
 @section('content')
 <div class='container-fluid mx-2'>
     <div class="row justify-content-center">      
-        <h4> <b>{{ $stages->count() }}</b> Stage(s) Enregistré(s) </h4>                  
+        <h4> <b>{{ $stages->count() }}</b> Stage(s) </h4>                  
             <hr class="featurette-divider">
         </div>
             <div class="col-12">
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm table-hover ">
+                    <table class="table table-striped table-sm table-hover text-center">
                         <thead class="table-dark">
                             <tr>
                                 <th>id</th>
@@ -42,12 +42,17 @@
                                     <td><a target="_blank" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">fiche de renseignement</a></td>    
                                     <td>{{$stage->created_at}}</td>  
                                      <td class='d-flex'>
-                                        <a href="{{ route('encadreur-show', ['id'=>$stage->id])}}" class="btn btn-sm btn-info m-2 text-white"><i class="fas fa-eye"></i></a>
+                                        <a title="afficher" href="{{ route('encadreur-show', ['id'=>$stage->id])}}" class="btn btn-sm btn-info m-2 text-white"><i class="fas fa-eye"></i></a>
                                         @if($stage->signe != null)
-                                        <a href="{{ route('encadreur-signer', ['id'=>$stage->id])}}" class="btn btn-sm btn-success m-2"><i class="fas fa-signature"></i></a>
+                                        <a title="signer" href="{{ route('encadreur-signer', ['id'=>$stage->id])}}" class="btn btn-sm btn-success m-2"><i class="fas fa-signature"></i></a>
                                          @else
-                                         <a href="{{ route('encadreur-signer', ['id'=>$stage->id])}}" class="btn btn-sm btn-secondary m-2 text-dark"><i class="fas fa-signature"></i></a>
+                                         <a title="signer" href="{{ route('encadreur-signer', ['id'=>$stage->id])}}" class="btn btn-sm btn-secondary m-2 text-dark"><i class="fas fa-signature"></i></a>
                                          @endif 
+                                         @if($stage->enseignant_id != null)
+                                         <a title="affecter" href="{{ route('page-affecter', ['id'=>$stage->id])}}" class="btn btn-sm btn-success m-2"><i class="fas fa-user"></i></a>
+                                          @else
+                                          <a title="affecter" href="{{ route('page-affecter', ['id'=>$stage->id])}}" class="btn btn-sm btn-secondary m-2 text-dark"><i class="fas fa-user"></i></a>
+                                          @endif
                                     </td>          
                                 </tr>
                         @endforeach

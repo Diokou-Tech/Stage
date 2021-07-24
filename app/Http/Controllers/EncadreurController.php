@@ -13,7 +13,13 @@ class EncadreurController extends Controller
     public function index(Request $req){
         $user = Auth::user();
         $enseignant = Enseignant::where('user_id','=',$user->id)->first();
-        $total_stages = Stage::where('classe_id','=',$enseignant->classes->first()->id)->count();
+        // dd($enseignant);
+        if($enseignant->classes != null){
+            $total_stages = 0;
+        }else{
+            $total_stages = Stage::where('classe_id','=',$enseignant->classes->first()->id)->count();
+        }
+
        return view('encadreur.index',['enseignant' => $enseignant,'total_stages' => $total_stages]);
     }
     public function dashboard(){
