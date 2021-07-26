@@ -15,11 +15,10 @@ class Enseignant extends Model
         'matricule',
         'prenom',
         'nom',
-        'sexe',
-        'code_postal',
+        'specialite',
         'email',
         'portable',
-        'adresse',
+        'user_id',
     ];
     
     public function classes(){

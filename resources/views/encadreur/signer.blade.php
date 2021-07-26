@@ -4,7 +4,7 @@
     <div class=" border-0 m-0 col-4"> 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb border-0">
-              <li class="breadcrumb-item "><a href="{{ route('encadreur-affecter')}}">Affectation</a></li>
+              <li class="breadcrumb-item "><a href="{{ route('encadreur-affecter-index')}}">Affectation</a></li>
               <li class="breadcrumb-item" aria-current="page">signature</li>
             </ol>
         </nav>   
@@ -13,7 +13,11 @@
     <div class="row justify-content-center align-items-center">   
         <div class="col-lg-6 col-md-8 mx-auto">
             <ul class="list-group-flush">
-                <li class="list-group-item text-success"><a target="_blank" download="{{ $stage->fiche }}" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">Télécharger la Fiche non signée</a></li>
+                @if($stage->signe == false)
+                <li class="list-group-item text-success"><a target="_blank" download="{{ $stage->fiche }}" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">Télécharger la Fiche non signée</a></li>                    
+                @else
+                <li class="list-group-item text-success"> Cette fiche a déjà été signée <br> <a target="_blank" download="{{ $stage->fiche }}" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">Fiche signée</a></li>                      
+                @endif
                 <li class="list-group-item">
                     <form action="{{ route('encadreur-signer',['id'=>$stage->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf

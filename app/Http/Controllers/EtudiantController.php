@@ -73,11 +73,8 @@ class EtudiantController extends Controller
                 $etudiant->matricule = $request->matricule;
                 $etudiant->prenom = $request->prenom;
                 $etudiant->nom = $request->nom;
-                $etudiant->sexe = $request->sexe;
                 $etudiant->email = $request->email;
-                $etudiant->code_postal = $request->code_postal;
                 $etudiant->portable = $request->portable;
-                $etudiant->adresse = $request->adresse;
                 $etudiant->classe_id = $request->classe_id;
                 $etudiant->user_id = $user->id;
                 $etudiant->save();
@@ -127,11 +124,8 @@ class EtudiantController extends Controller
         $etudiant->matricule = $request->matricule;
         $etudiant->prenom = $request->prenom;
         $etudiant->nom = $request->nom;
-        $etudiant->sexe = $request->sexe;
         $etudiant->email = $request->email;
-        $etudiant->code_postal = $request->code_postal;
         $etudiant->portable = $request->portable;
-        $etudiant->adresse = $request->adresse;
         $etudiant->classe_id = $request->classe_id;
         $etudiant->update();
         notify()->success("Modification effectuée avec succès","Mise à jour");

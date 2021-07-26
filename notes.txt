@@ -6,4 +6,12 @@
 
 3- Créer la base de données vide si ce n'est pas encore fait
 
-4- Taper les 
+4- Taper les commandes suivantes :
+
+---> composer install 
+
+---> php artisan migrate
+
+---> php artisan db:seed (mettre les fausses données)
+
+---> 

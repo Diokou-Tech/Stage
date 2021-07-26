@@ -52,7 +52,7 @@
                                 </li>    
                                 @if($enseignant->classes->count() != 0)
                                 <li class="nav-item">
-                                  <a class="nav-link @if(\Route::current()->getName() == 'encadreur-affecter') active  @endif" href=" {{route('encadreur-affecter')}} "><i class="fas fa-house-user"></i> Affectation </a>
+                                  <a class="nav-link @if(\Route::current()->getName() == 'encadreur-affecter-index') active  @endif" href=" {{route('encadreur-affecter-index')}} "><i class="fas fa-house-user"></i> Affectation </a>
                               </li> 
                                 @endif                       
                                 <!-- FIN -->

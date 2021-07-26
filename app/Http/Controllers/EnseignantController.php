@@ -71,11 +71,9 @@ class EnseignantController extends Controller
         $enseignant->matricule = $request->matricule;
         $enseignant->prenom = $request->prenom;
         $enseignant->nom = $request->nom;
-        $enseignant->sexe = $request->sexe;
         $enseignant->email = $request->email;
-        $enseignant->code_postal = $request->code_postal;
+        $enseignant->specialite = $request->specialite;
         $enseignant->portable = $request->portable;
-        $enseignant->adresse = $request->adresse;
         $enseignant->user_id = $user->id;
         $enseignant->save();
 
@@ -122,11 +120,9 @@ class EnseignantController extends Controller
         $enseignant->matricule = $request->matricule;
         $enseignant->prenom = $request->prenom;
         $enseignant->nom = $request->nom;
-        $enseignant->sexe = $request->sexe;
         $enseignant->email = $request->email;
-        $enseignant->code_postal = $request->code_postal;
+        $enseignant->specialite = $request->specialite;
         $enseignant->portable = $request->portable;
-        $enseignant->adresse = $request->adresse;
         $enseignant->update();
 
         return redirect(route('prof-index'))->with('success', 'Mise à jour effectué avec succès.');

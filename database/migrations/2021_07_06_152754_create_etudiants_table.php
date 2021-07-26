@@ -18,11 +18,9 @@ class CreateEtudiantsTable extends Migration
             $table->string('matricule', 45)->nullable(false);
             $table->string('prenom', 45)->nullable(false);
             $table->string('nom', 45)->nullable(false);
-            $table->string('sexe', 10)->nullable(false);
-            $table->string('code_postal', 45)->nullable(true);
+            // $table->string('sexe', 10)->nullable(false);
             $table->string('email')->unique('email');
             $table->string('portable', 45)->nullable(true);
-            $table->string('adresse', 45)->nullable(true);
 
             ##-- CLES ETRANGERES --##
             $table->biginteger('classe_id')->unsigned()->nullable(true);

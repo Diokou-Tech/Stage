@@ -20,22 +20,6 @@ class AdminController extends Controller
 
         //$this->middleware(['profil:administrateur']);
     }
-    public function affecter($id){
-        $enseignants = Enseignant::all();
-        $stage = Stage::find($id);
-        $voeu3 =Enseignant::find($stage->voeux_ens3);
-        $voeu2 =Enseignant::find($stage->voeux_ens2);
-        $voeu1 =Enseignant::find($stage->voeux_ens1);
-        return view('pages.affecter',['enseignants'=>$enseignants,'id_stage' => $id,'stage' => $stage,'voeu1' => $voeu1,'voeu2' => $voeu2,'voeu3' => $voeu3]);
-    }
-    public function affectere(Request $request){
-        //affectation de l'encadreur
-        $stage = Stage::find($request->id_stage);
-        $stage->enseignant_id=$request->choix;
-        $stage->save();
-        notify()->success('Affectation encadreur reussie','Affectation');
-        return redirect(route('page-stage'));
-    }
     public function dashboard(){
         return view ('admin.dashboard');
     }

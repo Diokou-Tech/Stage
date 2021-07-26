@@ -44,28 +44,8 @@
                                 <input type="text" id="nom" name="nom" required class="form-control" placeholder="Nom..."/>
                             </div>
                             <div class="form-group mt-2 mr-3">
-                                <label for="name">Sexe:</label>
-                                <select name="sexe" id="sexe" class="form-control" required>
-                                    <option value=""> -- choisir le sexe --</option>
-                                    <option value="F">Féminin</option>
-                                    <option value="M">Masculin</option>
-                                </select>
-                            </div>
-                            <div class="form-group mt-2 mr-3">
-                                <label for="name">Code Postal:</label>
-                                <input type="text" id="code_postal" name="code_postal" required class="form-control" 
-                                    placeholder="Code Postal..."/>
-                            </div>
-                        </fieldset>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group mt-2 mr-3">
                                 <label for="name">Numero portable:</label>
                                 <input type="text" id="portable" name="portable" required class="form-control" placeholder="Numero de portable..."/>
-                            </div>
-                            <div class="form-group mt-2 mr-3">
-                                <label for="name">Adresse:</label>
-                                <input type="text" id="adresse" name="adresse" required class="form-control" placeholder="Adresse..."/>
                             </div>
                             <div class="form-group mt-2 mr-3">
                                 <label for="classe_id">Parcours :</label>
@@ -77,7 +57,17 @@
                                     @endforeach
                                 </select>
                             </div>
-                            
+                            {{-- <div class="form-group mt-2 mr-3">
+                                <label for="name">Sexe:</label>
+                                <select name="sexe" id="sexe" class="form-control" required>
+                                    <option value=""> -- choisir le sexe --</option>
+                                    <option value="F">Féminin</option>
+                                    <option value="M">Masculin</option>
+                                </select>
+                            </div> --}}
+                        </fieldset>
+                        </div>
+                        <div class="col-6">                            
                             <fieldset>
                                 <legend class="text-md">Idenfiants de connexion</legend>
                                 <div class="form-group mt-2 mr-3">

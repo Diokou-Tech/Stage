@@ -47,6 +47,14 @@
                                     <input type="text" id="nom" name="nom" required class="form-control" placeholder="Nom..."/>
                                 </div>
                                 <div class="form-group mt-2 mr-3">
+                                    <label for="name">Numero portable:</label>
+                                    <input type="text" id="portable" name="portable" required class="form-control" placeholder="Numero de portable..."/>
+                                </div>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="name">specialite:</label>
+                                    <input type="text" id="specialite" name="specialite" required class="form-control" placeholder="specialite "/>
+                                </div>
+                                {{-- <div class="form-group mt-2 mr-3">
                                     <label for="name">Sexe:</label>
                                     <select name="sexe" id="sexe" class="form-control" required>
                                         <option value=""> -- choisir le sexe --</option>
@@ -58,17 +66,13 @@
                                     <label for="name">Code Postal:</label>
                                     <input type="text" id="code_postal" name="code_postal" required class="form-control" 
                                         placeholder="Code Postal..."/>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="col-5">
-                                <div class="form-group mt-2 mr-3">
-                                    <label for="name">Numero portable:</label>
-                                    <input type="text" id="portable" name="portable" required class="form-control" placeholder="Numero de portable..."/>
-                                </div>
-                                <div class="form-group mt-2 mr-3">
+                                {{-- <div class="form-group mt-2 mr-3">
                                     <label for="name">Adresse:</label>
                                     <input type="text" id="adresse" name="adresse" required class="form-control" placeholder="Adresse..."/>
-                                </div>
+                                </div> --}}
                                 <fieldset>
                                     <legend class="text-sm">Identifiants de connexion</legend>
                                 <div class="form-group mt-2 mr-3">

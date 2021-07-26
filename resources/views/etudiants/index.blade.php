@@ -67,11 +67,8 @@
                                 <th>Matricule</th>
                                 <th>Prenom</th>
                                 <th>Nom</th>
-                                <th>Sexe</th>
-                                <th>Tel</th>
-                                <th>E-mail</th>
-                                <th>CP</th>
-                                <th>adresse</th>                          
+                                <th>E-mail</th>    
+                                <th>Tel</th>                    
                                 <th>Actions</th>                          
                             </tr>
                         </thead>
@@ -82,11 +79,8 @@
                                     <td>{{$etudiant->matricule}}</td>   
                                     <td>{{$etudiant->prenom}}</td>   
                                     <td>{{$etudiant->nom}}</td>   
-                                    <td>{{$etudiant->sexe}}</td>   
-                                    <td>{{$etudiant->adresse}}</td>   
+                                    <td>{{$etudiant->email}}</td>   
                                     <td>{{$etudiant->portable}}</td>   
-                                    <td>{{$etudiant->code_postal}}</td>   
-                                    <td>{{$etudiant->adresse}}</td>   
                                      <td class='d-flex'>
                                         <a href="{{ route('etudiant-edit', ['id'=>$etudiant->id])}}" class="btn btn-sm btn-primary m-1"><i class="fas fa-edit"></i></a>
                                         <form action=" {{ route('etudiant-destroy', ['id'=>$etudiant->id])}} 

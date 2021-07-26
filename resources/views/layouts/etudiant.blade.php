@@ -70,13 +70,15 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                                       <!--<i class="fas fa-user-slash"></i> {{ __('Quitter') }}-->
                                        <i class="fas fa-sign-out-alt"></i> {{('Deconnexion') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user"></i> Profil
+                                  </a>
                                 </div>
                             </li>
                     </ul>

@@ -25,11 +25,8 @@ class EnseignantFactory extends Factory
             'matricule' => $this->faker->randomDigitNotNull(),
             'prenom' => $this->faker->lastName,
             'nom' => $this->faker->name,
-            'sexe' => $this->faker->randomLetter(),
-            'code_postal' => $this->faker->postcode,
             'email' => $this->faker->email,
             'portable' => 00033345645,
-            'adresse' => $this->faker->city,
             'user_id' => random_int(1,10)
         ];
     }

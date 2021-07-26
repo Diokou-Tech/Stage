@@ -16,11 +16,8 @@ class Etudiant extends Model
         'matricule',
         'prenom',
         'nom',
-        'sexe',
-        'cp',
         'email',
         'portable',
-        'adresse',
         'mot_passe',
         'classe_id',
         

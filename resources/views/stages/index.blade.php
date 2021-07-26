@@ -23,7 +23,8 @@
                                 <th>Debut stage</th>                          
                                 <th>Fin stage</th>                          
                                 <th>Fiche</th>     
-                                <th>Signe</th>                    
+                                <th>Signe</th> 
+                                <th>Affecter</th>                    
                                 <th>Date de transmission</th>                                                        
                                 <th>Actions</th>                          
                             </tr>
@@ -45,10 +46,16 @@
                                     <td>{{$stage->date_debut}}</td>   
                                     <td>{{$stage->date_fin}}</td>   
                                     <td><a target="_blank" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">fiche de renseignement</a></td>    
-                                    <td> @if ($stage->signe != null)
+                                    <td> @if ($stage->enseignant_id != null)
                                         <i class="fa fa-signature text-success"></i>
                                         @else
                                         <i class="fa fa-signature text-danger"></i>
+                                        @endif
+                                    </td>
+                                    <td> @if ($stage->signe != null)
+                                        <i class="fa fa-check-double text-success"></i>
+                                        @else
+                                        <i class="fa fa-check text-danger"></i>
                                         @endif
                                     </td>
                                     <td>{{$stage->created_at}}</td>  

@@ -133,19 +133,19 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/profil', [AdminController::class, 'profil'])->name('page-profil');
         Route::get('/stage', [AdminController::class, 'stage'])->name('page-stage');
         Route::get('/login', [AdminController::class, 'login'])->name('page-login');
-        Route::get('/affecter/{id}', [AdminController::class, 'affecter'])->name('page-affecter');
-        Route::post('/affecter', [AdminController::class, 'affectere'])->name('affecter');
         Route::get('/depot', [AdminController::class, 'depot'])->name('page-depot');
         Route::get('/contact', [AdminController::class, 'contact'])->name('page-contact');
         Route::get('/tableau', [AdminController::class, 'tableau'])->name('page-tableau');
-        Route::get('/telechargement',     [AdminController::class, 'telechargement'])->name('page-telechargement');
+        Route::get('/telechargement',[AdminController::class, 'telechargement'])->name('page-telechargement');
     });
     // routes encadreurs
     Route::prefix('encadreur')->group(function(){
         Route::get('/', [EncadreurController::class, 'index'])->name('encadreur-index');
         Route::get('/dashboard',[EncadreurController::class, 'dashboard'])->name('encadreur-dashboard');
         Route::get('/{id}/show',[EncadreurController::class, 'show'])->name('encadreur-show');
-        Route::get('/affecter',[EncadreurController::class, 'affecter'])->name('encadreur-affecter');
+        Route::get('/affecter',[EncadreurController::class, 'affecterIndex'])->name('encadreur-affecter-index');
+        Route::get('/{id}/affecter',[EncadreurController::class, 'affecter'])->name('encadreur-affecter');
+        Route::post('/{id}/affecter',[EncadreurController::class, 'affecterEtudiant'])->name('encadreur-affecter');
         Route::get('/{id}/signer',[EncadreurController::class, 'signer'])->name('encadreur-signer');
         Route::post('/{id}/signer',[EncadreurController::class, 'signer'])->name('encadreur-signer');
 
