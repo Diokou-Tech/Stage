@@ -1,7 +1,10 @@
 @extends('layouts.encadreur')
 @section('content')
-<div class='container-fluid mx-2'>
-    <div class="row justify-content-center">     
+<div class='container  mx-auto'>
+    <div class="row justify-content-center">   
+        <P>
+            Ce tableau regroupe les étudiants dont vous encadrez et leurs stages.
+        </P>  
         <h4> <b>{{ $stages->count() }}</b> suivi(s) </h4>                  
             <hr class="featurette-divider">
         </div>

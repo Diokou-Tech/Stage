@@ -2,14 +2,12 @@
 @extends('layouts.template')
 @section('content')
     <div class="container">
-        <div class="row d-flex justify-content-between mx-auto">
-            <div class="col-sm-12 col-md-5 col-3">
-                <h1>Modifier le parcours</h1>
-            </div>
-            <div class="col-sm-12 col-md-5 col-3">
-               <a href=" {{ route('classe-index')}} " class="btn btn-sm btn-outline-secondary float-right">Retour</a>
-            </div>
-            </div>
+        <nav aria-label="breadcrumb border-0 m-0">
+            <ol class="breadcrumb border-0">
+              <li class="breadcrumb-item "><a href="{{ route('classe-index')}} ">Parcours</a></li>
+              <li class="breadcrumb-item" aria-current="page">Modification d'un parcours</li>
+            </ol>
+        </nav>   
 
             <div class="row bg-white pt-3 mt-2 ">
                 <div class="col-sm-12 text-center">

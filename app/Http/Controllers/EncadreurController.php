@@ -46,6 +46,7 @@ class EncadreurController extends Controller
         $user = Auth::user();
         $enseignant = Enseignant::where('user_id','=',$user->id)->first();
         $stages = Stage::where('classe_id','=',$enseignant->classes->first()->id)->get();
+
         return view('encadreur.affecter-index',['stages' => $stages,'enseignant' => $enseignant]);
     }
     public function affecter($id){

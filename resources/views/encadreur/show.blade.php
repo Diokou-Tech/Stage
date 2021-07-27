@@ -35,11 +35,11 @@
                                 <li class="list-group-item">
                                     Date fin : <b>{{ $stage->date_fin }}</b>
                                 </li>
-                                <li class="list-group-item">
+                                {{-- <li class="list-group-item">
                                     Code Postal: <b> {{ $stage->cp }} </b>
-                                </li>
+                                </li> --}}
                                 <li class="list-group-item">
-                                   Thème Stage : <b>{{ $stage->date_debut }}</b>
+                                   Thème Stage : <b>{{ $stage->theme }}</b>
                                 </li>
                             </ul>
                         </div>

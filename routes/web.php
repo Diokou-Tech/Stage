@@ -48,8 +48,6 @@ use App\Http\Controllers\ResultatCandidatController;
 Route::get('/dynamic_dependent', [App\Http\Controllers\DynamicDependent::class, 'index']);
 Route::post('/dynamic_dependent/fetch', [App\Http\Controllers\DynamicDependent::class, 'fetch'])->name('dynamicdependent.fetch');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Route::get('/user', [App\Http\Controllers\HomeController::class, 'userIndex'])->name('home-user1');
-//Route::get('/admin', [App\Http\Controllers\HomeController::class, 'adminIndex'])->name('home-admin1');
 
 ///Route::group(['prefix'=> 'admin/', 'middleware'=>['role:administrateur']], function(){
     

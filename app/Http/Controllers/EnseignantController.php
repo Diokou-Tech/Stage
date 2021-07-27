@@ -124,8 +124,8 @@ class EnseignantController extends Controller
         $enseignant->specialite = $request->specialite;
         $enseignant->portable = $request->portable;
         $enseignant->update();
-
-        return redirect(route('prof-index'))->with('success', 'Mise à jour effectué avec succès.');
+        notify()->success('success', 'Mise à jour effectué avec succès.');
+        return redirect(route('prof-index'));
     }
 
     /**
@@ -138,6 +138,7 @@ class EnseignantController extends Controller
     {
         //
         Enseignant::find($id)->delete();
-        return redirect(route('prof-index'))->with('success', 'Enregistrement supprimé avec succès.');
+        notify()->success('success', 'Enregistrement supprimé avec succès.');
+        return redirect(route('prof-index'));
     }
 }

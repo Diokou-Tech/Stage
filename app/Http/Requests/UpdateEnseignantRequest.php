@@ -27,11 +27,9 @@ class UpdateEnseignantRequest extends FormRequest
             'matricule' => 'required|max:45|min:2',
             'prenom' => 'required|string|max:45|min:2',
             'nom' => 'required|string|max:45|min:0',
-            'sexe' => 'required|string|max:10|min:1',
-            'code_postal' => 'required|max:45|min:2',
+            'specialite' => 'required|max:45|min:2',
             'email' => 'required|string|max:45|min:2',
             'portable' => 'required',
-            'adresse' => 'required|string|max:45|min:2',
       
 
             // 'team_id' => 'required|integer|exists:teams,id',

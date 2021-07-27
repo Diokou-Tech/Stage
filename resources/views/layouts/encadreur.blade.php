@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-lg bg-light text-white shadow-sm">
             <div class="container d-flex justify-content-between">
                 <div class="col-5">
-                    <a class="navbar-brand" href="{{ route('home-user') }}">
+                    <a class="navbar-brand" href="{{ route('encadreur-index') }}">
                         <img src="{{asset('img/logo.gif') }} " height="50px" width=""/> 
                            <!-- {{ config('app.name','Laravel') }} -->
                         </a>    

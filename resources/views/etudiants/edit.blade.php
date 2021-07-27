@@ -2,13 +2,15 @@
 @extends('layouts.template')
 @section('content')
     <div class="container">
+        <div class=" border-0 m-0 col-4"> 
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb border-0">
+                  <li class="breadcrumb-item "><a href="{{ route('etudiant-index')}} ">Etudiants</a></li>
+                  <li class="breadcrumb-item" aria-current="page">Modification Etudiant</li>
+                </ol>
+            </nav>   
+        </div>
         <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h4>Mise à jour des etudiants</h4>
-            </div>
-            <div class="col-sm-12 col-md-6">
-               <a href=" {{ route('etudiant-index')}} " class="btn btn-sm btn-outline-secondary float-right">Retour</a>
-            </div>
             </div>
 
             <div class="row bg-white pt-3 mt-2 ">
@@ -33,29 +35,15 @@
                                 <label for="name">Nom:</label>
                                 <input type="text" id="nom" name="nom" required  value="{{$etudiant->nom}}" class="form-control" placeholder="Nom..."/>
                             </div>
-                            <div class="form-group mt-2 mr-3">
-                                <label for="name">Sexe:</label>
-                                <input type="text" id="sexe" name="sexe" required  value="{{$etudiant->sexe}}" class="form-control" placeholder="Sexe..."/>
-                            </div>
-                            <div class="form-group mt-2 mr-3">
-                                <label for="name">Code Postal:</label>
-                                <input type="text" id="code_postal" name="code_postal"  value="{{$etudiant->code_postal}}" required class="form-control" 
-                                    placeholder="Code Postal..."/>
-                            </div>
                         </div>
                         <div class="col-5">
-
-                            <div class="form-group mt-2 mr-3">
-                                <label for="name">E-mail:</label>
-                                <input type="email" id="email" name="email" required  value="{{$etudiant->email}}" class="form-control" placeholder="Adresse e-mail..."/>
-                            </div>
                             <div class="form-group mt-2 mr-3">
                                 <label for="name">Numero portable:</label>
                                 <input type="text" id="portable" name="portable" required  value="{{$etudiant->portable}}" class="form-control" placeholder="Numero de portable..."/>
                             </div>
                             <div class="form-group mt-2 mr-3">
-                                <label for="name">Adresse:</label>
-                                <input type="text" id="adresse" name="adresse" required  value="{{$etudiant->adresse}}" class="form-control" placeholder="Adresse..."/>
+                                <label for="name">E-mail:</label>
+                                <input type="email" id="email" name="email" required  value="{{$etudiant->email}}" class="form-control" placeholder="Adresse e-mail..."/>
                             </div>
                             <div class="form-group mt-2 mr-3">
                                 <label for="classe_id">Parcours :</label>
@@ -68,7 +56,7 @@
                             </select>
                             </div>
                         
-                            <div class="form-group float-left mt-4">
+                            <div class="form-group mt-4">
                                 <button type="submit" class="btn btn-md btn-primary" >Mettre à jour</button>
                                 </div>
                         </div>

@@ -51,20 +51,8 @@
                                         value ="{{$enseignant->nom}}"
                                         required class="form-control" placeholder="Nom..."/>
                                 </div>
-                                <div class="form-group mt-2 mr-3">
-                                    <label for="name">Sexe:</label>
-                                    <input type="text" id="sexe" name="sexe" required class="form-control" 
-                                        value ="{{$enseignant->sexe}}"
-                                        placeholder="Sexe..."/>
-                                </div>
                             </div>
                             <div class="col-5">
-                                <div class="form-group mt-2 mr-3">
-                                    <label for="name">Code Postal:</label>
-                                    <input type="text" id="code_postal" name="code_postal" 
-                                        value ="{{$enseignant->code_postal}}"
-                                        required class="form-control" placeholder="Code Postal..."/>
-                                </div>
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">E-mail:</label>
                                     <input type="email" id="email" name="email" required class="form-control" 
@@ -79,9 +67,9 @@
                                 </div>
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">Adresse:</label>
-                                    <input type="text" id="adresse" name="adresse"
-                                        value ="{{$enseignant->adresse}}"
-                                         required class="form-control" placeholder="Adresse..."/>
+                                    <input type="text" id="specialite" name="specialite"
+                                        value ="{{$enseignant->specialite}}"
+                                         required class="form-control" placeholder="specialite..."/>
                                 </div>
                             </div>
                         </div>

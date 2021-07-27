@@ -2,14 +2,12 @@
 @extends('layouts.template')
 @section('content')
     <div class="container ">
-        <div class="row d-flex justify-content-around">
-            <div class="col-sm-12 col-md-6">
-                <h4>Ajouter un etudiant</h4>
-            </div>
-            <div class="col-sm-12 col-md-6">
-               <a href=" {{ route('etudiant-index')}} " class="btn btn-md btn-primary float-right">Retour</a>
-            </div>
-            </div>
+            <nav aria-label="breadcrumb  border-0 m-0">
+                <ol class="breadcrumb border-0">
+                  <li class="breadcrumb-item "><a href="{{ route('etudiant-index')}} ">Etudiants</a></li>
+                  <li class="breadcrumb-item" aria-current="page">Ajout Etudiant</li>
+                </ol>
+            </nav>   
 
             <div class="row bg-white pt-3 mt-2 ">
                 <div class="col-sm-12">
@@ -53,18 +51,10 @@
                                 <select name="classe_id" id="classe_id" class="form-control" required>
                                     <option>selectionner le parcours ...</option>
                                     @foreach($classes as $parcours))
-                                    <option value="{{ $parcours->id }} "> {{$parcours->nom}} {{ $parcours->annee }} {{ $parcours->niveau }} </option>
+                                    <option value="{{ $parcours->id }} "> {{$parcours->nom}}  {{ $parcours->niveau }} {{ $parcours->annee }} </option>
                                     @endforeach
                                 </select>
                             </div>
-                            {{-- <div class="form-group mt-2 mr-3">
-                                <label for="name">Sexe:</label>
-                                <select name="sexe" id="sexe" class="form-control" required>
-                                    <option value=""> -- choisir le sexe --</option>
-                                    <option value="F">Féminin</option>
-                                    <option value="M">Masculin</option>
-                                </select>
-                            </div> --}}
                         </fieldset>
                         </div>
                         <div class="col-6">                            
@@ -86,7 +76,7 @@
                        
 
                         <div class="form-group float-left mt-2 mt-2">
-                        <button type="submit" class="btn btn-md btn-primary" >Envoyer</button>
+                        <button type="submit" class="btn btn-md btn-primary" >Enregistrer</button>
                         </div>
 
                     </form>

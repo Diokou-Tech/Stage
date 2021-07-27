@@ -1,6 +1,6 @@
 @extends('layouts.encadreur')
 @section('content')
-<div class='container-fluid mx-2'>
+<div class='container-fluid mx-auto'>
     <div class="row justify-content-center">      
         <h4> <b>{{ $stages->count() }}</b> Stage(s) </h4>                  
             <hr class="featurette-divider">

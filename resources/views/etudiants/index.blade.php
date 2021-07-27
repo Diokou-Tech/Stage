@@ -1,15 +1,6 @@
 @extends('layouts.template')
 @section('content')
 <div class='container'>
-    <div class="row mb-4">
-            <div class="col-sm-12 col-md-6">
-               <a href="{{ route('admin-accueil') }}" class="btn btn-md btn-outline-secondary float-left">  <i class="fas fa-arrow-circle-left"></i> Retour</a>
-            </div>
-            <div class="col-sm-12 col-md-6">
-            
-            </div>
-    </div>
-
     <div class="row justifu-contetent-center ml-10">
         <div class="col-sm-0 col-md-6">
                 <h4>{{$total}} Etudiants enregistrés</h4>

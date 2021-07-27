@@ -66,7 +66,7 @@
                         </div>
 
                         <div class="form-group m-2 p-2 text-center">
-                             <button class="btn btn-primary btn-lg " type="submit">Se connecter </button>
+                             <button class="btn btn-primary btn-lg border-white" type="submit">Se connecter </button>
                         </div>
                           
         </form> 

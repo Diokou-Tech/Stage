@@ -2,14 +2,13 @@
 @extends('layouts.template')
 @section('content')
     <div class="container">
-        <div class="row d-flex justify-content-between">
-            <div class="col-12">
-                <h4>Ajouter un parcours</h4>
-            </div>
-            <div class="col-12">
-               <a href=" {{ route('classe-index')}} " class="btn btn-sm btn-outline-secondary">Retour</a>
-            </div>
-            </div>
+        <nav aria-label="breadcrumb border-0 m-0">
+            <ol class="breadcrumb border-0">
+              <li class="breadcrumb-item "><a href="{{ route('classe-index')}} ">Parcours</a></li>
+              <li class="breadcrumb-item" aria-current="page">Ajout d'un parcours</li>
+            </ol>
+        </nav>   
+
 
             <div class="row bg-white pt-3 mt-2 ">
                 <div class="col-sm-12">
