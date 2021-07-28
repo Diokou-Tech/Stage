@@ -1,25 +1,28 @@
 @extends('layouts.encadreur')
 @section('content')
-<div class='container-fluid mx-auto'>
-    <div class="row justify-content-center">      
-        <h4> <b>{{ $stages->count() }}</b> Stage(s) </h4>                  
+<div class='container-fluid '>
+    <div class="row justify-content-center mx-auto">      
+        <P>
+            Ce tableau regroupe les dépôts de stage de votre parcours dont vous etes responsable .
+        </P>
+        <h4> <b>{{ $stages->count() }}</b> depôt(s) </h4>                  
             <hr class="featurette-divider">
         </div>
             <div class="col-12">
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm table-hover text-center">
-                        <thead class="table-dark">
+                    <table class="table table-sm table-hover text-center">
+                        <thead class="active">
                             <tr>
                                 <th>id</th>
                                 <th>Entreprise</th>
                                 <th>Lieu</th>
-                                <th>Tuteur stage</th>                          
+                                <th>Tuteur Stage</th>                          
                                 <th>Etudiant</th>                          
                                 <th>Email Etudiant</th>                          
-                                <th>Debut stage</th>                          
+                                <th>Debut Stage</th>                          
                                 <th>Fin stage</th>                          
                                 <th>Fiche</th>                       
-                                <th>Date de transmission</th>                                                             
+                                <th>Date</th>                                                             
                                 <th>Actions</th>                          
                             </tr>
                         </thead>
@@ -29,13 +32,10 @@
                                     <td>{{$stage->id}}</td>   
  
                                     <td>{{$stage->entreprise}}</td>   
-                                    <!--<td>{{$stage->secteur_activite}}</td>   -->
                                     <td>{{$stage->lieu}}</td>  
-                                    <!-- 
-                                    <td>{{$stage->theme}}</td>   
-                                    -->
                                     <td>{{$stage->tuteur_entreprise}}</td>   
-                                    <td>{{$stage->tuteur_entreprise_tel}}</td>   
+                                    <td>{{$stage->etudiant->nom}} {{$stage->etudiant->prenom}}</td>   
+                                    {{-- <td>{{$stage->tuteur_entreprise_tel}}</td>    --}}
                                     <td>{{$stage->tuteur_entreprise_email}}</td>   
                                     <td>{{$stage->date_debut}}</td>   
                                     <td>{{$stage->date_fin}}</td>   

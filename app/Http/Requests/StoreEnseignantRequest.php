@@ -27,12 +27,15 @@ class StoreEnseignantRequest extends FormRequest
     public function rules()
     {
         return [
-            'matricule' => 'required|max:45|min:2',
-            'prenom' => 'required|string|max:45|min:2',
-            'nom' => 'required|string|max:45|min:0',
-            'specialite' => 'required|string',
-            'email' => 'required|string|max:45|min:2',
-            'portable' => 'required',
+            'matricule' => 'bail|required|max:45|min:2|unique:enseignants',
+            'prenom' => 'bail|required|string|max:45|min:2',
+            'nom' => 'bail|required|string|max:45|min:0',
+            'specialite' => 'bail|required|string',
+            'email' => 'bail|required|string|max:45|min:2', 
+            'portable' => 'bail|required',
+            'password' => 'required|min:8',
+            'password_confirmation_' => 'required|min:8|same:password',
+
         ];
     }
 

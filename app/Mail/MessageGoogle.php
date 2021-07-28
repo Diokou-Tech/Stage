@@ -30,7 +30,6 @@ class MessageGoogle extends Mailable
     {
         return $this->from("wilo.ahadi@gmail.com") // L'expéditeur
         ->subject("Message via le SMTP Google") // Le sujet
-        ->view('emails.message-google'); // La vue
-        
+        ->view('emails.message-google'); // La vue   
     }
 }

@@ -31,10 +31,10 @@ class EnseignantController extends Controller
             notify()->error("Vous n'avez pas  l'autorisation");
            return redirect('stages/');
         }else{
-            $enseignants = Enseignant::orderBy('id','DESC')->paginate(4);;
+            $enseignants = Enseignant::orderBy('id','DESC')->get();
             $total = Enseignant::count();
             return view('enseignants.index', ['enseignants'=>$enseignants, 'total'=>$total]);
-        }
+        }   
     }
 
     /**
@@ -58,7 +58,6 @@ class EnseignantController extends Controller
     public function store(StoreEnseignantRequest $request)
     {
         //
-
         $user = new User();
         $user->name=$request->prenom." ".$request->nom;
         $user->email=$request->email;

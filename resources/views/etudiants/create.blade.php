@@ -13,7 +13,7 @@
                 <div class="col-sm-12">
                     <br/>
                     @if ($errors->any())
-                        <div class="alert alert-danger">
+                        <div class="alert alert-danger col-6 text-sm mx-auto">
                             <ul>
                             @foreach ($errors->all() as $error)
                                 <li> {{ $error }} </li>
@@ -31,19 +31,19 @@
                                 <legend class="md">Informations necessaires</legend>
                             <div class="form-group mt-2  ">
                                 <label for="name">Matricule:</label>
-                                <input type="text" id="matricule" name="matricule" required class="form-control" placeholder="Matricule..."/>
+                                <input type="text" id="matricule" name="matricule" value="{{ old('matricule') }}" required class="form-control" placeholder="Matricule..."/>
                             </div>
                             <div class="form-group mt-2 mr-3">
                                 <label for="name">Prenom:</label>
-                                <input type="text" id="prenom" name="prenom" required class="form-control" placeholder="Prenoms..."/>
+                                <input type="text" id="prenom" name="prenom" value="{{ old('prenom') }}" required class="form-control" placeholder="Prenoms..."/>
                             </div>
                             <div class="form-group mt-2 mr-3">
-                                <label for="name">Nom:</label>
-                                <input type="text" id="nom" name="nom" required class="form-control" placeholder="Nom..."/>
+                                <label for="name">Nom:</label> 
+                                <input type="text" id="nom" name="nom"  value="{{ old('nom') }}" required class="form-control" placeholder="Nom..."/>
                             </div>
                             <div class="form-group mt-2 mr-3">
                                 <label for="name">Numero portable:</label>
-                                <input type="text" id="portable" name="portable" required class="form-control" placeholder="Numero de portable..."/>
+                                <input type="text" id="portable" name="portable"  value="{{ old('portable') }}" required class="form-control" placeholder="Numero de portable..."/>
                             </div>
                             <div class="form-group mt-2 mr-3">
                                 <label for="classe_id">Parcours :</label>
@@ -51,7 +51,7 @@
                                 <select name="classe_id" id="classe_id" class="form-control" required>
                                     <option>selectionner le parcours ...</option>
                                     @foreach($classes as $parcours))
-                                    <option value="{{ $parcours->id }} "> {{$parcours->nom}}  {{ $parcours->niveau }} {{ $parcours->annee }} </option>
+                                    <option value="{{ $parcours->id }}" > {{$parcours->nom}}  {{ $parcours->niveau }} {{ $parcours->annee }} </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -62,13 +62,17 @@
                                 <legend class="text-md">Idenfiants de connexion</legend>
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">E-mail:</label>
-                                    <input type="email" id="email" name="email" required class="form-control" placeholder="Adresse e-mail..."/>
+                                    <input type="email" id="email" name="email" value="{{ old('email') }}" required class="form-control" placeholder="Adresse e-mail..."/>
                                 </div>
                                 <div class="form-group ml-3 mr-3">
                                     <div class="form-group mt-2 mr-3">
                                         <label for="name">Mot  de passe:</label>
                                         <input type="password" id="password" name="password" required class="form-control" placeholder="Mot de passe..."/>
                                     </div>
+                                </div>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="password_confirmation">Comfirmez Mot  de passe:</label>
+                                    <input type="password" id="password_confirmation "  name="password_confirmation " required class="form-control" placeholder="Comfirmez mot de passe"/>
                                 </div>
                             </fieldset>
                         </div>

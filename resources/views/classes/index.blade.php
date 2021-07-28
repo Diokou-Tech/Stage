@@ -6,21 +6,6 @@
                 <h4>{{$total}} Parcours enregistrés</h4>
                 <strong> </strong>
         </div>
-        <div class="col-sm-12 col-md-6">
-            <form class="form-inline mt-2 mt-md-0">
-                <div class="input-group mb-0 mt-0"> 
-                        <input class="form-control mr-sm-0" type="text" name="p"  value="" placeholder="Rechercher..." aria-label="Recherche">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
-                        <a href="" class="btn btn-outline-danger">Annuler</a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    
-
        <div class="row bg-white pt-3 mt-1 mb-3">
        <div class="col-sm-12">
                 <!-- MESSAGE DE ERREUR -->
@@ -44,8 +29,8 @@
         </div>
             <div class="col-12">
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm table-hover ">
-                        <thead class="table-dark">
+                    <table class="table table-sm table-hover ">
+                        <thead class="active">
                             <tr>
                                 <!-- <th>id</th> -->
                                 <th>Nom</th>
@@ -80,7 +65,7 @@
                         </tbody>
                     </table>
                     <div class="float-right">
-                        {{ $classes->links() }}
+                        {{-- {{ $classes->links() }} --}}
                     </div>
                 </div>
             </div>

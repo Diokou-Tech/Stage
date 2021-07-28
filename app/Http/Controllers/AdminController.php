@@ -41,7 +41,7 @@ class AdminController extends Controller
         return view('pages.contact');
     }
     public function stage(){
-        $stages = Stage::orderBy('id','DESC')->paginate(4);;
+        $stages = Stage::orderBy('id','DESC')->paginate(10);;
         $total = Stage::count();
         return view('pages.Stage',['stages'=>$stages, 'total'=>$total]);
     }

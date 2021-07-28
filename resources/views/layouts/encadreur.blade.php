@@ -8,27 +8,18 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    
-    <!--SCRIPTS DE CHART-->
-    <script src="{{ asset('_gs_public/js/bootstrap.min.js') }}" defer></script>
-    
-    
-   <!-- <script src="{{ asset('js/jquery.min.js') }}" defer></script>-->
-   <!-- <script src="{{ asset('js/dropdown.js') }}"></script>-->
-
     <!-- Fonts -->
-    {{-- <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"> --}}
-
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.25/datatables.min.css"/>
+    <!-- Styles -->
     <!--LINK DE BOOTRAPS 4 -->
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    {{-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
 </head>
 <body>
      @notify_css
@@ -153,14 +144,56 @@
         </div>
     </div>
     <h6 class="text-center bg-info text-white p-1">&copy;  Iae-Lyon <?php echo date('Y')  ?> </h6>
-    @notify_js
-    @notify_render
 </footer>
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/jquery.min.js') }}" ></script>
+    @notify_js
+    <!--Permet de definir les notification -->
+    @notify_render
+    <!--Permet de definir les notification -->
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> 
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 </body>
+<script>
+  $('select').select2({
+  placeholder: 'Choix de l\'encadreur !',
+  allowClear: true
+});
+    $('table').DataTable( {
+        language: {
+  "sEmptyTable": "Aucune donnée disponible dans le tableau",
+  "sInfo": "Affichage de l'élément _START_ à _END_ sur _TOTAL_ éléments",
+  "sInfoEmpty": "Affichage de l'élément 0 à 0 sur 0 élément",
+  "sInfoFiltered": "(filtré à partir de _MAX_ éléments au total)",
+  "sInfoThousands": ",",
+  "sLengthMenu": "Afficher _MENU_ éléments",
+  "sLoadingRecords": "Chargement...",
+  "sProcessing": "Traitement...",
+  "sSearch": "Rechercher :",
+  "sZeroRecords": "Aucun élément correspondant trouvé",
+  "oPaginate": {
+    "sFirst": "Premier",
+    "sLast": "Dernier",
+    "sNext": "Suivant",
+    "sPrevious": "Précédent"
+  },
+  "oAria": {
+    "sSortAscending": ": activer pour trier la colonne par ordre croissant",
+    "sSortDescending": ": activer pour trier la colonne par ordre décroissant"
+  },
+  "select": {
+    "rows": {
+      "0": "Aucune ligne sélectionnée",
+      "1": "1 ligne sélectionnée",
+      "_": "%d lignes sélectionnées"
+    }
+  }
+        },
+        "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "Tout"]],
+        "ordering": false,
+    } );
+</script>
 </html>

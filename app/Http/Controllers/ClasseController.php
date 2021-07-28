@@ -18,7 +18,7 @@ class ClasseController extends Controller
     public function index()
     {
         //
-        $classes = Classe::orderBy('id','DESC')->paginate(4);
+        $classes = Classe::orderBy('id','DESC')->get();
         // dd($classes[0]);
         $total = Classe::count();
         return view('classes.index', ['classes'=>$classes, 'total'=>$total]);
@@ -100,8 +100,8 @@ class ClasseController extends Controller
         $classe->niveau = $request->niveau;
         $classe->enseignant_id = $request->enseignant_id;
         $classe->update();
-
-        return redirect(route('classe-index'))->with('success', 'Mise à jour s de parcours effectué avec succés');
+        notify()->success("Mise à jour de parcours effectué avec succés","Modification");
+        return redirect(route('classe-index'));
     }
 
     /**
@@ -114,6 +114,7 @@ class ClasseController extends Controller
     {
         // Recherche par ID, le parcours à supprimer
         Classe::where('id',$id)->delete();
+        notify()->success("Suppression de parcours effectué avec succés","Suppresion");
         return redirect(route('classe-index'))->with('success', 'Parcours sipprimé avce succès.');
     }
 }

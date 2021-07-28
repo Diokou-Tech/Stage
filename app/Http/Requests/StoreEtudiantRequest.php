@@ -24,13 +24,14 @@ class StoreEtudiantRequest extends FormRequest
     public function rules()
     {
         return [
-            'matricule' => 'required|max:45|min:2',
+            'matricule' => 'required|max:45|min:2|unique:etudiants',
             'prenom' => 'required|string|max:45|min:2',
             'nom' => 'required|string|max:45|min:0',
             'email' => 'required|string|max:45|min:2',
             'portable' => 'required',
             'classe_id'=>'required|integer|exists:classes,id',
-      
+            'password' => 'required|min:8',
+            'password_confirmation_' => 'required|min:8|same:password',
 
             // 'team_id' => 'required|integer|exists:teams,id',
         ];

@@ -9,18 +9,6 @@
                 <h4>{{$total}} Enseignants enregistrés</h4>
                 <strong> </strong>
         </div>
-        <div class="col-sm-12 col-md-6">
-            <form class="form-inline mt-2 mt-md-0">
-                <div class="input-group mb-0 mt-0"> 
-                        <input class="form-control mr-sm-0" type="text" name="p"  value="" placeholder="Rechercher..." aria-label="Recherche">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
-                        <a href="" class="btn btn-outline-danger">Annuler</a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
     <div class="modal fade" id="AjouterEnseignantModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -93,8 +81,8 @@
         </div>
             <div class="col-12">
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm table-hover ">
-                        <thead class="table-dark">
+                    <table class="table table-sm table-hover ">
+                        <thead class="active">
                             <tr>
                                 <!-- <th>id</th> -->
                                 <th>Matricule</th>
@@ -103,8 +91,6 @@
                                 <th>Sexe</th>
                                 <th>Portable</th>
                                 <th>E-mail</th>
-                                <th>CP</th>
-                                <th>adresse</th>                          
                                 <th>Parcours</th>                          
                                 <th>Actions</th>                          
                             </tr>
@@ -118,9 +104,7 @@
                                     <td>{{$prof->nom}}</td>   
                                     <td>{{$prof->sexe}}</td>   
                                     <td>{{$prof->portable}}</td>  
-                                    <td>{{$prof->email}}</td>   
-                                    <td>{{$prof->code_postal}}</td>   
-                                    <td>{{$prof->adresse}}</td>   
+                                    <td>{{$prof->email}}</td>  
                                     <td>{{$prof->classes->count()}}</td>   
                                      
                                      <td class='d-flex'>
@@ -140,7 +124,7 @@
                         </tbody>
                     </table>
                     <div class="float-right">
-                        {{$enseignants->links()}}
+                        {{-- {{$enseignants->links()}} --}}
                     </div>
                 </div>
             </div>

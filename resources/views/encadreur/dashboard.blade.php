@@ -1,6 +1,6 @@
 @extends('layouts.encadreur')
 @section('content')
-<div class='container  mx-auto'>
+<div class='container-fluid'>
     <div class="row justify-content-center">   
         <P>
             Ce tableau regroupe les étudiants dont vous encadrez et leurs stages.
@@ -10,13 +10,13 @@
         </div>
             <div class="col-12">
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm table-hover ">
-                        <thead class="table-dark">
+                    <table class="table table-sm table-hover ">
+                        <thead class="active">
                             <tr>
                                 <th>id</th>
                                 <th>Entreprise</th>
                                 <th>Lieu</th>
-                                <th>Tuteur stage</th>                          
+                                <th>Tuteur</th>                          
                                 <th>Etudiant</th>                          
                                 <th>Email Etudiant</th>                          
                                 <th>Debut stage</th>                          
@@ -32,14 +32,10 @@
                                     <td>{{$stage->id}}</td>   
  
                                     <td>{{$stage->entreprise}}</td>   
-                                    <!--<td>{{$stage->secteur_activite}}</td>   -->
                                     <td>{{$stage->lieu}}</td>  
-                                    <!-- 
-                                    <td>{{$stage->theme}}</td>   
-                                    -->
                                     <td>{{$stage->tuteur_entreprise}}</td>   
-                                    <td>{{$stage->tuteur_entreprise_tel}}</td>   
-                                    <td>{{$stage->tuteur_entreprise_email}}</td>   
+                                    <td>{{$stage->etudiant->nom}} {{$stage->etudiant->prenom}}</td>   
+                                    <td>{{$stage->etudiant->email}}</td>  
                                     <td>{{$stage->date_debut}}</td>   
                                     <td>{{$stage->date_fin}}</td>   
                                     <td><a target="_blank" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark">fiche de renseignement</a></td>    

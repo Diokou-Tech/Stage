@@ -26,32 +26,6 @@ class UserController extends Controller
        // $this->middleware(['user']);
     }
 
-    public function dashboard(){
-        $secteurs=Secteur::all();
-        $regions=Region::all();
-        $cercles=Cercle::all();
-
-        $userC=Cercle::select('cercle')
-            ->where('id', Auth::user()->cercle_id)->get();
-        $userR=Region::select('region')
-            ->where('id', Auth::user()->region_id)->get();
-        $userS=Secteur::select('secteur')
-            ->where('id', Auth::user()->secteur_id)->get();
-        //dd($userC[0]->cercle);
-
-        $userC1=DB::table('cercles')
-            ->where('id', Auth::user()->cercle_id)->get();
-
-        return view ('users.home',
-            ['secteurs'=>$secteurs,
-            'regions'=>$regions,
-            'cercles'=>$cercles, 
-            'userR'=>$userR,
-            'userC'=>$userC,
-            'userS'=>$userS]
-        );
-    }
-
     public function index(Request $request){
         $p ="";
         $tot = User::count();
@@ -60,16 +34,6 @@ class UserController extends Controller
     }
 
     public function create(){
-        $secteurs=Secteur::all();
-        $regions=Region::all();
-        $cercles=Cercle::all();
-
-        return view(
-        'users.create', 
-        ['secteurs'=>$secteurs,
-        'regions'=>$regions,
-        'cercles'=>$cercles]
-    );
     }
 
     public function edit($id){

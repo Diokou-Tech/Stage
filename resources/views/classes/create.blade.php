@@ -8,8 +8,6 @@
               <li class="breadcrumb-item" aria-current="page">Ajout d'un parcours</li>
             </ol>
         </nav>   
-
-
             <div class="row bg-white pt-3 mt-2 ">
                 <div class="col-sm-12">
                     <h5 class="text-center">Informez les infos de Parcours :</h5>

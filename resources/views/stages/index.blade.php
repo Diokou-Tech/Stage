@@ -11,8 +11,8 @@
         </div>
             <div class="col-12">
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm table-hover ">
-                        <thead class="table-dark">
+                    <table class="table table-sm table-hover ">
+                        <thead class="active">
                             <tr>
                                 <th>id</th>
                                 <th>Entreprise</th>
@@ -76,9 +76,6 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <div class="float-right">
-                        {{ $stages->links() }}
-                    </div>
                 </div>
             </div>
         </div>

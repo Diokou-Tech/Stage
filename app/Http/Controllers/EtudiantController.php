@@ -21,7 +21,7 @@ class EtudiantController extends Controller
     public function index()
     {
         //
-        $etudiants = Etudiant::orderBy('id','DESC')->paginate(4);;
+        $etudiants = Etudiant::orderBy('id','DESC')->get();;
         $total = Etudiant::count();
         return view('etudiants.index', ['etudiants'=>$etudiants, 'total'=>$total]);
     }
@@ -48,19 +48,6 @@ class EtudiantController extends Controller
      */
     public function store(StoreEtudiantRequest $request)
     {
-        // //
-        // $etudiant = new Etudiant();
-        // $etudiant->matricule = $request->matricule;
-        // $etudiant->prenom = $request->prenom;
-        // $etudiant->nom = $request->nom;
-        // $etudiant->sexe = $request->sexe;
-        // $etudiant->email = $request->email;
-        // $etudiant->code_postal = $request->code_postal;
-        // $etudiant->portable = $request->portable;
-        // $etudiant->adresse = $request->adresse;
-        // $etudiant->classe_id = $request->classe_id;
-        // $etudiant->save();
-
                 //create user
                 $user = new User();
                 $user->name=$request->prenom." ".$request->nom;
@@ -68,6 +55,7 @@ class EtudiantController extends Controller
                 $user->profil= 'Etudiant';
                 $user->password= Hash::make($request->password);
                 $user->save();
+        notify()->success("Creation d'un utilisateur avec succès","creation utilisateur");
                 //create etudiant
                 $etudiant = new Etudiant();
                 $etudiant->matricule = $request->matricule;

@@ -36,52 +36,39 @@
                             <div class="col-5">
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">Matricule:</label>
-                                    <input type="text" id="matricule" name="matricule" required class="form-control" placeholder="Matricule..."/>
+                                    <input type="text" id="matricule" name="matricule" value="{{ old('matricule') }}" required class="form-control" placeholder="Matricule..."/>
                                 </div>
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">Prenom:</label>
-                                    <input type="text" id="prenom" name="prenom" required class="form-control" placeholder="Prenoms..."/>
+                                    <input type="text" id="prenom" name="prenom" value="{{ old('prenom') }}" required class="form-control" placeholder="Prenoms..."/>
                                 </div>
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">Nom:</label>
-                                    <input type="text" id="nom" name="nom" required class="form-control" placeholder="Nom..."/>
+                                    <input type="text" id="nom" name="nom" value="{{ old('nom') }}" required class="form-control" placeholder="Nom..."/>
                                 </div>
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">Numero portable:</label>
-                                    <input type="text" id="portable" name="portable" required class="form-control" placeholder="Numero de portable..."/>
+                                    <input type="text" id="portable" name="portable"  value="{{ old('portable') }}" required class="form-control" placeholder="Numero de portable..."/>
                                 </div>
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">specialite:</label>
-                                    <input type="text" id="specialite" name="specialite" required class="form-control" placeholder="specialite "/>
+                                    <input type="text" id="specialite" name="specialite" value="{{ old('specialite') }}" required class="form-control" placeholder="specialite "/>
                                 </div>
-                                {{-- <div class="form-group mt-2 mr-3">
-                                    <label for="name">Sexe:</label>
-                                    <select name="sexe" id="sexe" class="form-control" required>
-                                        <option value=""> -- choisir le sexe --</option>
-                                        <option value="F">Féminin</option>
-                                        <option value="M">Masculin</option>
-                                    </select>
-                                </div>
-                                <div class="form-group mt-2 mr-3">
-                                    <label for="name">Code Postal:</label>
-                                    <input type="text" id="code_postal" name="code_postal" required class="form-control" 
-                                        placeholder="Code Postal..."/>
-                                </div> --}}
                             </div>
                             <div class="col-5">
-                                {{-- <div class="form-group mt-2 mr-3">
-                                    <label for="name">Adresse:</label>
-                                    <input type="text" id="adresse" name="adresse" required class="form-control" placeholder="Adresse..."/>
-                                </div> --}}
                                 <fieldset>
                                     <legend class="text-sm">Identifiants de connexion</legend>
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">E-mail:</label>
-                                    <input type="email" id="email" name="email" required class="form-control" placeholder="Adresse e-mail..."/>
+                                    <input type="email" id="email" name="email" value="{{ old('email') }}" required class="form-control" placeholder="Adresse e-mail..."/>
                                 </div>
                                 <div class="form-group mt-2 mr-3">
                                     <label for="name">Mot  de passe:</label>
                                     <input type="password" id="password" name="password" required class="form-control" placeholder="Mot de passe..."/>
+                                </div>
+                                <div class="form-group mt-2 mr-3">
+                                    <label for="password_confirmation">Comfirmez Mot  de passe:</label>
+                                    <input type="password" id="password_confirmation "  name="password_confirmation " required class="form-control" placeholder="Comfirmez mot de passe"/>
                                 </div>
                                 </fieldset>
                             </div>
