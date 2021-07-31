@@ -45,7 +45,8 @@
                                 <th>Prenom</th>
                                 <th>Nom</th>
                                 <th>E-mail</th>    
-                                <th>Tel</th>                    
+                                <th>Tel</th>   
+                                <th>Parcours</th>                    
                                 <th>Actions</th>                          
                             </tr>
                         </thead>
@@ -58,6 +59,7 @@
                                     <td>{{$etudiant->nom}}</td>   
                                     <td>{{$etudiant->email}}</td>   
                                     <td>{{$etudiant->portable}}</td>   
+                                    <td>{{ $etudiant->classe->nom }} {{ $etudiant->classe->niveau }}</td>
                                      <td class='d-flex'>
                                         <a href="{{ route('etudiant-edit', ['id'=>$etudiant->id])}}" class="btn btn-sm btn-primary m-1"><i class="fas fa-edit"></i></a>
                                         <form action=" {{ route('etudiant-destroy', ['id'=>$etudiant->id])}} 

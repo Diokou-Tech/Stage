@@ -104,11 +104,12 @@ class StageController extends Controller
         ]);
         try {
             $sujet = "envoi de mail";
-            $message = '<div>
-            <h1>Lorem ipsum dolor sit amet.</h1>
+            $message = "<div>
+            <h1>Message</h1>
             <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum qui laborum eveniet voluptatibus tempora aliquid, repudiandae, velit natus deleniti enim nihil laudantium iusto! Inventore illo temporibus tempora voluptas eum distinctio!</p>
-            </div>';
+                L'étudiant $etud->name 
+            </p>
+            </div>";
             $destinataire = "diokoucheikhou@gmail.com"; //recipient
             $header = "From:\"ZOla\"<diokoucheikh@gmail.com>\n"; //mail body
             $header .= "reply-To:cheikh@gmail.com\n";

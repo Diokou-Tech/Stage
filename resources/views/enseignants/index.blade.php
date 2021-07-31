@@ -91,7 +91,7 @@
                                 <th>Sexe</th>
                                 <th>Portable</th>
                                 <th>E-mail</th>
-                                <th>Parcours</th>                          
+                                <th>Type</th>                          
                                 <th>Actions</th>                          
                             </tr>
                         </thead>
@@ -105,7 +105,12 @@
                                     <td>{{$prof->sexe}}</td>   
                                     <td>{{$prof->portable}}</td>  
                                     <td>{{$prof->email}}</td>  
-                                    <td>{{$prof->classes->count()}}</td>   
+                                    <td>
+                                        @if($prof->classes->count() != 0)
+                                            <span class="text">Responsable-encadreur</span>
+                                        @else
+                                            Encadreur
+                                        @endif</td>   
                                      
                                      <td class='d-flex'>
                                         <a href="{{ route('prof-edit', ['id'=>$prof->id])}}" class="btn btn-sm btn-primary m-1"><i class="fas fa-edit"></i></a>
