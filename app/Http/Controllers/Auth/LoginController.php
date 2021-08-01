@@ -52,6 +52,9 @@ class LoginController extends Controller
             return redirect()->route('etudiant-accueil');
         }
         if($user->profil=='Enseignant'){
+            if( $user->created_at == $user->updated_at ){
+                return redirect(route('profil-enseignant'));
+            }
             return redirect()->route('encadreur-index');
              }
         else{

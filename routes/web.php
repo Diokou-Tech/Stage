@@ -90,6 +90,10 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/{id}/edit', [EnseignantController::class, 'edit'])->name('prof-edit');
         Route::put('/{id}/update', [EnseignantController::class, 'update'])->name('prof-update');
         Route::delete('/{id}', [EnseignantController::class, 'destroy'])->name('prof-destroy');
+        //profils routes
+        Route::get('/profil',[EnseignantController::class, 'profil'])->name('profil-enseignant');
+        Route::get('/profil/update',[EnseignantController::class, 'profil_update'])->name('profil-update-enseignant');
+        Route::post('/profil/update',[EnseignantController::class, 'update_profil'])->name('update-profil-enseignant');;
     });
     
     Route::prefix('classes')->group(function(){
@@ -108,8 +112,11 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/{id}/edit', [EtudiantController::class, 'edit'])->name('etudiant-edit');
         Route::put('/{id}/update', [EtudiantController::class, 'update'])->name('etudiant-update');
         Route::delete('/{id}', [EtudiantController::class, 'destroy'])->name('etudiant-destroy');
-        Route::get('/pdf',     [EtudiantController::class, 'geraPdf'])->name('etudiant-print');
-        Route::get('/show',     [EtudiantController::class, 'geraPdf'])->name('etudiant-show');
+        Route::get('/show',[EtudiantController::class, 'geraPdf'])->name('etudiant-show');
+        //profils routes
+        Route::get('/profil',[EtudiantController::class, 'profil'])->name('profil');
+        Route::get('/profil/update',[EtudiantController::class, 'profil_update'])->name('profil-update');
+        Route::post('/profil/update',[EtudiantController::class, 'update_profil'])->name('update-profil');
         
     });
     Route::prefix('stages')->group(function(){

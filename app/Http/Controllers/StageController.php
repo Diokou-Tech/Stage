@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Stage;
+use App\Models\Classe;
 use App\Models\Etudiant;
 use App\Models\Enseignant;
 use Yoeunes\Notify\Notify;
@@ -76,6 +77,7 @@ class StageController extends Controller
     {
         //
         $etud = Etudiant::where('user_id', '=', Auth::user()->id)->first();
+        $responsable = Classe::find($etud->classe->id)->enseignant;
         // dd($etud->classe);
         //upload fichier
         $fiche = $request->file('fiche');
@@ -103,22 +105,26 @@ class StageController extends Controller
             'enseignant_id'  => null
         ]);
         try {
-            $sujet = "envoi de mail";
+            $sujet = "Depot de Stage";
             $message = "<div>
             <h1>Message</h1>
             <p>
-                L'étudiant $etud->name 
+                L'étudiant : <b> $etud->nom  $etud->prenom  de matricule $etud->matricule  </b> a fait un dépôt de stage dans la plateforme de gestion de stage. 
             </p>
+            <footer>
+                <h2> Gestion de stage </h2>
+            </footer>
             </div>";
-            $destinataire = "diokoucheikhou@gmail.com"; //recipient
-            $header = "From:\"ZOla\"<diokoucheikh@gmail.com>\n"; //mail body
-            $header .= "reply-To:cheikh@gmail.com\n";
+            $destinataire = $responsable->email; //recipient
+            $header = "From:\"Gestion-Stage\"<stage.gestion2021@gmail.com>\n"; //mail body
+            $header .= 'MIME-Version: 1.0';
+            $header .= "reply-To:stage.gestion2021@gmail.com\n";
             $header .= "content-Type:text/html; charset=\"iso-8859-1\"";
             mail($destinataire, $sujet, $message, $header);
             notify()->success("Le mail est envoyé ");
         } catch (\Exception $e) {
         $msg = $e->getMessage();
-        notify()->error("Le mail n'est pas envoyé <br> $msg");
+        notify()->warning("Le mail automatique n'est pas envoyé <br> $msg");
         }
         Notify()->success('Depot de stage reussi', 'Depôt');
         return back();

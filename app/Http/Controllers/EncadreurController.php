@@ -14,7 +14,7 @@ class EncadreurController extends Controller
         $user = Auth::user();
         $enseignant = Enseignant::where('user_id','=',$user->id)->first();
         // dd($enseignant);
-        if($enseignant->classes->first() != null){
+        if($enseignant->classes != null){
             $total_stages = Stage::where('classe_id','=',$enseignant->classes->first()->id)->count();
         }else{
             $total_stages = 0;
@@ -63,7 +63,33 @@ class EncadreurController extends Controller
             // dd($request);
             $stage = Stage::find($request->id_stage);  
             $stage->enseignant_id=$request->choix;
+            $etudiant = $stage->etudiant;
+            $enseignant = $stage->enseignant;
             $stage->save();
+            try {
+                $sujet = "Affectation Encadreur";
+                $message = "<div>
+                <h1>Message</h1>
+                <p>
+                    Bonjour, <br> 
+                    Concernant le depot de stage que vous avais fait et les voeux de vos encadreurs, $enseignant->nom  $enseignant->prenom vous a été affecté(e).
+                    <br> Merci de consulter l'application de gestion de stage pour plus d'infos.
+                </p>
+                <footer>
+                    <h2> Gestion de stage </h2>
+                </footer>
+                </div>";
+                $destinataire = $etudiant->email; //recipient
+                $header = "From:\"Gestion-Stage\"<stage.gestion2021@gmail.com>\n"; //mail body
+                $header .= 'MIME-Version: 1.0';
+                $header .= "reply-To:stage.gestion2021@gmail.com\n";
+                $header .= "content-Type:text/html; charset=\"iso-8859-1\"";
+                mail($destinataire, $sujet, $message, $header);
+                notify()->success("Le mail est envoyé ");
+            } catch (\Exception $e) {
+            $msg = $e->getMessage();
+            notify()->warning("Le mail automatique n'est pas envoyé <br> $msg");
+            }
             notify()->success('Affectation encadreur reussie','Affectation');
             return redirect(route('encadreur-affecter-index'));
     }
@@ -90,7 +116,7 @@ class EncadreurController extends Controller
                 $stage->save();
                 //
                 notify()->success('la signature a été effectuée avec succès','Signature');
-                return redirect(route('encadreur-affecter-index'));
+                return back();
         }
     }
 }

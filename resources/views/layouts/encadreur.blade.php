@@ -26,13 +26,13 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-light text-white shadow-sm">
             <div class="container d-flex justify-content-between">
-                <div class="col-5">
+                <div class="col-2">
                     <a class="navbar-brand" href="{{ route('encadreur-index') }}">
                         <img src="{{asset('img/logo.gif') }} " height="50px" width=""/> 
                            <!-- {{ config('app.name','Laravel') }} -->
                         </a>    
                 </div>
-                <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse col-10 d-flex justify-content-end" id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                                  <li class="nav-item">
@@ -41,15 +41,18 @@
                                  <li class="nav-item">
                                     <a class="nav-link @if(\Route::current()->getName() == 'encadreur-dashboard') active  @endif" href=" {{route('encadreur-dashboard')}} "><i class="fas fa-house-user"></i> Tableau de Bord</a>
                                 </li>    
-                                @if($enseignant->classes->count() != 0)
+                                @if($enseignant->classes != null)
                                 <li class="nav-item">
                                   <a class="nav-link @if(\Route::current()->getName() == 'encadreur-affecter-index') active  @endif" href=" {{route('encadreur-affecter-index')}} "><i class="fas fa-house-user"></i> Affectation </a>
                               </li> 
-                                @endif                       
+                                @endif      
+                                <li class="nav-item">
+                                  <a class="nav-link @if(\Route::current()->getName() == 'profil-enseignant') active  @endif" href=" {{route('profil-enseignant')}} "><i class="fa fa-user"></i> Profil</a>
+                                </li>  
                                 <!-- FIN -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle rounded" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <i class="fas fa-user-circle"></i>  {{ Auth::user()->name}}
+                                {{ Auth::user()->name}}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -106,7 +109,7 @@
             <a href="#" class="h4 mr-4" ><i class="fab fa-instagram"></i></a>
 
              </li>
-            <li><a href="{{ route('stage-contact') }}">Nous Contacter</a></li>
+            {{-- <li><a href="{{ route('stage-contact') }}">Nous Contacter</a></li> --}}
         </ul>
         </div>
         

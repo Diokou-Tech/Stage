@@ -6,7 +6,7 @@
                <a href="{{ route('stage-index') }}" class="btn btn-md btn-outline-secondary float-left">  <i class="fas fa-arrow-circle-left"></i> Retour</a>
             </div>
             <div class="col-sm-12 col-md-6">
-               <!-- <h1>Résultats</h1>-->
+
             </div>
     </div>
 
@@ -28,7 +28,6 @@
                        @method('PUT')
                         @csrf
                         {{-- id hidden --}}
-                        {{-- <input type="hidden" name="id" value="{{$stage->id }}"> --}}
                         <div class="col-6">
                             <fieldset>
                                 <legend class="h5">Stage</legend>
@@ -118,9 +117,6 @@
                                         @foreach($enseignants as $responsable)
                                         <option value="{{$responsable->id}}" @if($responsable->id == $stage->voeux_ens1 ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
                                         @endforeach
-                                        {{-- <option value="1" @if($stage->voeux_ens1 == 1) selected  @endif> Mr ALui DJALO Informatique</option>
-                                        <option value="2" @if( $stage->voeux_ens1 == 2) selected  @endif> Mr Cheikhou DIOKOU Mathematiques </option>
-                                        <option value="3" @if($stage->voeux_ens1 == 3) selected  @endif> Mme DAbo Ndiaye Langes </option> --}}
                                     </select>
                                     @error('voeu1')
                                     <small>{{ $message }}  </small> 
@@ -132,9 +128,6 @@
                                         @foreach($enseignants as $responsable)
                                         <option value="{{$responsable->id}}" @if($responsable->id == $stage->voeux_ens2 ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
                                         @endforeach
-                                        {{-- <option value="1" @if($stage->voeux_ens2 == 1) selected  @endif> Mr ALui DJALO Informatique</option>
-                                        <option value="2" @if( $stage->voeux_ens2 == 2) selected  @endif> Mr Cheikhou DIOKOU Mathematiques </option>
-                                        <option value="3"  @if($stage->voeux_ens2 == 3) selected  @endif> Mme DAbo Ndiaye Langes </option> --}}
                                     </select>
                                     @error('voeu2')
                                     <small>{{ $message }}  </small> 
@@ -146,9 +139,6 @@
                                         @foreach($enseignants as $responsable)
                                         <option value="{{$responsable->id}}" @if($responsable->id == $stage->voeux_ens3 ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
                                         @endforeach
-                                        {{-- <option value="1" @if($stage->voeux_ens3 == 1) selected  @endif> Mr ALui DJALO Informatique</option>
-                                        <option value="2"  @if( $stage->voeux_ens3 == 2) selected  @endif> Mr Cheikhou DIOKOU Mathematiques </option>
-                                        <option value="3" @if($stage->voeux_ens3 == 3) selected  @endif> Mme DAbo Ndiaye Langes </option> --}}
                                     </select>
                                     @error('voeu3')
                                     <small>{{ $message }}  </small> 
@@ -158,19 +148,9 @@
             
                         </div>
                             <div class="mt-4 col-6 mx-auto d-flex justify-content-around">
-                                <button type="submit" class="btn btn-primary"> Modifier </button>
-                                <button type="reset" class="btn text-danger border"> Annuler </button>
+                                <button type="submit" class="btn btn-primary"> <i class="fa fa-edit"></i> Modifier </button>
                             </div>
                         </form>
                 </div>
-            <!-- ALERT DE SUCCESS -->
-            @if(\Session::has('success'))
-            <div class="alert alert-success">
-                <p>{{ \Session::get('success')}}</p>
-            </div>
-            @endif
-             <hr class="featurette-divider">
-
-
 </div>
 @endsection

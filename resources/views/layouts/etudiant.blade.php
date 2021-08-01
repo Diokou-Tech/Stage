@@ -28,13 +28,13 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-light text-white shadow-sm">
             <div class="container d-flex justify-content-between">
-                <div class="col-5">
+                <div class="col-2">
                     <a class="navbar-brand" href="{{ route('home-user') }}">
                         <img src="{{asset('img/logo.gif') }} " height="50px" width=""/> 
                            <!-- {{ config('app.name','Laravel') }} -->
                         </a>    
                 </div>
-                <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse col-10 d-flex justify-content-end" id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                                  <li class="nav-item">
@@ -51,13 +51,15 @@
                                 </li>
                                  <li class="nav-item">
                                     <a class="nav-link @if(\Route::current()->getName() == 'stage-contact') active  @endif" href=" {{route('stage-contact')}}"><i class="fas fa-phone"></i> Contact</a>
-                                </li>                           
+                                </li> 
+                                <li class="nav-item">
+                                  <a class="nav-link @if(\Route::current()->getName() == 'profil') active  @endif" href=" {{route('profil')}}"><i class="fas fa-user"></i> Profil</a>
+                              </li>                           
                                 <!-- FIN -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle rounded" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fas fa-user-circle"></i>  {{ Auth::user()->name}}
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -69,9 +71,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user"></i> Profil
-                                  </a>
                                 </div>
                             </li>
                     </ul>

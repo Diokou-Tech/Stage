@@ -22,7 +22,7 @@ class Enseignant extends Model
     ];
     
     public function classes(){
-        return $this->hasMany(Classe::class);
+        return $this->hasOne(Classe::class);
     }
     public function stages(){
         return $this->hasMany(Stage::class);

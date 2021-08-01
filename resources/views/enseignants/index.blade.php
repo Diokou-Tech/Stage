@@ -106,7 +106,7 @@
                                     <td>{{$prof->portable}}</td>  
                                     <td>{{$prof->email}}</td>  
                                     <td>
-                                        @if($prof->classes->count() != 0)
+                                        @if($prof->classes != null)
                                             <span class="text">Responsable-encadreur</span>
                                         @else
                                             Encadreur

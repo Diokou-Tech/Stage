@@ -26,14 +26,14 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-light text-white shadow-sm">
             <div class="container d-flex justify-content-between">
-                <div class="col-4">
+                <div class="col-2">
                     <a class="navbar-brand" href="{{ route('admin-accueil') }}">
                         <img src="{{ asset('img/logo.gif') }} " height="50px" width="" />
                         <!-- {{ config('app.name', 'Laravel') }} -->
                     </a>
                 </div>
                 @auth
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse col-10 d-flex justify-content-end"  id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                             <li class="nav-item">

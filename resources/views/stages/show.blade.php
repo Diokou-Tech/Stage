@@ -83,10 +83,9 @@
                             @if ($encadreur != null)
                             <h2>Encadreur affecté</h2>
                             <ul class="list-group-flush bg-success">
-                                <li class="list-group-item">
-                                   Nom Prenom : <b>{{ $encadreur->nom }} {{ $encadreur->prenom }} </b>
-                                   matricule :  <b>{{ $encadreur->matricule }}</b>
-                                 </li>
+                                <li class="list-group-item">Nom: <b>{{ $encadreur->nom }}</b></li>
+                                <li class="list-group-item">Prénom: <b> {{ $encadreur->prenom }} </b></li>
+                                <li class="list-group-item">matricule :  <b>{{ $encadreur->matricule }}</b></li>
                             </ul>
                             @else
                                 <span class="bg-warning p-3">Encadreur non Affecté </span>

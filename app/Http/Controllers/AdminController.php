@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stage;
+use App\Models\Classe;
+use App\Models\Etudiant;
 use App\Models\Enseignant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Classe;
-use App\Models\Etudiant;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -46,6 +47,10 @@ class AdminController extends Controller
         return view('pages.Stage',['stages'=>$stages, 'total'=>$total]);
     }
     public function homeEtudiant(){
+        $user = Auth::user();
+        if( $user->created_at == $user->updated_at ){
+            return redirect(route('profil'));
+        }
         return view('pages.home');
     }
     public function homeAdmin(){
@@ -53,7 +58,6 @@ class AdminController extends Controller
         $total_etu = Etudiant::count();
         $total_sta = Stage::count();
         $total_par = Classe::count();
-
         return view('pages.accueil',['total_ens' => $total_ens,'total_etu' => $total_etu,'total_sta' => $total_sta,'total_par' => $total_par]);
     }
 }

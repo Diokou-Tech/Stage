@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UpdateProfilEtudiant;
 use App\Http\Requests\StoreEnseignantRequest;
 use App\Http\Requests\UpdateEnseignantRequest;
 
@@ -140,4 +141,40 @@ class EnseignantController extends Controller
         notify()->success('success', 'Enregistrement supprimé avec succès.');
         return redirect(route('prof-index'));
     }
+    public function profil(){
+        $user = Auth::user();
+        $enseignant = Enseignant::where('user_id', '=',$user->id)->first();
+        // dd($etudiant);
+        if(!empty($user)){
+            return view('enseignants.profil', [
+                'user'=>$user,
+                'enseignant'=>$enseignant,
+            ]);
+        }
+    }
+    public function profil_update(){
+        $user = Auth::user();
+        $enseignant = Enseignant::where('user_id', '=',$user->id)->first();
+        // dd($etudiant);
+            if(!empty($user)){
+                return view('enseignants.update-profil', [
+                    'user'=>$user,
+                    'enseignant'=>$enseignant,
+                ]);
+            }
+    }
+    public function update_profil( UpdateProfilEtudiant $request){
+        $user = Auth::user();
+        if($user){
+             $user->password= Hash::make($request->password);
+             $user->update();
+            notify()->success(' Mise à jour effectué avec succès ');
+             return redirect(route('profil-enseignant')); 
+             
+         }else{
+            notify()->error('Mise à jour non effectué.');
+             return redirect(route('profil-enseignant'));
+         }
+    }
+    
 }

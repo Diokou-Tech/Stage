@@ -36,8 +36,8 @@
                 <select name="choix" id="choix" class="form-control  @error('choix') is-invalid @enderror" required>
                     <option value=""> -- Selectionner l'encadreur --</option>
                         @foreach($enseignants as $responsable)
-                        <option  value="{{$responsable->id}}" @if($stage->enseignant_id == $responsable->id ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}  {{ $responsable->stages->count() }} encadré(s)</option>
-                        @endforeach
+                        <option  value="{{$responsable->id}}" @if($stage->enseignant_id == $responsable->id ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}} {{$responsable->prenom}} {{ $responsable->stages->count() }} encadré(s)</option>
+                        @endforeach 
                 </select>
                 @error('voeu1')
                 <small>{{ $message }}  </small> 

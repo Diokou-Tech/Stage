@@ -99,9 +99,9 @@
                 <fieldset>
                     <legend>Choix des encadreurs</legend>
                     <div class="form-group">
-                        <label for="voeu1" class="d-block">Choix 1</label>
-                        <select name="voeu1" id="voeu1" class="form-control  @error('voeu1') is-invalid @enderror">
-                            <option>Selec Maitre 1</option>
+                        <label for="voeu1" class="d-block">Voeu N° 1</label>
+                        <select name="voeu1" id="voeu1" class="form-control  @error('voeu1') is-invalid @enderror"  required>
+                            <option>Selectionner un enseignant </option>
                                 @foreach($enseignants as $responsable)
                                 <option value="{{$responsable->id}}" @if( old('voeu3') == "1" ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
                                 @endforeach
@@ -114,30 +114,24 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="voeu2" class="d-block">Choix 2</label>
-                        <select name="voeu2" id="voeu2" class="form-control  @error('voeu2') is-invalid @enderror">
-                        <option>Selec Maitre 2</option>
+                        <label for="voeu2" class="d-block">Voeu N°2</label>
+                        <select name="voeu2" id="voeu2" class="form-control  @error('voeu2') is-invalid @enderror" required>
+                        <option>Selectionner un enseignant </option>
                             @foreach($enseignants as $responsable)
                                 <option value="{{$responsable->id}}" @if( old('voeu3') == "1" ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
                             @endforeach
-                            <!-- <option value="1" @if( old('voeu2') == "1" ) selected @endif> Mr ALui DJALO Informatique</option>
-                            <option value="2" @if( old('voeu2') == "2" ) selected @endif> Mr Cheikhou DIOKOU Mathematiques </option>
-                            <option value="3" @if( old('voeu2') == "3" ) selected @endif> Mme DAbo Ndiaye Langes </option> -->
                         </select>
                         @error('voeu2')
                         <small>{{ $message }}  </small> 
                         @enderror
                     </div>  
                     <div class="form-group">
-                        <label for="voeu3" class="d-block">Choix 2</label>
-                        <select name="voeu3" id="voeu3" class="form-control  @error('voeu3') is-invalid @enderror">
-                        <option>Selec Maitre 3</option>
+                        <label for="voeu3" class="d-block">Voeu N°3</label>
+                        <select name="voeu3" id="voeu3" class="form-control  @error('voeu3') is-invalid @enderror"  required>
+                        <option>Selectionner un enseignant </option>
                         @foreach($enseignants as $responsable)
                             <option value="{{$responsable->id}}" @if( old('voeu3') == "1" ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
                         @endforeach
-                            <!-- <option value="1" @if( old('voeu3') == "1" ) selected @endif> Mr ALui DJALO Informatique</option>
-                            <option value="2" @if( old('voeu3') == "2" ) selected @endif> Mr Cheikhou DIOKOU Mathematiques </option>
-                            <option value="3" @if( old('voeu3') == "3" ) selected @endif> Mme DAbo Ndiaye Langes </option> -->
                         </select>
                         @error('voeu3')
                         <small>{{ $message }}  </small> 
