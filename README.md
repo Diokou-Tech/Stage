@@ -1,11 +1,18 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
 ## A propos Gestion Stage
 
+<p align="center">
+    C'est une application web destiné à une université de Jean Moulin pour la gestion des stages des étudiants et leurs suivis.
+</p>
+
+## Fonctionnalités
+
+<p align="center">
+    <ul>
+        <li>Téléchargement de la fiche de stage </li>
+        <li> Depot de la fiche de stage par l'étudiant </li>
+        <li> Signature et affectation de l'encadreur par le responsable du master </li>
+        <li> Disponibilité des enseignants encadreurs en temps réel  </li>
+        <li>Visualisation des fiches de renseignements (PDF) en ligne </li>
+        <li>Pas de contact direct entre les différents acteurs (etudiants, encadreurs, responsables)</li>
+    </ul>
+</p>

@@ -11,16 +11,6 @@
                 </nav>
             </div>
             <div class="col-sm-12">
-                <!-- MESSAGE DE ERREUR -->
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li> {{ $error }} </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
             </div>
             <div class="card col-lg-6 col-md-8 col-sm-12 mx-auto">
                 <div class="card-header">Les infos de profil </div>
