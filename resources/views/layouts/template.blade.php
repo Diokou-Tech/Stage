@@ -48,15 +48,14 @@
                                 <a class="nav-link @if(\Route::current()->getName() == 'classe-index') active  @endif" href="{{ route('classe-index') }} "><i class="fas fa-house-user"></i>
                                     Parcours </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a class="nav-link @if(\Route::current()->getName() == 'page-stage') active  @endif" href=" {{ route('page-stage') }} "><i class="fas fa-house-user"></i>
-                                    Stages</a>
-                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link @if(\Route::current()->getName() == 'prof-index') active  @endif" href="{{ route('prof-index') }}"><i class="fas fa-house-user"></i>
                                     Enseignants</a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link @if(\Route::current()->getName() == 'user-index') active  @endif" href=" {{ route('user-index') }} "><i class="fas fa-house-user"></i>
+                                    Utilisateurs</a>
+                            </li>
 
 
                             <li class="nav-item dropdown">

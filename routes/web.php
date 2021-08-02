@@ -158,14 +158,9 @@ Route::middleware(['auth'])->group(function(){
 
     Route::prefix('users')->group(function(){
         Route::get('', [UserController::class, 'index'])->name('user-index');
-        Route::get('/create', [UserController::class, 'create'])->name('user-create');
-        Route::post('/store', [UserController::class, 'store'])->name('user-store');
+        // Route::get('/delete', [UserController::class, 'create'])->name('user-create');
         Route::get('/{id}/edit', [UserController::class, 'edit'])->name('user-edit');
         Route::put('/{id}/update', [UserController::class, 'update'])->name('user-update');
-        Route::delete('/{id}', [UserController::class, 'destroy'])->name('user-destroy');
-        Route::get('/pdf',     [UserController::class, 'geraPdf'])->name('user-print');
-    });
-    Route::get('users/{id}', function ($id) {
-
+        Route::get('/{id}/destroy', [UserController::class, 'destroy'])->name('user-destroy');
     });
 });

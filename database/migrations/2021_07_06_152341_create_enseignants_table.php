@@ -18,17 +18,14 @@ class CreateEnseignantsTable extends Migration
             $table->string('matricule', 45)->nullable(false);
             $table->string('prenom', 45)->nullable(false);
             $table->string('nom', 45)->nullable(false);
-            // $table->string('sexe', 10)->nullable(false);
             $table->string('specialite')->nullable(true);
             $table->string('email')->unique('email');
             $table->string('portable', 45)->nullable(true);
-            // $table->string('adresse', 45)->nullable(true);
-            
             #-- REFERENCE DE CLE ETRANGERE --#
             $table->biginteger('user_id')->unsigned()->nullable(true);
             $table->timestamps();
             #-- REFERENCE DE CLE ETRANGERE --#
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
         });
     }
 

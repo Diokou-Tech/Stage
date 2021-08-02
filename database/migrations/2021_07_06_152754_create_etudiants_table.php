@@ -26,10 +26,9 @@ class CreateEtudiantsTable extends Migration
             $table->biginteger('classe_id')->unsigned()->nullable(true);
             $table->biginteger('user_id')->unsigned()->nullable(true);
             $table->timestamps();
-            
             ##-- REFERENCE DE CLE ETRANGERE --##
             $table->foreign('classe_id')->references('id')->on('classes')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
