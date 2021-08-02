@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Cercle;
+use App\Models\Region;
+use App\Models\Secteur;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use App\Models\Secteur;
-use App\Models\Cercle;
-use App\Models\Region;
 
 class User extends Authenticatable
 {
@@ -24,7 +25,6 @@ class User extends Authenticatable
         'email',
         'password',
         'profil', //Champs de profil de l'utilisateur
-        'local', //Champ local où l'utilisateur est affecté
     ];
 
     /**
@@ -45,5 +45,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function createSuperAdmin(Array $details) :self 
+    {
+        $details['password'] = Hash::make($details['password']);
+        $user = new self($details); 
+        $user->save();
+        return $user;
+    }
         
 }

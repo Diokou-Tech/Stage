@@ -38,18 +38,18 @@
                     <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
                                 <a class="nav-link  @if(\Route::current()->getName() == 'admin-accueil') active  @endif" href="{{ route('admin-accueil') }} "><i
-                                        class="fas fa-house-user"></i> Accueil</a>
+                                        class="fas fa-home"></i> Accueil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link @if(\Route::current()->getName() == 'etudiant-index') active  @endif" href="{{ route('etudiant-index') }} "><i
-                                        class="fas fa-house-user"></i> Etudiants</a>
+                                        class="fas fa-user-graduate"></i> Etudiants</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if(\Route::current()->getName() == 'classe-index') active  @endif" href="{{ route('classe-index') }} "><i class="fas fa-house-user"></i>
+                                <a class="nav-link @if(\Route::current()->getName() == 'classe-index') active  @endif" href="{{ route('classe-index') }} "><i class="fas fa-school"></i>
                                     Parcours </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if(\Route::current()->getName() == 'prof-index') active  @endif" href="{{ route('prof-index') }}"><i class="fas fa-house-user"></i>
+                                <a class="nav-link @if(\Route::current()->getName() == 'prof-index') active  @endif" href="{{ route('prof-index') }}"><i class="fas fa-chalkboard-teacher"></i>
                                     Enseignants</a>
                             </li>
                             <li class="nav-item">

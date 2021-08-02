@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Stage;
 use App\Models\Classe;
 use App\Models\Etudiant;
@@ -58,6 +59,7 @@ class AdminController extends Controller
         $total_etu = Etudiant::count();
         $total_sta = Stage::count();
         $total_par = Classe::count();
-        return view('pages.accueil',['total_ens' => $total_ens,'total_etu' => $total_etu,'total_sta' => $total_sta,'total_par' => $total_par]);
+        $total_user = User::count();
+        return view('pages.accueil',['total_ens' => $total_ens,'total_etu' => $total_etu,'total_sta' => $total_sta,'total_par' => $total_par,'total_user' => $total_user]);
     }
 }

@@ -16,6 +16,9 @@
        <div class="card shadow-lg  text-white d-flex align-items-center justify-content-center c col-4 rounded-circle">
         <h2 class="text-center text-white"> <i class="fas fa-school"></i> <br>  {{$total_par}} <br> Parcours</h2>
        </div>
+       <div class="card shadow-lg  text-white d-flex align-items-center justify-content-center c col-4 rounded-circle">
+        <h2 class="text-center text-white"> <i class="fas fa-user"></i> <br>  {{$total_user }} <br> Utilisateurs</h2>
+       </div>
     </div>
   </div>
   <style>

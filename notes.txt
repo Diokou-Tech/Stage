@@ -10,8 +10,14 @@
 
 ---> composer install 
 
----> php artisan migrate
+---> npm install
+
+--> npm run dev
+
+---> php artisan migrate --force
 
 ---> php artisan db:seed (mettre les fausses données)
+
+---> php artisan create:admin (creer un utilisateur administrateur)
 
 ---> php artisan serve (lancer l'application )

@@ -69,7 +69,7 @@ class EtudiantController extends Controller
                 $etudiant->user_id = $user->id;
                 $etudiant->save();
         notify()->success("Creation d'un etudiant avec succès","creation etudiant");
-        return redirect(route('etudiant-index'));
+        return back();
     }
 
     /**

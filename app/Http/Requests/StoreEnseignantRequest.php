@@ -31,7 +31,7 @@ class StoreEnseignantRequest extends FormRequest
             'prenom' => 'bail|required|string|max:45|min:2',
             'nom' => 'bail|required|string|max:45|min:0',
             'specialite' => 'bail|required|string',
-            'email' => 'bail|required|string|max:45|min:2', 
+            'email' => 'bail|required|email|max:45|min:4|unique:users', 
             'portable' => 'bail|required',
             'password' => 'required|min:8',
             'password_confirmation_' => 'required|min:8|same:password',

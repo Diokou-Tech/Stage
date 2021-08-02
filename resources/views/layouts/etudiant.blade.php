@@ -38,16 +38,16 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                                  <li class="nav-item">
-                                    <a class="nav-link @if(\Route::current()->getName() == 'etudiant-accueil') active  @endif" href="{{route('etudiant-accueil')}} "><i class="fas fa-house-user"></i>Accueil</a>
+                                    <a class="nav-link @if(\Route::current()->getName() == 'etudiant-accueil') active  @endif" href="{{route('etudiant-accueil')}} "><i class="fas fa-home"></i>Accueil</a>
                                 </li>
                                  <li class="nav-item">
-                                    <a class="nav-link @if(\Route::current()->getName() == 'stage-create') active  @endif" href="{{route('stage-create')}} "><i class="fas fa-house-user"></i> Depot</a>
+                                    <a class="nav-link @if(\Route::current()->getName() == 'stage-create') active  @endif" href="{{route('stage-create')}} "><i class="fas fa-download"></i> Depot</a>
                                 </li>
                                  <li class="nav-item">
-                                    <a class="nav-link @if(\Route::current()->getName() == 'stage-index') active  @endif" href=" {{route('stage-index')}} "><i class="fas fa-house-user"></i> Tableau de Bord</a>
+                                    <a class="nav-link @if(\Route::current()->getName() == 'stage-index') active  @endif" href=" {{route('stage-index')}} "><i class="fas fa-tachometer-alt"></i> Tableau de Bord</a>
                                 </li>
                                  <li class="nav-item">
-                                    <a class="nav-link @if(\Route::current()->getName() == 'stage-offre') active  @endif" href=" {{route('stage-offre')}}"><i class="fas fa-house-user"></i> Offre d'emploi</a>
+                                    <a class="nav-link @if(\Route::current()->getName() == 'stage-offre') active  @endif" href=" {{route('stage-offre')}}"><i class="fas fa-info"></i> Offre d'emploi</a>
                                 </li>
                                  <li class="nav-item">
                                     <a class="nav-link @if(\Route::current()->getName() == 'stage-contact') active  @endif" href=" {{route('stage-contact')}}"><i class="fas fa-phone"></i> Contact</a>

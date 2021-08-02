@@ -35,7 +35,7 @@ class UserController extends Controller
 
         $validated = $request->validate ([
             'name' => 'bail|required',
-            'email' => 'bail|required|email',
+            'email' => 'bail|required|email|unique:users',
             'profil' => 'bail|required',
             'password' => 'bail|required|min:8|confirmed',
         ]);

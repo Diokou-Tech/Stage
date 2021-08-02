@@ -78,7 +78,7 @@ class EnseignantController extends Controller
         $enseignant->save();
 
         Notify()->success('Creation de l\'enseignant reussie', 'Enseignant');
-        return redirect(route('prof-index'));
+        return back();
     }
 
     /**

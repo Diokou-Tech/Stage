@@ -58,13 +58,6 @@
                                     </span>
                                 @enderror
                         </div>
-                        
-                        <div class="form-group">
-
-                             <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Inscription') }}</a>
-                            
-                        </div>
-
                         <div class="form-group m-2 p-2 text-center">
                              <button class="btn btn-primary btn-lg border-white" type="submit">Se connecter </button>
                         </div>

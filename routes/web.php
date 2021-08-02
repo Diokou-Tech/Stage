@@ -45,9 +45,9 @@ use App\Http\Controllers\ResultatCandidatController;
 */
 
 
-Route::get('/dynamic_dependent', [App\Http\Controllers\DynamicDependent::class, 'index']);
-Route::post('/dynamic_dependent/fetch', [App\Http\Controllers\DynamicDependent::class, 'fetch'])->name('dynamicdependent.fetch');
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/dynamic_dependent', [App\Http\Controllers\DynamicDependent::class, 'index']);
+// Route::post('/dynamic_dependent/fetch', [App\Http\Controllers\DynamicDependent::class, 'fetch'])->name('dynamicdependent.fetch');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 ///Route::group(['prefix'=> 'admin/', 'middleware'=>['role:administrateur']], function(){
     
@@ -63,17 +63,17 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Auth::routes();
 //test email
 
-Route::get('mail', function () {
+// Route::get('mail', function () {
 
-    		#2. Récupération des utilisateurs
-		$users = User::all();
+//     		#2. Récupération des utilisateurs
+// 		$users = User::all();
 
 
-		#3. Envoi du mail
-		Mail::to($users)->bcc("wilo.ahadi@gmail.com")
-						->queue(new MessageGoogle());
-		return back()->withText("Message envoyé");
-});
+// 		#3. Envoi du mail
+// 		Mail::to($users)->bcc("wilo.ahadi@gmail.com")
+// 						->queue(new MessageGoogle());
+// 		return back()->withText("Message envoyé");
+// });
 
 //
 Route::get('/', function () {
