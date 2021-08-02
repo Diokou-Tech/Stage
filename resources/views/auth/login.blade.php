@@ -5,33 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>{{ config('app.name', 'Gestion Stage Admin ') }}</title>
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-    
-    <!--SCRIPTS DE CHART-->
-    {{-- <script src="{{ asset('_gs_public/js/loader.js') }}" defer></script> --}}
-    <script src="{{ asset('_gs_public/js/bootstrap.min.js') }}" defer></script>
-    
-    
-   <!-- <script src="{{ asset('js/jquery.min.js') }}" defer></script>-->
-   <!-- <script src="{{ asset('js/dropdown.js') }}"></script>-->
-
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
-    {{-- <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"> --}}
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.25/datatables.min.css"/>
     <!-- Styles -->
-    <!--Ultimo link adicionada-->
-    <!--
-    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
--->
     <!--LINK DE BOOTRAPS 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> 
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
 <div class="container text-white">
@@ -63,13 +49,6 @@
                         </div>
                           
         </form> 
-       
-
-        
-        <!-- <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis excepturi tenetur iusto omnis amet eveniet natus doloribus? Facilis, quis tenetur quidem sequi illo odit praesentium in consequatur voluptate ab architecto.
-            Sapiente, nihil unde. Earum, a voluptates vero doloremque, autem odit doloribus debitis facilis blanditiis tempore nobis ex quam corporis? Possimus nostrum voluptas adipisci sequi reiciendis, maiores similique eveniet dicta libero.
-        </p> -->
         </div>
 </div>
 <style>
@@ -77,11 +56,9 @@
         background: linear-gradient(90deg, rgba(0,62,92,1) 0%, rgba(7,163,213,1) 100%, rgba(0,0,0,1) 100%);
     }
 </style>
-    
-    <!--<script src="{{ asset('C:/wamp64/www/_gestionStage/public/_gs_public/js/bootstrap.min.js') }}" ></script>-->
-    <script src="{{ asset('_gs_public/js/script.js') }}" ></script>
-    <script src="{{ asset('_gs_public/js/jquery-3.5.1.min.js') }} "></script>
-    <script src="{{ asset('_gs_public/js/bootstrap.min.js') }}" ></script>
-  
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 </body>
 </html>

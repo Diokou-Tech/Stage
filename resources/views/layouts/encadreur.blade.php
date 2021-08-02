@@ -60,7 +60,6 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                                       <!--<i class="fas fa-user-slash"></i> {{ __('Quitter') }}-->
                                        <i class="fas fa-sign-out-alt"></i> {{('Deconnexion') }}
                                     </a>
 
