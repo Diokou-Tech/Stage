@@ -1,7 +1,7 @@
 ## A propos Gestion Stage
 
 <p align="center">
-    C'est une application web destiné à une université de Jean Moulin pour la gestion des stages des étudiants et leurs suivis.
+    C'est une application web destiné aux universités pour la gestion des stages des étudiants et leurs suivis.
 </p>
 
 ## Fonctionnalités
