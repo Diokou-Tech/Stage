@@ -8,6 +8,7 @@
     <title>{{ config('app.name', 'Gestion Stage Admin ') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.25/datatables.min.css"/>
@@ -17,7 +18,7 @@
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <script src="{{ asset('css/app.css') }}" defer></script>
 </head>
 <body>
 <div class="container text-white">
@@ -45,7 +46,7 @@
                                 @enderror
                         </div>
                         <div class="form-group m-2 p-2 text-center">
-                             <button class="btn btn-primary btn-lg border-white" type="submit">Se connecter </button>
+                             <button class="btn btn-primary btn-lg border-white" type="submit"> <i class="fa fa-sign-out-alt"></i> Se connecter </button>
                         </div>
                           
         </form> 
@@ -56,9 +57,6 @@
         background: linear-gradient(90deg, rgba(0,62,92,1) 0%, rgba(7,163,213,1) 100%, rgba(0,0,0,1) 100%);
     }
 </style>
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> 
-<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+{{-- --}}
 </body>
 </html>
