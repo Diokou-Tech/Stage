@@ -17,11 +17,11 @@ class EncadreurController extends Controller
         $enseignant = Enseignant::where('user_id','=',$user->id)->first();
         // dd($enseignant);
         if($enseignant->classes != null){
-            $total_stages = $enseignant->classes->stages->count;
+            $total_stages = $enseignant->classes->stages->count();
         }else{
             $total_stages = 0;
         }
-
+    
        return view('encadreur.index',['enseignant' => $enseignant,'total_stages' => $total_stages]);
     }
     public function dashboard(){

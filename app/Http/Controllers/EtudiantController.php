@@ -23,9 +23,14 @@ class EtudiantController extends Controller
     public function index()
     {
         //
-        $etudiants = Etudiant::orderBy('id','DESC')->get();;
-        $total = Etudiant::count();
-        return view('etudiants.index', ['etudiants'=>$etudiants, 'total'=>$total]);
+        if(Auth::user()->profil !='Administrateur'){
+            notify()->error("Vous n'avez pas  l'autorisation");
+           return redirect('stages/');
+        }else{
+            $etudiants = Etudiant::orderBy('id','DESC')->get();;
+            $total = Etudiant::count();
+            return view('etudiants.index', ['etudiants'=>$etudiants, 'total'=>$total]);
+        }
     }
 
     /**

@@ -27,8 +27,13 @@ class UserController extends Controller
     }
 
     public function index(Request $request){
-        $users = User::orderBy('id','DESC')->get();
-        return view('users.index', ['users'=>$users]);
+        if(Auth::user()->profil !='Administrateur'){
+            notify()->error("Vous n'avez pas  l'autorisation");
+           return redirect('stages/');
+        }else{
+            $users = User::orderBy('id','DESC')->get();
+            return view('users.index', ['users'=>$users]);
+        }
     }
 
     public function update(Request $request, $id){

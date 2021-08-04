@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Classe;
 use App\Models\Enseignant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreClasseRequest;
 use App\Http\Requests\UpdateClasseRequest;
 
@@ -18,10 +19,15 @@ class ClasseController extends Controller
     public function index()
     {
         //
+        if(Auth::user()->profil !='Administrateur'){
+            notify()->error("Vous n'avez pas  l'autorisation");
+           return redirect('stages/');
+        }else{
         $classes = Classe::orderBy('id','DESC')->get();
         // dd($classes[0]);
         $total = Classe::count();
         return view('classes.index', ['classes'=>$classes, 'total'=>$total]);
+        }
     }
 
     /**
