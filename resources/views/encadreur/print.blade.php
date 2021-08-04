@@ -1,4 +1,5 @@
-    <h4 align="center">Tableau affectation Etudiants du parcours <b> {{ $stages[0]->classe->nom }} {{ $stages[0]->classe->niveau }} </b></h4>
+    <h3 align="center">Tableau affectation Etudiants du parcours <b> {{ $stages[0]->classe->nom }} {{ $stages[0]->classe->niveau }} </b></h3>
+    <h4 align="center">Responsable  : <b> {{ $stages[0]->classe->enseignant->nom  }} {{ $stages[0]->classe->enseignant->prenom }} </b></h4>
     <table class="table" border="1" cellspacing="0" cellspading="0">
         <thead>
             <tr>
@@ -52,6 +53,11 @@
             }
             th{
                 padding: 5px;
+            }
+            h3,h4{
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                text-decoration: underline;
+                font-weight: normal;
             }
         </style>
     </table>
