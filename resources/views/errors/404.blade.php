@@ -19,10 +19,9 @@
 
     </head>
     <body>
-    <div class="container col-6 bg-warning jumbotron d-flex justify-content-center align-items-center flex-column text-center">
+    <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
         <h1><span class="bold underline text-white"> Erreur 404 </span> </h1>
         <h2 class="text-white">la ressource est introuvable ! By Gestion Stage</h2>
-        <a href="/" class="h3 text-center  btn btn-outline btn-outline-primary block">Retour &larr;</a>
     </div>
     </body>
 </html>

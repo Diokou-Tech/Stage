@@ -47,9 +47,6 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <div class="float-right">
-                        {{ $stages->links() }}
-                    </div>
                 </div>
             </div>
         </div>

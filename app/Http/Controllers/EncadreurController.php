@@ -7,6 +7,8 @@ use App\Models\Stage;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+// use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class EncadreurController extends Controller
 {
@@ -15,7 +17,7 @@ class EncadreurController extends Controller
         $enseignant = Enseignant::where('user_id','=',$user->id)->first();
         // dd($enseignant);
         if($enseignant->classes != null){
-            $total_stages = Stage::where('classe_id','=',$enseignant->classes->first()->id)->count();
+            $total_stages = $enseignant->classes->stages->count;
         }else{
             $total_stages = 0;
         }
@@ -26,7 +28,7 @@ class EncadreurController extends Controller
         $user = Auth::user();
         $enseignant = Enseignant::where('user_id','=',$user->id)->first();
         //recup stages concernés 
-        $stages = Stage::where('enseignant_id', '=', $enseignant->id)->paginate(3);
+        $stages = Stage::where('enseignant_id', '=', $enseignant->id)->get();
         return view('encadreur.dashboard',['stages' => $stages,'enseignant' => $enseignant]);
     }
     public function show(Stage $stage,$id)
@@ -45,7 +47,7 @@ class EncadreurController extends Controller
     public function affecterIndex(){
         $user = Auth::user();
         $enseignant = Enseignant::where('user_id','=',$user->id)->first();
-        $stages = Stage::where('classe_id','=',$enseignant->classes->first()->id)->get();
+        $stages = $enseignant->classes->stages;
 
         return view('encadreur.affecter-index',['stages' => $stages,'enseignant' => $enseignant]);
     }
@@ -118,5 +120,12 @@ class EncadreurController extends Controller
                 notify()->success('la signature a été effectuée avec succès','Signature');
                 return back();
         }
+    }
+    public function print(){
+        set_time_limit(300);
+        $enseignant = Enseignant::where('user_id','=',Auth::user()->id)->first();
+        $stages = $enseignant->classes->stages;
+        $pdf = PDF::loadView('encadreur.print',['stages' => $stages]);
+        return $pdf->stream();
     }
 }

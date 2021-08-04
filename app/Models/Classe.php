@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Models;
-use App\Models\Enseignant;
+use App\Models\Stage;
 use App\Models\Etudiant;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Enseignant;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Classe extends Model
 {
@@ -30,6 +31,6 @@ class Classe extends Model
         return $this->hasMany(Etudiant::class);
     }
     public function stages(){
-        return $this->hasMany(Stages::class);
+        return $this->hasMany(Stage::class);
     }
 }
