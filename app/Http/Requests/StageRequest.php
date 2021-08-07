@@ -34,8 +34,8 @@ class StageRequest extends FormRequest
             'tuteur_entreprise_email' => 'bail|email',
             'telephone' => 'bail|integer',
             'voeu1' => 'bail|required|string|different:voeu2|different:voeu3',
-            'voeu2' => 'bail|required|string|different:voeu1|different:voeu3',
-            'voeu3' => 'bail|required|string|different:voeu2|different:voeu1',
+            'voeu2' => 'string|different:voeu1|',
+            'voeu3' => 'string|different:voeu1',
         ];
     }
 }

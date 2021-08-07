@@ -17,7 +17,6 @@
                     <table class="table table-sm table-hover text-center">
                         <thead class="active">
                             <tr>
-                                <th>id</th>
                                 <th>Entreprise</th>
                                 <th>Lieu</th>
                                 <th>Tuteur Stage</th>                          
@@ -33,8 +32,6 @@
                         <tbody>
                         @foreach($stages as $stage)
                                 <tr>
-                                    <td>{{$stage->id}}</td>   
- 
                                     <td>{{$stage->entreprise}}</td>   
                                     <td>{{$stage->lieu}}</td>  
                                     <td>{{$stage->tuteur_entreprise}}</td>   

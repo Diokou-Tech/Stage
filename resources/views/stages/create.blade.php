@@ -3,9 +3,16 @@
 @section('content')
 
     <div class="container">
-        {{-- <h2>Zone de Dépot </h2> --}}
+    @if(Session::has('error-stage'))
+    <div class="alert alert-danger col-6">
+        {{ Session::get('error-stage') }}
+    </div>
+    @endif
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
         <div class="col-12 mx-auto">
-            <form action="{{route('stage-store')}}" method="post" enctype="multipart/form-data" class="row d-flex flex-row align-items-center">
+            <form action="{{route('stage-store')}}" id="form" method="post" enctype="multipart/form-data" class="row d-flex flex-row align-items-center">
             @csrf
             <div class="col-6">
                 <fieldset>
@@ -33,7 +40,6 @@
                     <small>{{ $message }}  </small> 
                    @enderror
                 </div> 
-                <!-- <div class="d-flex justify-content-between"> -->
                 <div class="form-group mt-2">
                     <label for="lieu_stage">Lieu Stage</label>
                     <input type="text" name="lieu_stage" value="{{ old('lieu_stage') }}" id="lieu_stage" class="form-control @error('lieu_stage') is-invalid @enderror" required>
@@ -41,14 +47,6 @@
                     <small>{{ $message }}  </small> 
                    @enderror
                 </div>
-                <!-- <div class="form-group mt-2 col-4">
-                    <label for="code_postal">Code Postal</label>
-                    <input type="number" name="code_postal" value="{{ old('code_postal') }}" id="code_postal" class="form-control @error('code_postal') is-invalid @enderror" required>
-                    @error('code_postal')
-                    <small>{{ $message }}  </small> 
-                   @enderror
-                </div> -->
-                <!-- </div> -->
                 <div class="d-flex justify-content-between">
                     <div class="form-group mt-2">
                         <label for="debut_stage">Début Stage</label>
@@ -97,7 +95,7 @@
                 </div>
             </fieldset>
                 <fieldset>
-                    <legend>Choix des encadreurs</legend>
+                    <legend>Choix de l'enseignant suiveur </legend>
                     <div class="form-group">
                         <label for="voeu1" class="d-block">Voeu N° 1</label>
                         <select name="voeu1" id="voeu1" class="form-control  @error('voeu1') is-invalid @enderror"  required>
@@ -105,9 +103,6 @@
                                 @foreach($enseignants as $responsable)
                                 <option value="{{$responsable->id}}" @if( old('voeu3') == "1" ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
                                 @endforeach
-                            <!-- <option value="1" @if( old('voeu1') == "1" ) selected @endif> Mr ALui DJALO Informatique</option>
-                            <option value="2" @if( old('voeu1') == "2" )  selected @endif> Mr Cheikhou DIOKOU Mathematiques </option>
-                            <option value="3" @if( old('voeu1') == "3" ) selected @endif> Mme DAbo Ndiaye Langes </option> -->
                         </select>
                         @error('voeu1')
                         <small>{{ $message }}  </small> 
@@ -115,7 +110,7 @@
                     </div>
                     <div class="form-group">
                         <label for="voeu2" class="d-block">Voeu N°2</label>
-                        <select name="voeu2" id="voeu2" class="form-control  @error('voeu2') is-invalid @enderror" required>
+                        <select name="voeu2" id="voeu2" class="form-control  @error('voeu2') is-invalid @enderror">
                         <option>Selectionner un enseignant </option>
                             @foreach($enseignants as $responsable)
                                 <option value="{{$responsable->id}}" @if( old('voeu3') == "1" ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
@@ -127,7 +122,7 @@
                     </div>  
                     <div class="form-group">
                         <label for="voeu3" class="d-block">Voeu N°3</label>
-                        <select name="voeu3" id="voeu3" class="form-control  @error('voeu3') is-invalid @enderror"  required>
+                        <select name="voeu3" id="voeu3" class="form-control  @error('voeu3') is-invalid @enderror" >
                         <option>Selectionner un enseignant </option>
                         @foreach($enseignants as $responsable)
                             <option value="{{$responsable->id}}" @if( old('voeu3') == "1" ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
@@ -148,6 +143,5 @@
         </div>
         </div>
     </div>
-
 @endsection
     

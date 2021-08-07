@@ -13,7 +13,6 @@
                     <table class="table table-sm table-hover ">
                         <thead class="active">
                             <tr>
-                                <th>id</th>
                                 <th>Entreprise</th>
                                 <th>Lieu</th>
                                 <th>Tuteur</th>                          
@@ -29,8 +28,6 @@
                         <tbody>
                         @foreach($stages as $stage)
                                 <tr>
-                                    <td>{{$stage->id}}</td>   
- 
                                     <td>{{$stage->entreprise}}</td>   
                                     <td>{{$stage->lieu}}</td>  
                                     <td>{{$stage->tuteur_entreprise}}</td>   

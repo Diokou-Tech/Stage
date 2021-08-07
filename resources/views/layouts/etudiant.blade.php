@@ -38,7 +38,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                                  <li class="nav-item">
-                                    <a class="nav-link @if(\Route::current()->getName() == 'etudiant-accueil') active  @endif" href="{{route('etudiant-accueil')}} "><i class="fas fa-home"></i>Accueil</a>
+                                    <a class="nav-link @if(\Route::current()->getName() == 'etudiant-accueil') active  @endif" href="{{route('etudiant-accueil')}} "><i class="fas fa-home"></i> Accueil</a>
                                 </li>
                                  <li class="nav-item">
                                     <a class="nav-link @if(\Route::current()->getName() == 'stage-create') active  @endif" href="{{route('stage-create')}} "><i class="fas fa-download"></i> Depot</a>

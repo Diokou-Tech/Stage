@@ -1,6 +1,6 @@
 @extends('layouts.etudiant')
 @section('content')
-<div class='container-fluid mx-1'>
+<div class='container-fluid mx-2'>
 
     <div class="row justifu-contetent-center ml-10">
         <div class="col-sm-0 col-md-6">
@@ -14,7 +14,6 @@
                     <table class="table table-sm table-hover ">
                         <thead class="active">
                             <tr>
-                                <th>id</th>
                                 <th>Entreprise</th>
                                 <th>Lieu</th>
                                 <th>Tuteur stage</th>                          
@@ -32,14 +31,8 @@
                         <tbody>
                         @foreach($stages as $stage)
                                 <tr>
-                                    <td>{{$stage->id}}</td>   
- 
                                     <td>{{$stage->entreprise}}</td>   
-                                    <!--<td>{{$stage->secteur_activite}}</td>   -->
                                     <td>{{$stage->lieu}}</td>  
-                                    <!-- 
-                                    <td>{{$stage->theme}}</td>   
-                                    -->
                                     <td>{{$stage->tuteur_entreprise}}</td>   
                                     <td>{{$stage->tuteur_entreprise_tel}}</td>   
                                     <td>{{$stage->tuteur_entreprise_email}}</td>   
@@ -60,7 +53,9 @@
                                     </td>
                                     <td>{{$stage->created_at}}</td>  
                                      <td class='d-flex'>
+                                         @if($stage->enseignant_id != null && $stages->signe != null)
                                         <a href="{{ route('stage-show', ['id'=>$stage->id])}}" class="btn btn-sm btn-info m-2 text-white"><i class="fas fa-eye"></i></a>
+                                         @endif
                                         <a href="{{ route('stage-edit', ['id'=>$stage->id])}}" class="btn btn-sm btn-primary m-2"><i class="fas fa-edit"></i></a>
                                         <form action=" {{ route('stage-destroy', ['id'=>$stage->id])}} 
                                         " method="post"

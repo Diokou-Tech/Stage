@@ -11,6 +11,7 @@ use Yoeunes\Notify\Notify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StageRequest;
+use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -81,9 +82,21 @@ class StageController extends Controller
         // dd($etud->classe);
         //upload fichier
         $fiche = $request->file('fiche');
-        $ficheName = 'Fiche-' . date("Y_m_d-H_i_s") . '.' . $fiche->extension();
+        $ficheName = "Fiche-$etud->nom $etud->prenom _" . date("Y_m_d-H_i_s") . '.' . $fiche->extension();
         $fiche->move(\public_path('Fiches_Stages'), $ficheName);
         //$enfant->bulletin = $ficheName;
+
+        //verif de la duree de stage
+        $start = new DateTime($request->debut_stage);
+        $end = new DateTime($request->fin_stage);
+        $interval = date_diff($start,$end);
+        $interval = $interval->format('%m mois');
+        // dd($etud->classe->niveau);
+        if($interval < 3  ){
+            return back()->with('error-stage','la durée de stage doit etre superieure ou égal à 3 mois')->withInput($request->all());
+        }elseif($interval == 3 && $etud->classe->niveau == 02){
+            return back()->with('error-stage','la durée de stage doit etre superieur à 4')->withInput($request->all());
+        }
         Stage::create([
             'fiche' => $ficheName,
             'secteur_activite' => $request->secteur,
@@ -123,8 +136,8 @@ class StageController extends Controller
             mail($destinataire, $sujet, $message, $header);
             notify()->success("Le mail est envoyé ");
         } catch (\Exception $e) {
-        $msg = $e->getMessage();
-        notify()->warning("Le mail automatique n'est pas envoyé <br> $msg");
+            $msg = $e->getMessage();
+            notify()->warning("Le mail automatique n'est pas envoyé <br> $msg");
         }
         Notify()->success('Depot de stage reussi', 'Depôt');
         return back();

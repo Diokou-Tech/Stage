@@ -70,15 +70,21 @@
                         <div class="col-4">
                             <h2>Choix des encadreurs</h2>
                             <ul class="list-group-flush">
-                                <li class="list-group-item">
+                                 @isset($ens1)
+                                 <li class="list-group-item">
                                     choix N°1: <b>{{$ens1->nom}} {{$ens1->prenom}} / {{$ens1->matricule}}</b>
-                                 </li>
+                                 </li> 
+                                 @endisset
+                                 @isset($ens2)
                                  <li class="list-group-item">
-                                     choix  N°2 : <b> {{$ens2->nom}} {{$ens2->prenom}} / {{$ens2->matricule}} </b>
-                                 </li>
+                                    choix  N°2 : <b> {{$ens2->nom}} {{$ens2->prenom}} / {{$ens2->matricule}} </b>
+                                </li>
+                                 @endisset
+                                 @isset($ens3)
                                  <li class="list-group-item">
-                                     choix N°3: <b>{{$ens3->nom}} {{$ens3->prenom}} / {{$ens3->matricule}}</b>
-                                 </li>
+                                    choix N°3: <b>{{$ens3->nom}} {{$ens3->prenom}} / {{$ens3->matricule}}</b>
+                                </li> 
+                                 @endisset
                             </ul>
                             @if ($encadreur != null)
                             <h2>Encadreur affecté</h2>
