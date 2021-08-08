@@ -1,33 +1,41 @@
-<table class="table table-sm table-hover text-center">
-    <thead class="active">
+<table>
+    <thead>
         <tr>
-            <th>Entreprise</th>
-            <th>Lieu</th>
-            <th>Tuteur Stage</th>                          
-            <th>Email Tuteur Stage</th>                          
-            <th>Etudiant</th>                          
-            <th>Email Etudiant</th>  
-            <th>Enseignant suiveur</th> 
-            <th>Enseignant suiveur matricule</th>                        
-            <th>Debut Stage</th>                          
-            <th>Fin stage</th>                                           
-            <th>Date de décclaration</th>                                                             
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>E-mail</th>                          
+            <th>Portable</th>                          
+            <th>Entreprise</th>                          
+            <th>Secteur d'activité</th>  
+            <th>Lieu</th> 
+            <th>Thème du stage </th>                        
+            <th>Tuteur en entreprise</th>                          
+            <th>Téléphone du tuteur en entreprise</th>                                           
+            <th>E-mail du tuteur en entreprise</th>      
+            <th>Date debut stage</th>
+            <th>Date fin stage</th>
+            <th>Enseignant suiveur souhaité</th>                                                                                                            
         </tr>
     </thead>
     <tbody>
     @foreach($stages as $stage)
             <tr>
+                <td>{{$stage->etudiant->nom}}</td>
+                <td> {{$stage->etudiant->prenom}}</td>   
+                <td> {{$stage->etudiant->email}}</td>   
+                <td> {{$stage->etudiant->portable}}</td>   
                 <td>{{$stage->entreprise}}</td>   
+                <td>{{$stage->secteur_activite}}</td>   
                 <td>{{$stage->lieu}}</td>  
+                <td>{{$stage->theme}}</td>  
                 <td>{{$stage->tuteur_entreprise}}</td>   
+                <td>{{$stage->tuteur_entreprise_tel}}</td>   
                 <td>{{$stage->tuteur_entreprise_email}}</td>   
-                <td>{{$stage->etudiant->nom}} {{$stage->etudiant->prenom}}</td>   
-                <td>{{$stage->etudiant->email}}</td>   
-                <td>{{$stage->etudiant->email}}</td>   
-                <td>{{$stage->etudiant->email}}</td>   
-                <td>{{$stage->date_debut}}</td>   
-                <td>{{$stage->date_fin}}</td>   
-                <td>{{$stage->created_at}}</td>         
+                <td>{{$stage->date_debut}}</td> 
+                <td>{{$stage->date_fin}}</td>
+                @if ($stage->enseignant_id != null)
+                <td>{{ $stage->enseignant->nom }} {{ $stage->enseignant->prenom }} {{ $stage->enseignant->matricule }}</td>
+                @endif 
             </tr>
     @endforeach
     </tbody>

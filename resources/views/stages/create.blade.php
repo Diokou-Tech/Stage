@@ -99,7 +99,6 @@
                     <div class="form-group">
                         <label for="voeu1" class="d-block">Voeu N° 1</label>
                         <select name="voeu1" id="voeu1" class="form-control  @error('voeu1') is-invalid @enderror"  required>
-                            <option>Selectionner un enseignant </option>
                                 @foreach($enseignants as $responsable)
                                 <option value="{{$responsable->id}}" @if( old('voeu3') == "1" ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
                                 @endforeach
@@ -111,7 +110,6 @@
                     <div class="form-group">
                         <label for="voeu2" class="d-block">Voeu N°2</label>
                         <select name="voeu2" id="voeu2" class="form-control  @error('voeu2') is-invalid @enderror">
-                        <option>Selectionner un enseignant </option>
                             @foreach($enseignants as $responsable)
                                 <option value="{{$responsable->id}}" @if( old('voeu3') == "1" ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
                             @endforeach
@@ -123,7 +121,6 @@
                     <div class="form-group">
                         <label for="voeu3" class="d-block">Voeu N°3</label>
                         <select name="voeu3" id="voeu3" class="form-control  @error('voeu3') is-invalid @enderror" >
-                        <option>Selectionner un enseignant </option>
                         @foreach($enseignants as $responsable)
                             <option value="{{$responsable->id}}" @if( old('voeu3') == "1" ) selected @endif> {{$responsable->matricule}} {{$responsable->nom}}</option>
                         @endforeach
@@ -143,5 +140,11 @@
         </div>
         </div>
     </div>
+    <script>
+        form = document.getElementById('form');
+        form.voeu1.value = "";
+        form.voeu2.value = "";
+        form.voeu3.value = "";
+    </script>
 @endsection
     

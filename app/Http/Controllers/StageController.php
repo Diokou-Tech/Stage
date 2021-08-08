@@ -39,9 +39,10 @@ class StageController extends Controller
         } else {
             // $stages = Stage::orderBy('id','DESC');
             $stages = Stage::where('etudiant_id', '=', $etud->id)->get();
-            // dd($stages);
-            // $total = DB::table('stages')->where('etudiant_id', '=', $user->id)->count();
-            $total =  Stage::where('etudiant_id', '=', $etud->id)->count();
+            //test de l'affectation
+            $test_affectation =
+                // $total = DB::table('stages')->where('etudiant_id', '=', $user->id)->count();
+                $total =  Stage::where('etudiant_id', '=', $etud->id)->count();
             return view('stages.index', ['stages' => $stages, 'total' => $total]);
         }
     }
@@ -89,13 +90,13 @@ class StageController extends Controller
         //verif de la duree de stage
         $start = new DateTime($request->debut_stage);
         $end = new DateTime($request->fin_stage);
-        $interval = date_diff($start,$end);
+        $interval = date_diff($start, $end);
         $interval = $interval->format('%m mois');
         // dd($etud->classe->niveau);
-        if($interval < 3  ){
-            return back()->with('error-stage','la durée de stage doit etre superieure ou égal à 3 mois')->withInput($request->all());
-        }elseif($interval == 3 && $etud->classe->niveau == 02){
-            return back()->with('error-stage','la durée de stage doit etre superieur à 4')->withInput($request->all());
+        if ($interval < 3) {
+            return back()->with('error-stage', 'la durée de stage doit etre superieure ou égal à 3 mois')->withInput($request->all());
+        } elseif ($interval == 3 && $etud->classe->niveau == 02) {
+            return back()->with('error-stage', 'la durée de stage doit etre superieur à 4')->withInput($request->all());
         }
         Stage::create([
             'fiche' => $ficheName,
@@ -118,7 +119,7 @@ class StageController extends Controller
             'enseignant_id'  => null
         ]);
         try {
-            $sujet = "Depot de Stage";
+            $sujet = "Depot de Stage"; //mail body
             $message = "<div>
             <h1>Message</h1>
             <p>
@@ -129,7 +130,7 @@ class StageController extends Controller
             </footer>
             </div>";
             $destinataire = $responsable->email; //recipient
-            $header = "From:\"Gestion-Stage\"<stage.gestion2021@gmail.com>\n"; //mail body
+            $header = "From:\"Gestion-Stage\"<stage.gestion2021@gmail.com>\n";
             $header .= 'MIME-Version: 1.0';
             $header .= "reply-To:stage.gestion2021@gmail.com\n";
             $header .= "content-Type:text/html; charset=\"iso-8859-1\"";
@@ -137,7 +138,7 @@ class StageController extends Controller
             notify()->success("Le mail est envoyé ");
         } catch (\Exception $e) {
             $msg = $e->getMessage();
-            notify()->warning("Le mail automatique n'est pas envoyé <br> $msg");
+            notify()->warning("Le mail automatique n'est pas envoyé <br>");
         }
         Notify()->success('Depot de stage reussi', 'Depôt');
         return back();

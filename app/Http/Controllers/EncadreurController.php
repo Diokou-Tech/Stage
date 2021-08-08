@@ -51,7 +51,7 @@ class EncadreurController extends Controller
         $user = Auth::user();
         $enseignant = Enseignant::where('user_id','=',$user->id)->first();
         $stages = $enseignant->classes->stages;
-
+        //test affectation
         return view('encadreur.affecter-index',['stages' => $stages,'enseignant' => $enseignant]);
     }
     public function affecter($id){
@@ -73,6 +73,7 @@ class EncadreurController extends Controller
             $stage->save();
             try {
                 $sujet = "Affectation Encadreur";
+                //mail body
                 $message = "<div>
                 <h1>Message</h1>
                 <p>
@@ -85,7 +86,7 @@ class EncadreurController extends Controller
                 </footer>
                 </div>";
                 $destinataire = $etudiant->email; //recipient
-                $header = "From:\"Gestion-Stage\"<stage.gestion2021@gmail.com>\n"; //mail body
+                $header = "From:\"Gestion-Stage\"<stage.gestion2021@gmail.com>\n"; 
                 $header .= 'MIME-Version: 1.0';
                 $header .= "reply-To:stage.gestion2021@gmail.com\n";
                 $header .= "content-Type:text/html; charset=\"iso-8859-1\"";
@@ -93,7 +94,7 @@ class EncadreurController extends Controller
                 notify()->success("Le mail est envoyé ");
             } catch (\Exception $e) {
             $msg = $e->getMessage();
-            notify()->warning("Le mail automatique n'est pas envoyé <br> $msg");
+            notify()->warning("Le mail automatique n'est pas envoyé <br>");
             }
             notify()->success('Affectation encadreur reussie','Affectation');
             return redirect(route('encadreur-affecter-index'));
@@ -101,6 +102,7 @@ class EncadreurController extends Controller
     public function signer($id,Request $req){
         $user = Auth::user();
         $stage = Stage::find($id);
+        $etud = $stage->etudiant;
         $enseignant = Enseignant::where('user_id','=',$user->id)->first();
         if($req->isMethod('GET')){
             return view('encadreur.signer',['enseignant' => $enseignant,'stage' => $stage]);
@@ -108,7 +110,7 @@ class EncadreurController extends Controller
             //recup du fichier 
               //upload fichier
                 $fiche = $req->file('fiche');
-                $ficheName = 'Fiche-'.date("Y_m_d-H_i_s").'.'.$fiche->extension();
+                $ficheName = "Fiche-$etud->nom $etud->prenom _" . date("Y_m_d-H_i_s") . '.' . $fiche->extension();
                 $fiche->move(\public_path('Fiches_Stages'),$ficheName);
                 //supp de l'ancienne fiche
                 if( $stage->fiche != null ){

@@ -10,7 +10,7 @@
         </nav>   
     </div>
     <div class="row d-flex justify-content-evenly">
-        <div class="col-5">
+        <div class="col-6">
             <h3 class="text-center">Disponibilité</h3>
             <ul class="list-group-flush">
                 <li class="list-group-item d-flex justify-content-around align-items-center">{{ $voeu1->matricule }} {{ $voeu1->nom }} {{ $voeu1->prenom }} 
@@ -22,6 +22,7 @@
                     <span class="bg-danger text-white p-2 rounded"> {{ $voeu1->stages->count() }} encadré(s)</span>
                     @endif                       
                 </li>
+                @isset($voeu2)
                 <li class="list-group-item d-flex justify-content-around align-items-center">{{ $voeu2->matricule }} {{ $voeu2->nom }} {{ $voeu2->prenom }} 
                     @if($voeu2->stages->count() < 3 )
                     <span class="bg-success text-white p-2 rounded"> {{  $voeu2->stages->count() }} encadré(s)</span>
@@ -31,6 +32,8 @@
                     <span class="bg-danger text-white p-2 rounded"> {{  $voeu2->stages->count()}} encadré(s)</span>
                     @endif  
                 </li>
+                @endisset
+                @isset($voeu3)
                 <li class="list-group-item d-flex justify-content-around align-items-center">{{ $voeu3->matricule }} {{ $voeu3->nom }} {{ $voeu3->prenom }} 
                     @if($voeu3->stages->count() < 3 )
                     <span class="bg-success text-white p-2 rounded"> {{  $voeu3->stages->count() }} encadré(s)</span>
@@ -40,9 +43,10 @@
                     <span class="bg-danger text-white p-2 rounded"> {{  $voeu2->stages->count()}} encadré(s)</span>
                     @endif  
                 </li>
+                @endisset
             </ul>
         </div>
-        <div class="col-5">
+        <div class="col-6">
             <h3 class="text-center">Etudiant</h3>
             <ul class="list-group-flush">
                 <li class="list-group-item">Nom : <b>{{ $stage->etudiant->nom }}</b></li>

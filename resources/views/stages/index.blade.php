@@ -52,8 +52,8 @@
                                         @endif
                                     </td>
                                     <td>{{$stage->created_at}}</td>  
-                                     <td class='d-flex'>
-                                         @if($stage->enseignant_id != null && $stages->signe != null)
+                                     <td class='d-flex justify-between'>
+                                         @if($stage->enseignant_id != null && $stage->signe != null)
                                         <a href="{{ route('stage-show', ['id'=>$stage->id])}}" class="btn btn-sm btn-info m-2 text-white"><i class="fas fa-eye"></i></a>
                                          @endif
                                         <a href="{{ route('stage-edit', ['id'=>$stage->id])}}" class="btn btn-sm btn-primary m-2"><i class="fas fa-edit"></i></a>

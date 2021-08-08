@@ -41,5 +41,6 @@ class Stage extends Model
     public function classe(){
         return $this->belongsTo(Classe::class);
     }
+    
 
 }
