@@ -19,7 +19,7 @@
                     <legend>Stage</legend>
                 <div class="form-group">
                     <label for="fiche">Fiche de renseignement </label>
-                    <input type="file" class="form-control @error('fiche') is-invalid @enderror" name="fiche" accept=".pdf" required>
+                    <input type="file" class="form-control @error('fiche') is-invalid @enderror" name="fiche" accept=".pdf,.doc,.docx" required>
                     @error('fiche')
                      {{ $message }}   
                     @enderror

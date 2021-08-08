@@ -17,6 +17,11 @@ class EncadreurController extends Controller
 {
     public function index(Request $req){
         $user = Auth::user();
+        // verification de l'utilisateur garde 
+        if($user->profil != 'Enseignant') {
+            notify()->error("Vous n'avez pas  l'autorisation");
+            return redirect('pages/home');
+        }
         $enseignant = Enseignant::where('user_id','=',$user->id)->first();
         // dd($enseignant);
         if($enseignant->classes != null){
@@ -133,7 +138,8 @@ class EncadreurController extends Controller
         return $pdf->stream();
     }
     public function exportExcel(){
-        return Excel::download(new StageExport,'Utilisateurs.xlsx');
+        $user = Auth::user();
+        return Excel::download(new StageExport,"Fiche suivi stages $user->name.xlsx");
         
         // return Excel::download(new UsersExport,'Utilisateurs.pdf');
         // save excel file on app
