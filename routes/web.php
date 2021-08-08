@@ -21,23 +21,12 @@ use App\Http\Controllers\EncadreurController;
 |
 */
 
-
-// Route::get('/dynamic_dependent', [App\Http\Controllers\DynamicDependent::class, 'index']);
-// Route::post('/dynamic_dependent/fetch', [App\Http\Controllers\DynamicDependent::class, 'fetch'])->name('dynamicdependent.fetch');
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-///Route::group(['prefix'=> 'admin/', 'middleware'=>['role:administrateur']], function(){
     
     Route::get('/home', [App\Http\Controllers\AdminController::class, 'home'])->name('home-admin');
     Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard-admin');
     Route::get('/admins', [App\Http\Controllers\AdminController::class, 'index'])->name('home-admin2');
-//});
-//Route::group(['prefix'=> 'users/', 'middleware'=>['role:user']], function(){
-    
     Route::get('/user', [App\Http\Controllers\UserController::class, 'dashboard'])->name('home-user');
-//});
 
-Auth::routes();
 //test email
 
 // Route::get('mail', function () {
@@ -56,11 +45,12 @@ Auth::routes();
 Route::get('/', function () {
     return view("auth.login");
 });
+Auth::routes();
 
 //Group de Rotas apenas usuario logado tem acesso
 Route::middleware(['auth'])->group(function(){
     //Grupo de rotas do clientes
-    Route::middleware(['auth'])->prefix('enseignants')->group(function(){
+    Route::middleware(['prevent-back'])->prefix('enseignants')->group(function(){
         Route::get('', [EnseignantController::class, 'index'])->name('prof-index');
         Route::get('/create', [EnseignantController::class, 'create'])->name('prof-create');
         Route::post('/store', [EnseignantController::class, 'store'])->name('prof-store');
@@ -73,7 +63,7 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/profil/update',[EnseignantController::class, 'update_profil'])->name('update-profil-enseignant');;
     });
     
-    Route::middleware(['auth'])->prefix('classes')->group(function(){
+    Route::middleware(['prevent-back'])->prefix('classes')->group(function(){
         Route::get('', [ClasseController::class, 'index'])->name('classe-index');
         Route::get('/create', [ClasseController::class, 'create'])->name('classe-create');
         Route::post('/store', [ClasseController::class, 'store'])->name('classe-store');
@@ -82,7 +72,7 @@ Route::middleware(['auth'])->group(function(){
         Route::delete('/{id}', [ClasseController::class, 'destroy'])->name('classe-destroy');
         
     });
-    Route::middleware(['auth'])->prefix('etudiants')->group(function(){
+    Route::middleware(['prevent-back'])->prefix('etudiants')->group(function(){
         Route::get('', [EtudiantController::class, 'index'])->name('etudiant-index');
         Route::get('/create', [EtudiantController::class, 'create'])->name('etudiant-create');
         Route::post('/store', [EtudiantController::class, 'store'])->name('etudiant-store');
@@ -96,7 +86,7 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/profil/update',[EtudiantController::class, 'update_profil'])->name('update-profil');
         
     });
-    Route::middleware(['auth'])->prefix('stages')->group(function(){
+    Route::middleware(['prevent-back'])->prefix('stages')->group(function(){
         Route::get('', [StageController::class, 'index'])->name('stage-index');
         Route::get('/create', [StageController::class, 'create'])->name('stage-create');
         Route::post('/store', [StageController::class, 'store'])->name('stage-store');
@@ -109,7 +99,7 @@ Route::middleware(['auth'])->group(function(){
         
     });
     //admin routes 
-    Route::middleware(['auth'])->prefix('pages')->group(function(){
+    Route::middleware(['prevent-back'])->prefix('pages')->group(function(){
         Route::get('/home', [AdminController::class, 'homeEtudiant'])->name('etudiant-accueil');
         Route::get('/accueil', [AdminController::class, 'homeAdmin'])->name('admin-accueil');
         Route::get('/profil', [AdminController::class, 'profil'])->name('page-profil');
@@ -121,7 +111,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/telechargement',[AdminController::class, 'telechargement'])->name('page-telechargement');
     });
     // routes encadreurs
-    Route::middleware(['auth'])->prefix('encadreur')->group(function(){
+    Route::middleware(['prevent-back'])->prefix('encadreur')->group(function(){
         Route::get('/', [EncadreurController::class, 'index'])->name('encadreur-index');
         Route::get('/dashboard',[EncadreurController::class, 'dashboard'])->name('encadreur-dashboard');
         Route::get('/{id}/show',[EncadreurController::class, 'show'])->name('encadreur-show');
@@ -135,7 +125,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/excel',[EncadreurController::class, 'exportExcel'])->name('encadreur-excel');
     });
 
-    Route::middleware(['auth'])->prefix('users')->group(function(){
+    Route::middleware(['prevent-back'])->prefix('users')->group(function(){
         Route::get('', [UserController::class, 'index'])->name('user-index');
         // Route::get('/delete', [UserController::class, 'create'])->name('user-create');
         Route::get('/{id}/edit', [UserController::class, 'edit'])->name('user-edit');
