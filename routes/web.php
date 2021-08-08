@@ -132,6 +132,7 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/{id}/signer',[EncadreurController::class, 'signer'])->name('encadreur-signer');
         Route::post('/{id}/signer',[EncadreurController::class, 'signer'])->name('encadreur-signer');
         Route::get('/print',[EncadreurController::class, 'print'])->name('encadreur-print');
+        Route::get('/excel',[EncadreurController::class, 'exportExcel'])->name('encadreur-excel');
     });
 
     Route::prefix('users')->group(function(){

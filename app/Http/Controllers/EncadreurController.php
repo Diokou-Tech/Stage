@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StageExport;
+use App\Exports\UsersExport;
 use App\Models\Enseignant;
 use App\Models\Stage;
 use Illuminate\Http\Request;
@@ -9,6 +11,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 // use Barryvdh\DomPDF\PDF;
 use Barryvdh\DomPDF\Facade as PDF;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EncadreurController extends Controller
 {
@@ -122,10 +125,16 @@ class EncadreurController extends Controller
         }
     }
     public function print(){
-        set_time_limit(300);
         $enseignant = Enseignant::where('user_id','=',Auth::user()->id)->first();
         $stages = $enseignant->classes->stages;
         $pdf = PDF::loadView('encadreur.print',['stages' => $stages]);
         return $pdf->stream();
+    }
+    public function exportExcel(){
+        return Excel::download(new StageExport,'Utilisateurs.xlsx');
+        
+        // return Excel::download(new UsersExport,'Utilisateurs.pdf');
+        // save excel file on app
+        // return Excel::store(new UsersExport,'Utilisateurs.xlsx');
     }
 }

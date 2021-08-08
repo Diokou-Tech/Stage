@@ -6,9 +6,8 @@
             Ce tableau regroupe les dépôts de stage de votre parcours dont vous etes responsable .
         </P>
         <h4> <b>{{ $stages->count() }} depôt(s) </b>
-            @if($enseignant->classes != null)
-        <a target="_blank" href="{{ route('encadreur-print') }}" class="btn btn-info d-inline text-sm"><i class="fa fa-file-pdf"></i> Imprimer en PDF</a>
-            @endif
+        {{-- <a target="_blank" href="{{ route('encadreur-print') }}" class="btn btn-info d-inline text-sm"><i class="fa fa-file-pdf"></i> Imprimer en PDF</a> --}}
+        <a href="{{ route('encadreur-excel') }}" class="btn btn-info d-inline text-sm"><i class="fa fa-file"></i> Imprimer en Excel</a>
         </h4>             
             <hr class="featurette-divider">
         </div>
@@ -21,7 +20,7 @@
                                 <th>Lieu</th>
                                 <th>Tuteur Stage</th>                          
                                 <th>Etudiant</th>                          
-                                <th>Email Etudiant</th>                          
+                                <th>Email Etudiant</th> 
                                 <th>Debut Stage</th>                          
                                 <th>Fin stage</th>                          
                                 <th>Fiche</th>                       
@@ -36,8 +35,7 @@
                                     <td>{{$stage->lieu}}</td>  
                                     <td>{{$stage->tuteur_entreprise}}</td>   
                                     <td>{{$stage->etudiant->nom}} {{$stage->etudiant->prenom}}</td>   
-                                    {{-- <td>{{$stage->tuteur_entreprise_tel}}</td>    --}}
-                                    <td>{{$stage->tuteur_entreprise_email}}</td>   
+                                    <td>{{$stage->etudiant->email}}</td>  
                                     <td>{{$stage->date_debut}}</td>   
                                     <td>{{$stage->date_fin}}</td>   
                                     <td><a target="_blank" href="../../../../Fiches_Stages/{{ $stage->fiche }}" class="text-dark"><i class="fa fa-file-alt"></i></a></td>    
