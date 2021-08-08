@@ -15,6 +15,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class EncadreurController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $req){
         $user = Auth::user();
         // verification de l'utilisateur garde 

@@ -35,7 +35,7 @@ class StageController extends Controller
 
         if ($user->profil != 'Etudiant') {
             notify()->error("Vous n'avez pas  l'autorisation");
-            return redirect('pages/accueil');
+            return redirect('/encadreur');
         } else {
             // $stages = Stage::orderBy('id','DESC');
             $stages = Stage::where('etudiant_id', '=', $etud->id)->get();
