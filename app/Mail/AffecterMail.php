@@ -7,18 +7,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MessageGoogle extends Mailable
+class AffecterMail extends Mailable
 {
     use Queueable, SerializesModels;
+    public $affecter;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
+    public function __construct($affecter)
+    {   
+        $this->affecter = $affecter;
     }
 
     /**
@@ -28,8 +29,7 @@ class MessageGoogle extends Mailable
      */
     public function build()
     {
-        return $this->from("wilo.ahadi@gmail.com") // L'expéditeur
-        ->subject("Message via le SMTP Google") // Le sujet
-        ->view('emails.message-google'); // La vue   
+        
+        return $this->view('emails.affecter',['enseignant' => $this->affecter]);
     }
 }

@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Stage;
+use App\Mail\DepotMail;
+use App\Models\Enseignant;
 use App\Exports\StageExport;
 use App\Exports\UsersExport;
-use App\Models\Enseignant;
-use App\Models\Stage;
+use App\Mail\AffecterMail;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
+// use Barryvdh\DomPDF\PDF;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-// use Barryvdh\DomPDF\PDF;
-use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
 class EncadreurController extends Controller
@@ -81,29 +84,11 @@ class EncadreurController extends Controller
             $enseignant = $stage->enseignant;
             $stage->save();
             try {
-                $sujet = "Affectation Encadreur";
-                //mail body
-                $message = "<div>
-                <h1>Message</h1>
-                <p>
-                    Bonjour, <br> 
-                    Concernant le depot de stage que vous avais fait et les voeux de vos encadreurs, $enseignant->nom  $enseignant->prenom vous a été affecté(e).
-                    <br> Merci de consulter l'application de gestion de stage pour plus d'infos.
-                </p>
-                <footer>
-                    <h2> Gestion de stage </h2>
-                </footer>
-                </div>";
-                $destinataire = $etudiant->email; //recipient
-                $header = "From:\"Gestion-Stage\"<stage.gestion2021@gmail.com>\n"; 
-                $header .= 'MIME-Version: 1.0';
-                $header .= "reply-To:stage.gestion2021@gmail.com\n";
-                $header .= "content-Type:text/html; charset=\"iso-8859-1\"";
-                mail($destinataire, $sujet, $message, $header);
+                Mail::to($etudiant)->send(new AffecterMail($enseignant));
                 notify()->success("Le mail est envoyé ");
-            } catch (\Exception $e) {
-            $msg = $e->getMessage();
-            notify()->warning("Le mail automatique n'est pas envoyé <br>");
+            } catch (\Throwable $e) {
+                $msg = $e->getMessage();
+                notify()->warning("Le mail automatique n'est pas envoyé <br>");
             }
             notify()->success('Affectation encadreur reussie','Affectation');
             return redirect(route('encadreur-affecter-index'));

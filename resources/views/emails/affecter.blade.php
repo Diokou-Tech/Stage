@@ -7,8 +7,13 @@
 <body style="background: #e5e5e5; padding: 30px;" >
 
 <div style="max-width: 320px; margin: 0 auto; padding: 20px; background: #fff;">
-	<h3>Message via le SMTP Google :</h3>
-	<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam officiis fugit id eum sint ad nisi, impedit necessitatibus a exercitationem possimus molestiae, incidunt debitis ut voluptatum nesciunt ipsum aliquam praesentium?</div>
+	<h3>Gestion de stage </h3>
+    
+    <p>
+    Bonjour, <br> 
+    Concernant le depot de stage que vous avais fait et les voeux de vos encadreurs,{{$enseignant->nom }} {{ $enseignant->prenom }} vous a été affecté(e).
+    <br> Merci de consulter l'application de gestion de stage pour plus d'infos.
+    </p>
 </div>
 
 </body>

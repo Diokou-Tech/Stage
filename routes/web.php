@@ -132,4 +132,5 @@ Route::middleware(['auth'])->group(function(){
         Route::put('/{id}/update', [UserController::class, 'update'])->name('user-update');
         Route::get('/{id}/destroy', [UserController::class, 'destroy'])->name('user-destroy');
     });
+    Route::get('mail',[UserController::class, 'maill']);
 });

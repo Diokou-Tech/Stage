@@ -2,18 +2,20 @@
 
 
 namespace App\Http\Controllers;
-use App\Models\Region;
+use PDF;
+use App\Models\User;
+use App\Models\Bureau;
 use App\Models\Cercle;
+use App\Models\Region;
+use App\Mail\DepotMail;
 use App\Models\Secteur;
 use App\Models\District;
-use App\Models\Bureau;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use PDF;
 
 
 class UserController extends Controller
@@ -26,6 +28,10 @@ class UserController extends Controller
        // $this->middleware(['user']);
     }
 
+    public function maill(){
+        $test = Mail::to(Auth::user())->send(new DepotMail());
+     
+    }
     public function index(Request $request){
         if(Auth::user()->profil !='Administrateur'){
             notify()->error("Vous n'avez pas  l'autorisation");

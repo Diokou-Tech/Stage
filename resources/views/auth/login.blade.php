@@ -49,9 +49,7 @@
                              <button class="btn btn-primary btn-lg border-white" type="submit"> <i class="fa fa-sign-out-alt"></i> Se connecter </button>
                         </div>
         </form> 
-        <div class="form-group">
-        </div>
-        <a href="/register" class="btn btn-outline-info text-white">Inscription</a>
+        {{-- <a href="/register" class="btn btn-outline-info text-white">Inscription</a> --}}
         </div>
 </div>
 <style>

@@ -11,8 +11,10 @@ use Yoeunes\Notify\Notify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StageRequest;
+use App\Mail\DepotMail;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class StageController extends Controller
@@ -118,25 +120,11 @@ class StageController extends Controller
             'classe_id'  => $etud->classe->id,
             'enseignant_id'  => null
         ]);
+        //envoi mail
         try {
-            $sujet = "Depot de Stage"; //mail body
-            $message = "<div>
-            <h1>Message</h1>
-            <p>
-                L'étudiant : <b> $etud->nom  $etud->prenom  de matricule $etud->matricule  </b> a fait un dépôt de stage dans la plateforme de gestion de stage. 
-            </p>
-            <footer>
-                <h2> Gestion de stage </h2>
-            </footer>
-            </div>";
-            $destinataire = $responsable->email; //recipient
-            $header = "From:\"Gestion-Stage\"<stage.gestion2021@gmail.com>\n";
-            $header .= 'MIME-Version: 1.0';
-            $header .= "reply-To:stage.gestion2021@gmail.com\n";
-            $header .= "content-Type:text/html; charset=\"iso-8859-1\"";
-            mail($destinataire, $sujet, $message, $header);
-            notify()->success("Le mail est envoyé ");
-        } catch (\Exception $e) {
+            Mail::to($responsable)->send(new DepotMail());
+            notify()->success("Le mail est envoyé ");    
+        } catch (\Throwable $e) {
             $msg = $e->getMessage();
             notify()->warning("Le mail automatique n'est pas envoyé <br>");
         }
