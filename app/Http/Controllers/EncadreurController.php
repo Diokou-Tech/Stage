@@ -6,6 +6,7 @@ use App\Models\Stage;
 use App\Mail\DepotMail;
 use App\Models\Enseignant;
 use App\Exports\StageExport;
+use App\Exports\StageVoeuExport;
 use App\Exports\UsersExport;
 use App\Mail\AffecterMail;
 use Illuminate\Http\Request;
@@ -129,6 +130,15 @@ class EncadreurController extends Controller
     public function exportExcel(){
         $user = Auth::user();
         return Excel::download(new StageExport,"Fiche suivi stages $user->name.xlsx");
+        
+        // return Excel::download(new UsersExport,'Utilisateurs.pdf');
+        // save excel file on app
+        // return Excel::store(new UsersExport,'Utilisateurs.xlsx');
+    }
+    public function exportExcelVoeu(){
+
+        $user = Auth::user();
+        return Excel::download(new StageVoeuExport,"Fiche suivi stages voeux $user->name.xlsx");
         
         // return Excel::download(new UsersExport,'Utilisateurs.pdf');
         // save excel file on app

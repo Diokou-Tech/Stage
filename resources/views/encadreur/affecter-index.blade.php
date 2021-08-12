@@ -7,7 +7,8 @@
         </P>
         <h4> <b>{{ $stages->count() }} depôt(s) </b>
         {{-- <a target="_blank" href="{{ route('encadreur-print') }}" class="btn btn-info d-inline text-sm"><i class="fa fa-file-pdf"></i> Imprimer en PDF</a> --}}
-        <a href="{{ route('encadreur-excel') }}" class="btn btn-info d-inline text-sm"><i class="fa fa-file"></i> Imprimer en Excel</a>
+        <a href="{{ route('encadreur-excel') }}" class="btn btn-info d-inline text-sm m-2"><i class="fa fa-file-excel"></i> Liste des affectations </a>
+        <a href="{{ route('encadreur-excel-voeu') }}" class="btn btn-info d-inline text-sm m-2"><i class="far fa-file-excel"></i> Les voeux des etudiants</a>
         </h4>             
             <hr class="featurette-divider">
         </div>

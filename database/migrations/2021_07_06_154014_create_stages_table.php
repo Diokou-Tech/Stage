@@ -34,8 +34,8 @@ class CreateStagesTable extends Migration
             $table->biginteger('enseignant_id')->unsigned()->nullable(true);
             $table->biginteger('classe_id')->unsigned();
               ##-- REFERENCES DES CLES ETRANGERES --##
-            $table->foreign('etudiant_id')->references('id')->on('etudiants')->onDelete('cascade');;
-            $table->foreign('enseignant_id')->references('id')->on('enseignants')->onDelete('cascade');;
+            $table->foreign('etudiant_id')->references('id')->on('etudiants')->onDelete('cascade');
+            $table->foreign('enseignant_id')->references('id')->on('enseignants')->onDelete('cascade');
             $table->foreign('classe_id')->references('id')->on('classes')->onDelete('cascade');
             $table->timestamps();
         });

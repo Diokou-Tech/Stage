@@ -173,7 +173,7 @@ class EtudiantController extends Controller
                  
              }else{
                 notify()->error('Mise à jour non effectué.');
-                 return redirect(route('enseignant-profil'));
+                 return redirect(route('etudiant-profil'));
              }
             }
 }
